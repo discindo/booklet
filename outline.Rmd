@@ -1,0 +1,12 @@
+---
+title: "Препораки за репродуцибилно анализирање на податоци"
+author: "Теофил Наков, Новица Наков"
+date: "11/25/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+

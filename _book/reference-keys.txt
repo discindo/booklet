@@ -1,0 +1,15 @@
+tab:unnamed-chunk-1
+план
+intro
+analogy
+organ
+tools
+програмски-јазик-r
+контрола-на-изворен-код-git
+виртуелни-контејнери-docker
+сиже
+methods
+applications
+example-one
+example-two
+final-words
