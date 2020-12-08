@@ -346,11 +346,9 @@ sumiraj_trosoci(trosoci = dadeni_trosoci)
 
 ```
 
-Со овие додатоци, нашата скрипта сега ќе може дури и да им помогне на корисниците доколку наидат на грешка. Сеуште не сме комплетно безбедни од не-репродуцибилност, но стигнавме далеку имајќи во предвид каде почнавме. На пример:
+Со овие додатоци, нашата скрипта сега ќе може дури и да им помогне на корисниците доколку наидат на грешка. Сеуште не сме комплетно безбедни од не-репродуцибилност, но стигнавме далеку имајќи во предвид каде почнавме. На пример, ако ја извршиме скриптата без аргументи:
 
 ```{bash, eval = FALSE}
-
-# без аргументи
 $ Rscript sumiraj-trosoci-2.R 
 Error: Сумирај трошоци групирани по вработен и тип на трошок. 
  Табелаta со трошоци мора да ги содржи колоните: `vraboten`, `tip_na_trosok`, и `cena`.
@@ -359,8 +357,11 @@ Error: Сумирај трошоци групирани по вработен и
     sumiraj-trosoci-2.R <tabela_so_trosoci>
     
 Execution halted
+```
 
-# со коректен инпут
+Со коректен инпут:
+
+```{bash, eval = FALSE}
 $ Rscript sumiraj-trosoci-2.R trosoci-moja-firma.csv 
 [1] TRUE
 Parsed with column specification:
@@ -369,14 +370,19 @@ cols(
   tip_na_trosok = col_character(),
   cena = col_double()
 )
+```
 
+Со погрешен фајл, праќаме ексел наместо текстуална табела со запирки:
 
-# со погрешен фајл
+```{bash, eval = FALSE}
 Rscript sumiraj-trosoci-2.R trosoci-moja-firma.xls 
 Error: File 'trosoci-moja-firma.xls' does not have extension csv
 Execution halted
+```
 
-# ако немаме колона за `cena`, таа е крстена `eur`
+Ако колоната за `cena` е крстена `eur`:
+
+```{bash, eval = FALSE}
 Rscript sumiraj-trosoci-2.R trosoci-moja-firma-eur.csv
 [1] TRUE
 Parsed with column specification:
