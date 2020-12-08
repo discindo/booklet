@@ -738,8 +738,6 @@ TODO:
 \ExtensionTok{Execution}\NormalTok{ halted}
 
 \CommentTok{\# со коректен инпут}
-\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2 trosoci{-}moja{-}firma.csv}
-
 \NormalTok{$ }\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R trosoci{-}moja{-}firma.csv }
 \NormalTok{[}\ExtensionTok{1}\NormalTok{] TRUE}
 \ExtensionTok{Parsed}\NormalTok{ with column specification:}
@@ -751,15 +749,11 @@ TODO:
 
 
 \CommentTok{\# со погрешен фајл}
-\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2 trosoci{-}moja{-}firma.xls}
-
 \ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R trosoci{-}moja{-}firma.xls }
 \ExtensionTok{Error}\NormalTok{: File }\StringTok{\textquotesingle{}trosoci{-}moja{-}firma.xls\textquotesingle{}}\NormalTok{ does not have extension csv}
 \ExtensionTok{Execution}\NormalTok{ halted}
 
 \CommentTok{\# ако немаме колона за \textasciigrave{}cena\textasciigrave{}, таа е крстена \textasciigrave{}eur\textasciigrave{}}
-\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2 trosoci{-}moja{-}firma{-}eur.csv}
-
 \ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R trosoci{-}moja{-}firma{-}eur.csv}
 \NormalTok{[}\ExtensionTok{1}\NormalTok{] TRUE}
 \ExtensionTok{Parsed}\NormalTok{ with column specification:}

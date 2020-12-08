@@ -1,4 +1,3 @@
-#! /usr/bin/Rscript
 # (data/sumiraj-trosoci-2.R)
 
 'Сумирај трошоци групирани по вработен и тип на трошок. 
@@ -6,12 +5,18 @@
  
  Usage:
     sumiraj-trosoci-2.R <tabela_so_trosoci>
+    sumiraj-trosoci-2.R --help
+    sumiraj-trosoci-2.R --version
+
+ Options:
+    --help      Прикажи помош
+    --version   Прикажи верзија
     
 ' -> doc
 
 # Логика за аргументи
 library(docopt)
-arguments <- docopt(doc)
+arguments <- docopt(doc, version = "Сумирај трошоци 2.0\n")
 
 # Провери дали табелата е csv формат
 assertthat::assert_that(assertthat::has_extension(arguments$tabela_so_trosoci, ext = "csv"))
