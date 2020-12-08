@@ -1,7 +1,273 @@
-# Applications
+# Конверзија во репродуктивен код {#conversion}
 
-Some _significant_ applications are demonstrated in this chapter.
+## Податоци
 
-## Example one
+```{r, echo=FALSE}
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(readr)
+})
 
-## Example two
+set.seed(1)
+person <- c("Ана И.", "Благоја В.", "Љупчо В.", "Ристе Н.", "Антонија А.")
+type <- c("канцелариски материјали", "печатење", "транспорт")
+
+persons <- sample(x = person, size = 30, replace = TRUE)
+types <- sample(x = type, size = 30, replace = TRUE)
+
+trosoci <- dplyr::tibble(
+  vraboten = persons, 
+  tip_na_trosok = types,
+  cena = sample.int(n = 100:1000, size = 30))
+
+write_csv(trosoci, "data/trosoci-moja-firma.csv")
+```
+
+За да може да ги видиме следните чекори во акција, неопходни ни се податоци. Табелата за трошоци има три колони (варијабли) `vraboten`, `tip_na_trosok` и  `cena`. Еве ги првите неколку редови:
+
+```{r}
+trosoci
+```
+
+Трансформацијата која ја прави нашиот, сеуште не рерподуцибилен, код можеме исто така да ја видиме во акција:
+
+```{r}
+trosoci %>% 
+  group_by(vraboten, tip_na_trosok) %>% 
+  summarise_at("cena", "sum") %>% 
+  arrange(vraboten, tip_na_trosok)
+```
+
+
+## Први чекори кон репродуцибилност
+
+Откако сме ги согледале проблемите што доведуваат до тоа резултатот од нашиот код да не може да се повтори (без колегата да почне да чепка и кодира од почеток), можеме да интервенираме. За нашиот код да биде репродуцибилен, минимално треба:
+
+1. Да ги повикува `R` пакетите кои се неопходни за функциите што ги користиме
+
+2. Да не користи апсолутни патеки за вчитување и зачувување на патоци кои се надвор од фолдерот во кој што е сместена самата скрипта
+
+3. Да биде детално документиран
+
+Што се однесува до првиот проблем, кодот едноставно нема да работи без тие пакети да се закачени. Дури и нашиот колега да ги има истите фајлови на истите локации како ние. Оваа корекција е едноставна:
+
+```{r, eval=TRUE}
+
+# Закачи ги ти пакетите кои се користат подолу 
+library(dplyr)
+library(readr)
+
+# Доколку не се достапни, инсталирај со:
+# install.packages("dplyr")
+# install.packages("readr")
+
+trosoci <- read_csv("data/trosoci-moja-firma.csv")
+trosoci_sumirani <- trosoci %>% 
+  group_by(vraboten, tip_na_trosok) %>% 
+  summarise_at("cena", "sum")%>% 
+  arrange(vraboten, tip_na_trosok)
+write_csv(trosoci_sumirani, 
+          path = "data/trosoci-moja-firma-sumirani.csv")
+
+```
+
+Што се однесува до втората задача, имаме повеќе можности. Можеме да побараме корисникот да ја зачува патеката во варијабла која ќе биде користена од понатамошниот код. Ова сеуште дозволува патеки во друг директориум, и очигледно бара соодветна интервенција од корисникот, но ако ништо друго, корисникот на овој код, доколку ја прочита документацијата, може барем да ја повтори анализата без да добие грешки:
+
+```{r, eval=FALSE}
+
+# Закачи ги ти пакетите кои се користат подолу 
+library(dplyr)
+library(readr)
+
+# Доколку не се достапни, инсталирај со:
+# install.packages("dplyr")
+# install.packages("readr")
+
+# ВНИМАНИЕ:
+# Скриптата нема да работи доколку не внесете валидни дестинации
+# за фајлови за вчитување и зачувување
+pateka_do_input <- NULL # "data/trosoci-moja-firma.csv"
+pateka_za_output <- NULL # "data/trosoci-moja-firma-sumirani.csv"
+
+# На пример:
+# pateka_do_input <- "~/Downloads/trosoci-moja-firma.csv" 
+# pateka_do_output <- "~/Downloads/trosoci-moja-firma-sumirani.csv" 
+
+# или:
+# pateka_do_input <- "C:\rabota\podatoci\trosoci\trosoci-moja-firma.csv"
+# pateka_do_output <- "C:\rabota\podatoci\trosoci\trosoci-moja-firma-sumirani.csv"
+
+# Вчитај ги податоците
+trosoci <- read_csv(pateka_do_input)
+
+# Групирај и пресметај суми
+trosoci_sumirani <- trosoci %>% 
+  group_by(vraboten, tip_na_trosok) %>% 
+  summarise_at("cena", "sum") %>% 
+  arrange(vraboten, tip_na_trosok)
+
+# Зачувај
+write_csv(trosoci_sumirani, 
+          path = pateka_za_output)
+
+```
+
+## Функција
+
+Алтернатива која бара малку поголема подготовка е да го напишеме функција која ќе работи на ист начин, земајќи ги патеките како аргументи:
+
+```{r}
+
+sumiraj_trosoci <- function(trosoci, destinacija) {
+  
+  # Вчитај ги податоците
+  trosoci <- read_csv(trosoci)
+  
+  # Групирај и пресметај суми
+  trosoci_sumirani <- trosoci %>%
+    group_by(vraboten, tip_na_trosok) %>%
+    summarise_at("cena", "sum") %>% 
+  arrange(vraboten, tip_na_trosok)
+  
+  # Зачувај
+  write_csv(trosoci_sumirani,
+            path = destinacija)
+}
+
+```
+
+Често, сакаме табелата која ја снимаме да го има истото основно име како табелата што ја трансформираме (на пример `moja-tabela.csv` и `moja-tabela-medijani.csv`) и да се наоѓа во истиот фолдер. Со малку манипулација на текст во `R` (ова е уште полесно во `Python`) добиваме:
+
+```{r}
+
+# Функција за групирање и сумирање трошоци
+# Аргументот `trosoci` е патека до табелата што треба да се трансформира
+
+sumiraj_trosoci <- function(trosoci_tabela) {
+  
+  # Вчитај ги податоците
+  trosoci <- read_csv(trosoci_tabela)
+  
+  # Групирај и пресметај суми
+  trosoci_sumirani <- trosoci %>%
+    group_by(vraboten, tip_na_trosok) %>%
+    summarise_at("cena", "sum") %>% 
+  arrange(vraboten, tip_na_trosok)
+  
+  # Направи патека за дестинација
+  folder_name <- dirname(trosoci_tabela)
+  base_name <- tools::file_path_sans_ext(basename(trosoci_tabela))
+  new_name <- paste(base_name, "sumirani.csv", sep="-")
+  destinacija <- file.path(folder_name, new_name)
+  
+  # Зачувај
+  write_csv(trosoci_sumirani, path = destinacija)
+}
+
+```
+
+Целата скрипта по овие промени би изгледала вака:
+
+```{r, eval=FALSE}
+
+# Употреба:
+# Вчитај ја оваа скипта во R за да ја користиш функцијата `sumiraj_trosoci`  
+
+# Закачи ги ти пакетите кои се користат подолу 
+library(dplyr)
+library(readr)
+
+# Доколку не се достапни, инсталирај со:
+# install.packages("dplyr")
+# install.packages("readr")
+
+# Функција за групирање и сумирање трошоци
+# Аргументот `trosoci` е патека до табелата што треба да се трансформира
+
+sumiraj_trosoci <- function(trosoci_tabela) {
+  
+  # Вчитај ги податоците
+  trosoci <- read_csv(trosoci_tabela)
+  
+  # Групирај и пресметај суми
+  trosoci_sumirani <- trosoci %>%
+    group_by(vraboten, tip_na_trosok) %>%
+    summarise_at("cena", "sum") %>% 
+  arrange(vraboten, tip_na_trosok)
+  
+  # Направи патека за дестинација
+  folder_name <- dirname(trosoci_tabela)
+  base_name <- tools::file_path_sans_ext(basename(trosoci_tabela))
+  new_name <- paste(base_name, "sumirani.csv", sep="-")
+  destinacija <- file.path(folder_name, new_name)
+  
+  # Зачувај
+  write_csv(trosoci_sumirani, path = destinacija)
+}
+```
+
+Што сме постигнале до сега? Зависностите на кодот се решени. Документација имаме, впрочем, пишување на коментари во кодот треба да стане навика. И имаме функција на која може да и дадеме табела која што се наоѓа било каде и да зачуваме сумирана табела во истиот фолдер.
+
+## Rscript што може да го користиме без да отвараме `R`
+
+TODO:
+(for windows see: https://stackoverflow.com/questions/3506007/running-r-code-from-command-line-windows)
+
+Нашиот код е далеку подобар и има повеќе шанси да работи на други компјутери, но сеуште може да се каже дека има некои недостатоци. На пример, корисникот _мора_ да отвори `R`, да ја вчита скриптата, и да ја изврши функцијата. Тоа е можеби во ред доколку нашиот колега има доволно познавање од `R`, но можеби нашиот шеф не знае `R` или едноставно нема време за чепкање во `R` терминал. Можеби сака решение од една линија:
+
+```{bash, eval = FALSE}
+Rscript sumiraj_trosoci.R trosoci_dekemvri_2020.csv
+```
+
+Да го конвертираме нашиот код во ваква скрипта е лесно. Прво, треба да специфицираме кој интерпретер треба да се користи за оваа скрипта со линијата `#! /usr/bin/Rscript`. Понатаму, треба само да го земеме името на фајлот даден по името на скриптата, и да го предадеме на нашата функција:
+
+```{r, eval=FALSE}
+
+#! /usr/bin/Rscript
+
+# Употреба:
+# Вчитај ја оваа скипта во R за да ја користиш функцијата `sumiraj_trosoci`  
+
+# Закачи ги ти пакетите кои се користат подолу 
+library(dplyr)
+library(readr)
+
+# Доколку не се достапни, инсталирај со:
+# install.packages("dplyr")
+# install.packages("readr")
+
+# Функција за групирање и сумирање трошоци
+# Аргументот `trosoci` е патека до табелата што треба да се трансформира
+
+sumiraj_trosoci <- function(trosoci_tabela) {
+  
+  # Вчитај ги податоците
+  trosoci <- read_csv(trosoci_tabela)
+  
+  # Групирај и пресметај суми
+  trosoci_sumirani <- trosoci %>%
+    group_by(vraboten, tip_na_trosok) %>%
+    summarise_at("cena", "sum") %>% 
+  arrange(vraboten, tip_na_trosok)
+  
+  # Направи патека за дестинација
+  folder_name <- dirname(trosoci_tabela)
+  base_name <- tools::file_path_sans_ext(basename(trosoci_tabela))
+  new_name <- paste(base_name, "sumirani.csv", sep="-")
+  destinacija <- file.path(folder_name, new_name)
+  
+  # Зачувај
+  write_csv(trosoci_sumirani, path = destinacija)
+}
+
+# Земи го првиот аргумент
+dadeni_trosoci <- commandArgs(trailingOnly = TRUE)[[1]]
+
+# Изврши ја функцијата
+sumiraj_trosoci(trosoci = dadeni_trosoci)
+
+```
+
+Доколку го тестирате кодот додека читате го имате преземено директориумот за овој текст, оваа скрипта и податоците за трошоци се наоѓаат како фолдерот **`data`** под името **`/sumiraj-trosoci-1.R`** и **`trosoci-moja-firma.csv`**.
+
+## 

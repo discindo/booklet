@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="tools.html"/>
-<link rel="next" href="applications.html"/>
+<link rel="next" href="conversion.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -151,12 +151,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4" data-path="не-репродуцибилни-анализи.html"><a href="не-репродуцибилни-анализи.html"><i class="fa fa-check"></i><b>4</b> Не-репродуцибилни анализи</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="не-репродуцибилни-анализи.html"><a href="не-репродуцибилни-анализи.html#typical"><i class="fa fa-check"></i><b>4.1</b> Типична анализа (која никој, дури ни авторот, не може да ја повтори)</a></li>
-<li class="chapter" data-level="4.2" data-path="не-репродуцибилни-анализи.html"><a href="не-репродуцибилни-анализи.html#типични-пракси-кои-доведуваат-до-не-репродуцибилни-анализи"><i class="fa fa-check"></i><b>4.2</b> Типични пракси кои доведуваат до не-репродуцибилни анализи</a></li>
+<li class="chapter" data-level="4.2" data-path="не-репродуцибилни-анализи.html"><a href="не-репродуцибилни-анализи.html#indicators"><i class="fa fa-check"></i><b>4.2</b> Типични пракси кои доведуваат до не-репродуцибилни анализи</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a>
+<li class="chapter" data-level="5" data-path="conversion.html"><a href="conversion.html"><i class="fa fa-check"></i><b>5</b> Конверзија во репродуктивен код</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
-<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+<li class="chapter" data-level="5.1" data-path="conversion.html"><a href="conversion.html#податоци"><i class="fa fa-check"></i><b>5.1</b> Податоци</a></li>
+<li class="chapter" data-level="5.2" data-path="conversion.html"><a href="conversion.html#први-чекори-кон-репродуцибилност"><i class="fa fa-check"></i><b>5.2</b> Први чекори кон репродуцибилност</a></li>
+<li class="chapter" data-level="5.3" data-path="conversion.html"><a href="conversion.html#функција"><i class="fa fa-check"></i><b>5.3</b> Функција</a></li>
+<li class="chapter" data-level="5.4" data-path="conversion.html"><a href="conversion.html#rscript-што-може-да-го-користиме-без-да-отвараме-r"><i class="fa fa-check"></i><b>5.4</b> Rscript што може да го користиме без да отвараме <code>R</code></a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -187,17 +189,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Да погледнеме една хипотетичка но веројатно честа ситуација. Вие работите на некој проект што се однесува на податоци за сточарство во Македонија. Поврзани сте со локална дата база, имате големо парче податоци во качени меморија, и работна средина со 10 закачени <code>R</code> пакети (библиотеки).</p>
 <p>Ви стигнува ургентна е-пошта од колега кои бараат да се направи сумирање на месечните трошоци на работа групирано по тип на трошок и по вработен. Вие велите, ах, ова ајде на брзина, ги снимате податоците во <code>Downloads</code> и почнувате:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="не-репродуцибилни-анализи.html#cb1-1" aria-hidden="true" tabindex="-1"></a>trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/trosoci-moja-firma.csv&quot;</span>)</span>
-<span id="cb1-2"><a href="не-репродуцибилни-анализи.html#cb1-2" aria-hidden="true" tabindex="-1"></a>trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span> </span>
-<span id="cb1-3"><a href="не-репродуцибилни-анализи.html#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-4"><a href="не-репродуцибилни-анализи.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>)</span>
-<span id="cb1-5"><a href="не-репродуцибилни-анализи.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(trosoci_sumirani, </span>
-<span id="cb1-6"><a href="не-репродуцибилни-анализи.html#cb1-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">path =</span> <span class="st">&quot;~/Download/trosoci-moja-firma-sumirani.csv&quot;</span>)</span></code></pre></div>
+<span id="cb1-2"><a href="не-репродуцибилни-анализи.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="не-репродуцибилни-анализи.html#cb1-3" aria-hidden="true" tabindex="-1"></a>trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span> </span>
+<span id="cb1-4"><a href="не-репродуцибилни-анализи.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-5"><a href="не-репродуцибилни-анализи.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="не-репродуцибилни-анализи.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb1-7"><a href="не-репродуцибилни-анализи.html#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="не-репродуцибилни-анализи.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(trosoci_sumirani, </span>
+<span id="cb1-9"><a href="не-репродуцибилни-анализи.html#cb1-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">path =</span> <span class="st">&quot;~/Download/trosoci-moja-firma-sumirani.csv&quot;</span>)</span></code></pre></div>
 <p>За пет минути сте готови со минимална дистракција, па дури и не мрднавте од претходниот проект. Ја праќате новата табела на колегата. Супер. Фала многу.</p>
 <p>Пола саат подоцна стигнува е-пошта од претпоставениот со пофалба за брзо завршената работа и соработката со колегата. Шефицата исто вели ајде прати ни го кодот за да го забрзаме процесот во иднина и да не одземаме време од комплексните анализи кои ти се примарна задача. Вие го копирате кодо од историја на вашето <code>Rstudio</code> и го праќате:</p>
 <pre><code>trosoci &lt;- read_csv(&quot;~/Downloads/trosoci-moja-firma.csv&quot;)
+
 trosoci_sumirani &lt;- trosoci %&gt;% 
   group_by(vraboten, tip_na_trosok) %&gt;% 
-  summarise_at(&quot;cena&quot;, &quot;sum&quot;)
+  summarise_at(&quot;cena&quot;, &quot;sum&quot;) %&gt;% 
+  arrange(vraboten, tip_na_trosok)
+
 write_csv(trosoci_sumirani, 
           path = &quot;~/Download/trosoci-moja-firma-sumirani.csv&quot;)</code></pre>
 <p>Но, како што можеби веќе очекувате, приказната не завршува тука. Стигнува нова пошта со пораката: "Кај мене ова не работи?!?“ Зошто? Па има неколку можни причини:</p>
@@ -212,21 +220,22 @@ write_csv(trosoci_sumirani,
 <li><p>Патеката <code>~/Downloads/trosoci-moja-firma.csv</code> е со голема веројатност надвор од работната папка за било кој од вработените. Веројанто никој не работи во <code>Downloads</code>, туку во фолдер наменети за различни проекти.</p></li>
 <li><p>Дополнително, многу често папки како <code>Downloads</code> да се бришат/празнат со цел да не чуваме застарени датотеки кои може повторно да ги симнеме. Значи за една недела, дури ни ние самите можеби нема да можеме да ја повториме анализата бидејќи датотеката ќе биде избришана.</p></li>
 <li><p>На втората команда во нашиот код, ние ја користиме функцијата <code>summarise_at</code> што е цонвениент начин за да дадеме инструкција да се сумираат цените. Но, зависно од верзијата на <code>R</code> и <code>dplyr</code>, функцијата <code>summarise_at</code> можеби нема да биде достапна. Доколку вашиот колега користи многу стара верзија на <code>dplyr</code>, функцијата <code>summarise_at</code> нема да биде дел од тој пакет со таа верзија, додека со најновата верзија на <code>dplyr</code>, ќе добиеме предупредување за <code>summarise_at</code> дека наскоро ќе биде заменета со подобра алтернатива. Се разбира овие детали не се толку битни, но веројатно е очигледна поентата дека треба да укажеме која верзија од некоја пакет сме ја користеле за да може да се повтори нашата анализа.</p></li>
+<li><p>Патеката која ја користиме за да ја зачуваме табелата е фиксна, што значи ако сакаме да ја повториме процедурата за некоја втора табела, при зачувување ќе ја замениме првата зачувана табела.</p></li>
 </ol>
 <p>Значи во навидно едноставна задача, што може да се заврши со три линии код, ние прекршивме неколку правила за безбедна пракса при анализирање на податоци. Во ова сценарио, дури ни оригиналиот автор на кодот не може да гарантира дека ќе може да ја повтори обработката на податоците во иднина.</p>
 </div>
-<div id="типични-пракси-кои-доведуваат-до-не-репродуцибилни-анализи" class="section level2" number="4.2">
+<div id="indicators" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Типични пракси кои доведуваат до не-репродуцибилни анализи</h2>
-<p>Корисно е да споменеме некои од главните пракси кои доведуваат до ситуации како примерот погоре. Доколку при анализа на податоци, некој аспект од вашата средина наликува на некоја од овие забелешки, тогаш имајќе во предвид дека вашата анализа може да биде проблематична за повторување. Генерално, обидете се да ги идентификувате и корегирате ваквите проблеми што е можно порано, бидејќи никој од нас не сака да менува код од стотици линии или да заменува библиотека откако сме завшриле пола од работа.</p>
+<p>Корисно е да споменеме некои од главните пракси кои доведуваат до ситуации како примерот погоре. Доколку при анализа на податоци, некој аспект од вашата средина наликува на некоја од овие забелешки, тогаш имајќе во предвид дека вашата анализа може да биде проблематична за повторување. Генерално, обидете се да ги идентификувате и корегирате ваквите проблеми што е можно порано, бидејќи никој од нас не сака да менува код од стотици линии или да заменува библиотека откако сме завршиле пола од работа.</p>
 <ul>
-<li><p>Податоциte и кодот не се сместени во истата датотека. На пример податоци во <code>C:/Data</code> а код во <code>C:/Analizi</code></p></li>
-<li><p>Код користи со апсолутни патеки (на пример: <code>C:/Data/Мај2020/трошоци/</code>) кои со голема сигурност не се портабилни</p></li>
-<li><p>Код без документација (коментари кои типично почнуваат со #) или <code>README</code> фајл кој ќе укаже како, во кој редослед, да се користат скриптите</p></li>
+<li><p>Податоците и кодот не се сместени во истиот директориум. На пример податоци во <code>C:/Data</code> а код во <code>C:/Analizi</code></p></li>
+<li><p>Кодот користи апсолутни патеки за вчитување или зачувување на табели (на пример: <code>C:/Data/Мај2020/трошоци/</code>). Ваквите апсолутни патеки со голема сигурност не се портабилни</p></li>
+<li><p>Код без документација (коментари кои типично почнуваат со #) или <code>README</code> фајл кој ќе укаже како, во кој редослед, да се користат скриптите и кои податоци се користат во која скрипта или кој график</p></li>
 <li><p>Код без повикани зависности (користени библиотеки) и без информација за верзиите на повиканите зависности</p></li>
 <li><p>Објекти со податоци кои не се експлицитно вчитани со код (укажува на податоци кои се во нашата работна средина но веројатно <em>нема</em> да бидата достапни за други)</p></li>
 <li><p>Работиме на нешто што вклучува randomness но немаме наместено зачеток за генераторот на рандом бројки (<code>set.seed</code> во <code>R</code>). Ова се случува секогаш кога делиме податоци на сетови за тренирање и тестирање во машинско учење на пример.</p></li>
 </ul>
-<p>Очекуваме дека оваа листа ќе расте со зреењето на овој текст и подоцна.</p>
+<p>Очекуваме дека оваа листа ќе расте како напредува овој текст и подоцна.</p>
 
 </div>
 </div>
@@ -236,7 +245,7 @@ write_csv(trosoci_sumirani,
         </div>
       </div>
 <a href="tools.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="applications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="conversion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
