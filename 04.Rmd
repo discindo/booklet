@@ -225,6 +225,8 @@ Rscript sumiraj_trosoci.R trosoci_dekemvri_2020.csv
 
 #! /usr/bin/Rscript
 
+# (data/sumiraj-trosoci-2.R)
+
 # Употреба:
 # Вчитај ја оваа скипта во R за да ја користиш функцијата `sumiraj_trosoci`  
 
@@ -270,4 +272,128 @@ sumiraj_trosoci(trosoci = dadeni_trosoci)
 
 Доколку го тестирате кодот додека читате го имате преземено директориумот за овој текст, оваа скрипта и податоците за трошоци се наоѓаат како фолдерот **`data`** под името **`/sumiraj-trosoci-1.R`** и **`trosoci-moja-firma.csv`**.
 
-## 
+Доколку сакаме навистина да се потрудиме, како поради безбедност така и поради лесно користење на ваквата скрипта, можеме да додадеме информации за користење на оваа скрипта, како и за проверка на аргументите. 
+
+За да направиме упатство за користење, ќе го користиме пакетот [`docopt`](https://github.com/docopt/docopt.R) кој што користи таканаречен `docstring`, односно текст кој следи некои правила за форматирање со цел да биде лесно парсиран како прирачник за употреба на нашата скрипта. `docopt/docstring` имаат еквиваленти во сите други програмски јазици, така да доколку програмирате во `Python` или `Perl` веројатно ви се веќе познати овие концепти.
+
+За да провериме дека се е во ред со табелата што и е дадена на скриптата, ќе го користиме пакетот [assertthat](https://github.com/hadley/assertthat), што ни овозможува лесни проверки и информативни пораки за грешката. Стриктно гледано, пакетите `docopt` и `assertthat` не се неопходни, можеме да користиме функции како `commandArgs()` и `stopifnot()` од основната дистрибуција на `R`. Но во некои случаи користење на додатни пакети навистина ја олеснува работата. 
+
+```{r, eval=FALSE}
+#! /usr/bin/Rscript
+# (data/sumiraj-trosoci-2.R)
+
+'Сумирај трошоци групирани по вработен и тип на трошок. 
+ Табелаta со трошоци мора да ги содржи колоните: `vraboten`, `tip_na_trosok`, и `cena`.
+ 
+ Usage:
+    sumiraj-trosoci-2.R <tabela_so_trosoci>
+    
+' -> doc
+
+# Логика за аргументи
+library(docopt)
+arguments <- docopt(doc)
+
+# Провери дали табелата е csv формат
+assertthat::assert_that(assertthat::has_extension(arguments$tabela_so_trosoci, ext = "csv"))
+
+# Закачи ги ти пакетите кои се користат подолу
+suppressPackageStartupMessages({
+  library(dplyr)
+  library(readr)
+  library(assertthat)
+})
+
+# Доколку не се достапни, инсталирај со:
+# install.packages("dplyr")
+# install.packages("readr")
+# install.packages(assertthat)
+
+# Функција за групирање и сумирање трошоци
+# Аргументот `trosoci_tabela` е патека до табелата што треба да се трансформира
+
+sumiraj_trosoci <- function(trosoci_tabela) {
+
+  # Вчитај ги податоците
+  trosoci <- read_csv(trosoci_tabela)
+  
+  assertthat::assert_that(
+    inherits(trosoci, "data.frame"), 
+    msg = "Табелата не беше вчитана како `data.frame`.")
+  
+  assertthat::assert_that(
+    all(c("vraboten", "tip_na_trosok", "cena") %in% names(trosoci)),
+    msg = "Табелата мора да содржи колони со имињата: 'vraboten', 'tip_na_trosok', 'cena'.")
+  
+  assertthat::assert_that(
+    is.numeric(trosoci$cena), 
+    msg = "Колоната `cena` мора да биде нумеричка.")
+  
+  
+  # Групирај и пресметај суми
+  trosoci_sumirani <- trosoci %>%
+    group_by(vraboten, tip_na_trosok) %>%
+    summarise_at("cena", "sum") %>%
+    arrange(vraboten, tip_na_trosok)
+
+  # Направи патека за дестинација
+  folder_name <- dirname(trosoci_tabela)
+  base_name <- tools::file_path_sans_ext(basename(trosoci_tabela))
+  new_name <- paste(base_name, "sumirani.csv", sep="-")
+  destinacija <- file.path(folder_name, new_name)
+
+  # Зачувај
+  write_csv(trosoci_sumirani, path = destinacija)
+}
+
+# Земи го првиот аргумент (табелата)
+dadeni_trosoci <- arguments$tabela_so_trosoci
+
+# Изврши ја функцијата
+sumiraj_trosoci(trosoci = dadeni_trosoci)
+```
+
+Со овие додатоци, нашата скрипта сега ќе може дури и да им помогне на корисниците доколку наидат на грешка. Сеуште не сме комплетно безбедни од не-репродуцибилност, но стигнавме далеку имајќи во предвид каде почнавме. На пример:
+
+```{bash, eval = FALSE}
+
+# без аргументи
+$ Rscript sumiraj-trosoci-2.R 
+Error: Сумирај трошоци групирани по вработен и тип на трошок. 
+ Табелаta со трошоци мора да ги содржи колоните: `vraboten`, `tip_na_trosok`, и `cena`.
+ 
+ Usage:
+    sumiraj-trosoci-2.R <tabela_so_trosoci>
+    
+Execution halted
+
+# со коректен инпут
+$ Rscript sumiraj-trosoci-2.R trosoci-moja-firma.csv 
+[1] TRUE
+Parsed with column specification:
+cols(
+  vraboten = col_character(),
+  tip_na_trosok = col_character(),
+  cena = col_double()
+)
+
+
+# со погрешен фајл
+Rscript sumiraj-trosoci-2.R trosoci-moja-firma.xls 
+Error: File 'trosoci-moja-firma.xls' does not have extension csv
+Execution halted
+
+# ако немаме колона за `cena`, таа е крстена `eur`
+Rscript sumiraj-trosoci-2.R trosoci-moja-firma-eur.csv
+[1] TRUE
+Parsed with column specification:
+cols(
+  vraboten = col_character(),
+  tip_na_trosok = col_character(),
+  eur = col_double()
+)
+Error: Табелата мора да содржи колони со имињата: 'vraboten', 'tip_na_trosok', 'cena'.
+Execution halted
+
+```
+

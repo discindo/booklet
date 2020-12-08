@@ -592,6 +592,8 @@ TODO:
 \begin{Highlighting}[]
 \CommentTok{\#! /usr/bin/Rscript}
 
+\CommentTok{\# (data/sumiraj{-}trosoci{-}2.R)}
+
 \CommentTok{\# Употреба:}
 \CommentTok{\# Вчитај ја оваа скипта во R за да ја користиш функцијата \textasciigrave{}sumiraj\_trosoci\textasciigrave{}  }
 
@@ -635,7 +637,141 @@ TODO:
 \end{Highlighting}
 \end{Shaded}
 
-Доколку го тестирате кодот додека читате го имате преземено директориумот за овој текст, оваа скрипта и податоците за трошоци се наоѓаат како фолдерот \textbf{\texttt{data}} под името \textbf{\texttt{/sumiraj-trosoci-1.R}} о \textbf{\texttt{trosoci-moja-firma.csv}}.
+Доколку го тестирате кодот додека читате го имате преземено директориумот за овој текст, оваа скрипта и податоците за трошоци се наоѓаат како фолдерот \textbf{\texttt{data}} под името \textbf{\texttt{/sumiraj-trosoci-1.R}} и \textbf{\texttt{trosoci-moja-firma.csv}}.
+
+Доколку сакаме навистина да се потрудиме, како поради безбедност така и поради лесно користење на ваквата скрипта, можеме да додадеме информации за користење на оваа скрипта, како и за проверка на аргументите.
+
+За да направиме упатство за користење, ќе го користиме пакетот \href{https://github.com/docopt/docopt.R}{\texttt{docopt}} кој што користи таканаречен \texttt{docstring}, односно текст кој следи некои правила за форматирање со цел да биде лесно парсиран како прирачник за употреба на нашата скрипта. \texttt{docopt/docstring} имаат еквиваленти во сите други програмски јазици, така да доколку програмирате во \texttt{Python} или \texttt{Perl} веројатно ви се веќе познати овие концепти.
+
+За да провериме дека се е во ред со табелата што и е дадена на скриптата, ќе го користиме пакетот \href{https://github.com/hadley/assertthat}{assertthat}, што ни овозможува лесни проверки и информативни пораки за грешката. Стриктно гледано, пакетите \texttt{docopt} и \texttt{assertthat} не се неопходни, можеме да користиме функции како \texttt{commandArgs()} и \texttt{stopifnot()} од основната дистрибуција на \texttt{R}. Но во некои случаи користење на додатни пакети навистина ја олеснува работата.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#! /usr/bin/Rscript}
+\CommentTok{\# (data/sumiraj{-}trosoci{-}2.R)}
+
+\StringTok{\textquotesingle{}Сумирај трошоци групирани по вработен и тип на трошок. }
+\StringTok{ Табелаta со трошоци мора да ги содржи колоните: \textasciigrave{}vraboten\textasciigrave{}, \textasciigrave{}tip\_na\_trosok\textasciigrave{}, и \textasciigrave{}cena\textasciigrave{}.}
+\StringTok{ }
+\StringTok{ Usage:}
+\StringTok{    sumiraj{-}trosoci{-}2.R \textless{}tabela\_so\_trosoci\textgreater{}}
+\StringTok{    }
+\StringTok{\textquotesingle{}} \OtherTok{{-}\textgreater{}}\NormalTok{ doc}
+
+\CommentTok{\# Логика за аргументи}
+\FunctionTok{library}\NormalTok{(docopt)}
+\NormalTok{arguments }\OtherTok{\textless{}{-}} \FunctionTok{docopt}\NormalTok{(doc)}
+
+\CommentTok{\# Провери дали табелата е csv формат}
+\NormalTok{assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(assertthat}\SpecialCharTok{::}\FunctionTok{has\_extension}\NormalTok{(arguments}\SpecialCharTok{$}\NormalTok{tabela\_so\_trosoci, }\AttributeTok{ext =} \StringTok{"csv"}\NormalTok{))}
+
+\CommentTok{\# Закачи ги ти пакетите кои се користат подолу}
+\FunctionTok{suppressPackageStartupMessages}\NormalTok{(\{}
+  \FunctionTok{library}\NormalTok{(dplyr)}
+  \FunctionTok{library}\NormalTok{(readr)}
+  \FunctionTok{library}\NormalTok{(assertthat)}
+\NormalTok{\})}
+
+\CommentTok{\# Доколку не се достапни, инсталирај со:}
+\CommentTok{\# install.packages("dplyr")}
+\CommentTok{\# install.packages("readr")}
+\CommentTok{\# install.packages(assertthat)}
+
+\CommentTok{\# Функција за групирање и сумирање трошоци}
+\CommentTok{\# Аргументот \textasciigrave{}trosoci\_tabela\textasciigrave{} е патека до табелата што треба да се трансформира}
+
+\NormalTok{sumiraj\_trosoci }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(trosoci\_tabela) \{}
+
+  \CommentTok{\# Вчитај ги податоците}
+\NormalTok{  trosoci }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(trosoci\_tabela)}
+  
+\NormalTok{  assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(}
+    \FunctionTok{inherits}\NormalTok{(trosoci, }\StringTok{"data.frame"}\NormalTok{), }
+    \AttributeTok{msg =} \StringTok{"Табелата не беше вчитана како \textasciigrave{}data.frame\textasciigrave{}."}\NormalTok{)}
+  
+\NormalTok{  assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(}
+    \FunctionTok{all}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"vraboten"}\NormalTok{, }\StringTok{"tip\_na\_trosok"}\NormalTok{, }\StringTok{"cena"}\NormalTok{) }\SpecialCharTok{\%in\%} \FunctionTok{names}\NormalTok{(trosoci)),}
+    \AttributeTok{msg =} \StringTok{"Табелата мора да содржи колони со имињата: \textquotesingle{}vraboten\textquotesingle{}, \textquotesingle{}tip\_na\_trosok\textquotesingle{}, \textquotesingle{}cena\textquotesingle{}."}\NormalTok{)}
+  
+\NormalTok{  assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(}
+    \FunctionTok{is.numeric}\NormalTok{(trosoci}\SpecialCharTok{$}\NormalTok{cena), }
+    \AttributeTok{msg =} \StringTok{"Колоната \textasciigrave{}cena\textasciigrave{} мора да биде нумеричка."}\NormalTok{)}
+  
+  
+  \CommentTok{\# Групирај и пресметај суми}
+\NormalTok{  trosoci\_sumirani }\OtherTok{\textless{}{-}}\NormalTok{ trosoci }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{group\_by}\NormalTok{(vraboten, tip\_na\_trosok) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{arrange}\NormalTok{(vraboten, tip\_na\_trosok)}
+
+  \CommentTok{\# Направи патека за дестинација}
+\NormalTok{  folder\_name }\OtherTok{\textless{}{-}} \FunctionTok{dirname}\NormalTok{(trosoci\_tabela)}
+\NormalTok{  base\_name }\OtherTok{\textless{}{-}}\NormalTok{ tools}\SpecialCharTok{::}\FunctionTok{file\_path\_sans\_ext}\NormalTok{(}\FunctionTok{basename}\NormalTok{(trosoci\_tabela))}
+\NormalTok{  new\_name }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(base\_name, }\StringTok{"sumirani.csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"{-}"}\NormalTok{)}
+\NormalTok{  destinacija }\OtherTok{\textless{}{-}} \FunctionTok{file.path}\NormalTok{(folder\_name, new\_name)}
+
+  \CommentTok{\# Зачувај}
+  \FunctionTok{write\_csv}\NormalTok{(trosoci\_sumirani, }\AttributeTok{path =}\NormalTok{ destinacija)}
+\NormalTok{\}}
+
+\CommentTok{\# Земи го првиот аргумент (табелата)}
+\NormalTok{dadeni\_trosoci }\OtherTok{\textless{}{-}}\NormalTok{ arguments}\SpecialCharTok{$}\NormalTok{tabela\_so\_trosoci}
+
+\CommentTok{\# Изврши ја функцијата}
+\FunctionTok{sumiraj\_trosoci}\NormalTok{(}\AttributeTok{trosoci =}\NormalTok{ dadeni\_trosoci)}
+\end{Highlighting}
+\end{Shaded}
+
+Со овие додатоци, нашата скрипта сега ќе може дури и да им помогне на корисниците доколку наидат на грешка. Сеуште не сме комплетно безбедни од не-репродуцибилност, но стигнавме далеку имајќи во предвид каде почнавме. На пример:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{\# без аргументи}
+\NormalTok{$ }\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R }
+\ExtensionTok{Error}\NormalTok{: Сумирај трошоци групирани по вработен и тип на трошок. }
+ \ExtensionTok{Табелаta}\NormalTok{ со трошоци мора да ги содржи колоните: }\KeywordTok{\textasciigrave{}}\ExtensionTok{vraboten}\KeywordTok{\textasciigrave{}}\NormalTok{, }\KeywordTok{\textasciigrave{}}\ExtensionTok{tip\_na\_trosok}\KeywordTok{\textasciigrave{}}\NormalTok{, и }\KeywordTok{\textasciigrave{}}\ExtensionTok{cena}\KeywordTok{\textasciigrave{}}\NormalTok{.}
+ 
+ \ExtensionTok{Usage}\NormalTok{:}
+    \ExtensionTok{sumiraj{-}trosoci{-}2.R} \OperatorTok{\textless{}}\NormalTok{tabela\_so\_trosoci}\OperatorTok{\textgreater{}}
+    
+\ExtensionTok{Execution}\NormalTok{ halted}
+
+\CommentTok{\# со коректен инпут}
+\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2 trosoci{-}moja{-}firma.csv}
+
+\NormalTok{$ }\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R trosoci{-}moja{-}firma.csv }
+\NormalTok{[}\ExtensionTok{1}\NormalTok{] TRUE}
+\ExtensionTok{Parsed}\NormalTok{ with column specification:}
+\ExtensionTok{cols}\NormalTok{(}
+  \ExtensionTok{vraboten}\NormalTok{ = col\_character(),}
+  \ExtensionTok{tip\_na\_trosok}\NormalTok{ = col\_character(),}
+  \ExtensionTok{cena}\NormalTok{ = col\_double()}
+\NormalTok{)}
+
+
+\CommentTok{\# со погрешен фајл}
+\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2 trosoci{-}moja{-}firma.xls}
+
+\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R trosoci{-}moja{-}firma.xls }
+\ExtensionTok{Error}\NormalTok{: File }\StringTok{\textquotesingle{}trosoci{-}moja{-}firma.xls\textquotesingle{}}\NormalTok{ does not have extension csv}
+\ExtensionTok{Execution}\NormalTok{ halted}
+
+\CommentTok{\# ако немаме колона за \textasciigrave{}cena\textasciigrave{}, таа е крстена \textasciigrave{}eur\textasciigrave{}}
+\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2 trosoci{-}moja{-}firma{-}eur.csv}
+
+\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R trosoci{-}moja{-}firma{-}eur.csv}
+\NormalTok{[}\ExtensionTok{1}\NormalTok{] TRUE}
+\ExtensionTok{Parsed}\NormalTok{ with column specification:}
+\ExtensionTok{cols}\NormalTok{(}
+  \ExtensionTok{vraboten}\NormalTok{ = col\_character(),}
+  \ExtensionTok{tip\_na\_trosok}\NormalTok{ = col\_character(),}
+  \ExtensionTok{eur}\NormalTok{ = col\_double()}
+\NormalTok{)}
+\ExtensionTok{Error}\NormalTok{: Табелата мора да содржи колони со имињата: }\StringTok{\textquotesingle{}vraboten\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}tip\_na\_trosok\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}cena\textquotesingle{}}\NormalTok{.}
+\ExtensionTok{Execution}\NormalTok{ halted}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{final-words}{%
 \chapter{Final Words}\label{final-words}}
