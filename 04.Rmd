@@ -23,7 +23,7 @@ trosoci <- dplyr::tibble(
 write_csv(trosoci, "data/trosoci-moja-firma.csv")
 ```
 
-```{r}
+```{r, echo =FALSE}
 suppressPackageStartupMessages({
   library(dplyr)
   library(readr)
