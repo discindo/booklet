@@ -327,6 +327,26 @@ write_csv(trosoci_sumirani,
 \hypertarget{ux43fux43eux434ux430ux442ux43eux446ux438}{%
 \section{Податоци}\label{ux43fux43eux434ux430ux442ux43eux446ux438}}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{suppressPackageStartupMessages}\NormalTok{(\{}
+  \FunctionTok{library}\NormalTok{(dplyr)}
+  \FunctionTok{library}\NormalTok{(readr)}
+\NormalTok{\})}
+
+\NormalTok{trosoci }\OtherTok{\textless{}{-}}\NormalTok{ readr}\SpecialCharTok{::}\FunctionTok{read\_csv}\NormalTok{(}\StringTok{"data/trosoci{-}moja{-}firma.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Parsed with column specification:
+## cols(
+##   vraboten = col_character(),
+##   tip_na_trosok = col_character(),
+##   cena = col_double()
+## )
+\end{verbatim}
+
 За да може да ги видиме следните чекори во акција, неопходни ни се податоци. Табелата за трошоци има три колони (варијабли) \texttt{vraboten}, \texttt{tip\_na\_trosok} и \texttt{cena}. Еве ги првите неколку редови:
 
 \begin{Shaded}
@@ -338,7 +358,7 @@ write_csv(trosoci_sumirani,
 \begin{verbatim}
 ## # A tibble: 30 x 3
 ##    vraboten    tip_na_trosok            cena
-##    <chr>       <chr>                   <int>
+##    <chr>       <chr>                   <dbl>
 ##  1 Ана И.      печатење                   75
 ##  2 Ристе Н.    транспорт                  81
 ##  3 Ана И.      печатење                   13
@@ -367,7 +387,7 @@ write_csv(trosoci_sumirani,
 ## # A tibble: 12 x 3
 ## # Groups:   vraboten [5]
 ##    vraboten    tip_na_trosok            cena
-##    <chr>       <chr>                   <int>
+##    <chr>       <chr>                   <dbl>
 ##  1 Ана И.      канцелариски материјали    31
 ##  2 Ана И.      печатење                  177
 ##  3 Ана И.      транспорт                  51
@@ -663,7 +683,8 @@ TODO:
 \NormalTok{arguments }\OtherTok{\textless{}{-}} \FunctionTok{docopt}\NormalTok{(doc, }\AttributeTok{version =} \StringTok{"Сумирај трошоци 2.0}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
 \CommentTok{\# Провери дали табелата е csv формат}
-\NormalTok{assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(assertthat}\SpecialCharTok{::}\FunctionTok{has\_extension}\NormalTok{(arguments}\SpecialCharTok{$}\NormalTok{tabela\_so\_trosoci, }\AttributeTok{ext =} \StringTok{"csv"}\NormalTok{))}
+\NormalTok{assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(}
+\NormalTok{  assertthat}\SpecialCharTok{::}\FunctionTok{has\_extension}\NormalTok{(arguments}\SpecialCharTok{$}\NormalTok{tabela\_so\_trosoci, }\AttributeTok{ext =} \StringTok{"csv"}\NormalTok{))}
 
 \CommentTok{\# Закачи ги ти пакетите кои се користат подолу}
 \FunctionTok{suppressPackageStartupMessages}\NormalTok{(\{}
@@ -719,7 +740,6 @@ TODO:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# без аргументи}
 \NormalTok{$ }\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R }
 \ExtensionTok{Error}\NormalTok{: Сумирај трошоци групирани по вработен и тип на трошок. }
  \ExtensionTok{Табелаta}\NormalTok{ со трошоци мора да ги содржи колоните: }\KeywordTok{\textasciigrave{}}\ExtensionTok{vraboten}\KeywordTok{\textasciigrave{}}\NormalTok{, }\KeywordTok{\textasciigrave{}}\ExtensionTok{tip\_na\_trosok}\KeywordTok{\textasciigrave{}}\NormalTok{, и }\KeywordTok{\textasciigrave{}}\ExtensionTok{cena}\KeywordTok{\textasciigrave{}}\NormalTok{.}
@@ -735,7 +755,6 @@ TODO:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# со коректен инпут}
 \NormalTok{$ }\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R trosoci{-}moja{-}firma.csv }
 \NormalTok{[}\ExtensionTok{1}\NormalTok{] TRUE}
 \ExtensionTok{Parsed}\NormalTok{ with column specification:}
@@ -757,7 +776,7 @@ TODO:
 \end{Highlighting}
 \end{Shaded}
 
-Ако колоната за \texttt{cena}, е крстена \texttt{eur}:
+Ако колоната за \texttt{cena} е крстена \texttt{eur}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -774,10 +793,33 @@ TODO:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{final-words}{%
-\chapter{Final Words}\label{final-words}}
+\hypertarget{ux440ux435ux437ux438ux43cux435}{%
+\section{Резиме}\label{ux440ux435ux437ux438ux43cux435}}
 
-We have finished a nice book.
+Во ова поглавје видовме како нашите едноставни три линии код напишани набрзина можеме да ги претвориме во постабилна скрипта која веќе ги има следните карактеристики значајни за репродуцибилност:
+
+\begin{itemize}
+\tightlist
+\item
+  Сите зависности на кодот се експлицитно наведени и пакетите се закачени\\
+\item
+  Скриптата \emph{не} зависи од нашата работна средина\\
+\item
+  Имаме далеку подобра документација, како за корисници кои ќе го отворат фајлот, така и за тие кои само ќе ја повикаат скриптата\\
+\item
+  Имаме неколку проверки/валидации на табелата што се трансформира -- мора да осигураме дека табелата ги исполнува потребите пред да почнеме да сумираме\\
+\item
+  Имаме автоматско составање на името за зачувување од коренот на името на табелата што ја праќаме во скриптата
+\end{itemize}
+
+Сите овие чекори придонесуваат до побезбедно и одбранливо (дефенсивно) програмирање, односно пракса која ги зголемува шансите дека некој код ќе работи како што се очекува надвор од контекстот во кој бил креиран. Во овој случај, контекстот на креирање беше нашата \texttt{R} сесија со 10 закачени пакети и датотека зачувана во \texttt{\textasciitilde{}/Downloads} на \texttt{Linux} оперативен систем. Видовме дека и само еден од овие аспекти на работната средина да варира кај нашите колеги, нашата скрипта нема да работи без тие да почнат да го менуваат изворниот код. Но со наведените подобрувања ги предвидуваме и надминуваме голем дел од овие проблеми.
+
+Независно, иако направиме голем напредок кон репродуцибилна обработка на податоци, сеуште правиме некакви претпоставки за контекстот во кој скриптата ќе биде користена. На пример, претпоставуваме дека сите потенцијални корисници ќе имаат табелата со трошици, дека сите корисници ќе имаат \texttt{R} и \texttt{Rscript} инсталирано за да можат да ја извршат скриптата, и дека сите корисници ќе ги имаат инсталирано библиотеките од кои зависи нашата скрипта. Во следните поглавја ќе разгледаме начини на кои може да составиме репродуцибилни проекти кои вклучуваат многу скрипти и податоци и прават минимални претпоставки за средината во која некој ќе се обиде да ја повтори нашата анализа.
+
+\hypertarget{ux440ux435ux43fux440ux43eux434ux443ux446ux438ux431ux438ux43bux43dux438-ux43fux440ux43eux435ux43aux442ux438}{%
+\chapter{Репродуцибилни проекти}\label{ux440ux435ux43fux440ux43eux434ux443ux446ux438ux431ux438ux43bux43dux438-ux43fux440ux43eux435ux43aux442ux438}}
+
+Во претходното поглавје разгледавме како можеме нашиот едноставен код да
 
   \bibliography{book.bib,packages.bib}
 
