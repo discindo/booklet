@@ -39,12 +39,17 @@ suppressPackageStartupMessages({
 sumiraj_trosoci <- function(trosoci_tabela) {
 
   # Вчитај ги податоците
-  trosoci <- read_csv(trosoci_tabela)
+  trosoci <- read_csv(trosoci_tabela, col_types = "ccn")
   
-  assertthat::assert_that(inherits(trosoci, "data.frame"), msg = "Табелата не беше вчитана како `data.frame`.")
+  assertthat::assert_that(
+    inherits(trosoci, "data.frame"),
+    msg = "Табелата не беше вчитана како `data.frame`.")
+
   assertthat::assert_that(all(c("vraboten", "tip_na_trosok", "cena") %in% names(trosoci)), 
-                          msg = "Табелата мора да содржи колони со имињата: 'vraboten', 'tip_na_trosok', 'cena'.")
-  assertthat::assert_that(is.numeric(trosoci$cena), msg = "Колоната `cena` мора да биде нумеричка.")
+    msg = "Табелата мора да содржи колони со имињата: 'vraboten', 'tip_na_trosok', 'cena'.")
+  
+  assertthat::assert_that(is.numeric(trosoci$cena), 
+    msg = "Колоната `cena` мора да биде нумеричка.")
   
   
   # Групирај и пресметај суми
