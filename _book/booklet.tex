@@ -204,8 +204,8 @@ c9: Литература
 
 Иако досега зборувавме дека, во принцип, репродуцибилните анализи се полесни доколку зависат од помалку алатки и не зависат од работната маса, оваа цел може да стане тешко остварлива, особено имајќи во предвид големите количина на различни типови на податоци (big data) кои се користат во анализи или за предикција. Оттука треба да се запознаеме и со начини на кои можеме да ги пратиме не само нашите состојки (брашно, квасец), рецепта (напишани чекори, слики), и алатки (сукало, тарун) туку и самата соба во која ја правиме питата вклучително и дрвата што ја загреваат фурната како и самата фурна. За споделување од ваков тип ќе зборуваме за \texttt{docker} (поглавје \ref{docker}). \texttt{docker} е софтвер за креирање на виртуелен контејнер (пакет) кој покрај програмскиот код (\texttt{R} скрипти) и алатките (неопходни \texttt{R} пакети) може да вклучува и неопходна верзија на \texttt{Rstudio} и надворешни податоци. Ваков приод ни е потребен кога соработниците кои ќе сакаат да ја повторат нашата анализа користат друг оперативен систем, или не се активни корисници на \texttt{R} па ги немаат најновите верзии на зависностите, или едноставно кога сакаме да правиме што е можно помалку претпоставки за условите во кои нашата анализа ќе треба да биде повторена.
 
-\hypertarget{ux441ux438ux436ux435}{%
-\section{Сиже}\label{ux441ux438ux436ux435}}
+\hypertarget{ux440ux435ux437ux438ux43cux435}{%
+\section{Резиме}\label{ux440ux435ux437ux438ux43cux435}}
 
 Корисно е да ги табулираме овие алатки во споредба со компонентите кои ги воведовме претходно во поглавје \ref{analogy}):
 
@@ -223,7 +223,7 @@ c9: Литература
 \hline
 Алатки & Зависности на кодот & dplyr, ggplot2\\
 \hline
- & Виртуелен контејнер & docker\\
+Кујна & Виртуелен контејнер & docker\\
 \hline
 \end{tabular}
 \end{table}
@@ -327,26 +327,6 @@ write_csv(trosoci_sumirani,
 \hypertarget{ux43fux43eux434ux430ux442ux43eux446ux438}{%
 \section{Податоци}\label{ux43fux43eux434ux430ux442ux43eux446ux438}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{suppressPackageStartupMessages}\NormalTok{(\{}
-  \FunctionTok{library}\NormalTok{(dplyr)}
-  \FunctionTok{library}\NormalTok{(readr)}
-\NormalTok{\})}
-
-\NormalTok{trosoci }\OtherTok{\textless{}{-}}\NormalTok{ readr}\SpecialCharTok{::}\FunctionTok{read\_csv}\NormalTok{(}\StringTok{"data/trosoci{-}moja{-}firma.csv"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Parsed with column specification:
-## cols(
-##   vraboten = col_character(),
-##   tip_na_trosok = col_character(),
-##   cena = col_double()
-## )
-\end{verbatim}
-
 За да може да ги видиме следните чекори во акција, неопходни ни се податоци. Табелата за трошоци има три колони (варијабли) \texttt{vraboten}, \texttt{tip\_na\_trosok} и \texttt{cena}. Еве ги првите неколку редови:
 
 \begin{Shaded}
@@ -430,20 +410,6 @@ write_csv(trosoci_sumirani,
 \CommentTok{\# install.packages("readr")}
 
 \NormalTok{trosoci }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"data/trosoci{-}moja{-}firma.csv"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Parsed with column specification:
-## cols(
-##   vraboten = col_character(),
-##   tip_na_trosok = col_character(),
-##   cena = col_double()
-## )
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{trosoci\_sumirani }\OtherTok{\textless{}{-}}\NormalTok{ trosoci }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{group\_by}\NormalTok{(vraboten, tip\_na\_trosok) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{)}\SpecialCharTok{\%\textgreater{}\%} 
@@ -612,40 +578,76 @@ TODO:
 \begin{Highlighting}[]
 \CommentTok{\# (data/sumiraj{-}trosoci{-}2.R)}
 
-\CommentTok{\# Закачи ги ти пакетите кои се користат подолу }
-\FunctionTok{library}\NormalTok{(dplyr)}
-\FunctionTok{library}\NormalTok{(readr)}
+\StringTok{\textquotesingle{}Сумирај трошоци групирани по вработен и тип на трошок. }
+\StringTok{ Табелаta со трошоци мора да ги содржи колоните: \textasciigrave{}vraboten\textasciigrave{}, \textasciigrave{}tip\_na\_trosok\textasciigrave{}, и \textasciigrave{}cena\textasciigrave{}.}
+\StringTok{ }
+\StringTok{ Usage:}
+\StringTok{    sumiraj{-}trosoci{-}2.R \textless{}tabela\_so\_trosoci\textgreater{}}
+\StringTok{    sumiraj{-}trosoci{-}2.R {-}{-}help}
+\StringTok{    sumiraj{-}trosoci{-}2.R {-}{-}version}
+
+\StringTok{ Options:}
+\StringTok{    {-}{-}help      Прикажи помош}
+\StringTok{    {-}{-}version   Прикажи верзија}
+\StringTok{    }
+\StringTok{\textquotesingle{}} \OtherTok{{-}\textgreater{}}\NormalTok{ doc}
+
+\CommentTok{\# Логика за аргументи}
+\FunctionTok{library}\NormalTok{(docopt)}
+\NormalTok{arguments }\OtherTok{\textless{}{-}} \FunctionTok{docopt}\NormalTok{(doc, }\AttributeTok{version =} \StringTok{"Сумирај трошоци 2.0}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+
+\CommentTok{\# Провери дали табелата е csv формат}
+\NormalTok{assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(assertthat}\SpecialCharTok{::}\FunctionTok{has\_extension}\NormalTok{(arguments}\SpecialCharTok{$}\NormalTok{tabela\_so\_trosoci, }\AttributeTok{ext =} \StringTok{"csv"}\NormalTok{))}
+
+\CommentTok{\# Закачи ги ти пакетите кои се користат подолу}
+\FunctionTok{suppressPackageStartupMessages}\NormalTok{(\{}
+  \FunctionTok{library}\NormalTok{(dplyr)}
+  \FunctionTok{library}\NormalTok{(readr)}
+  \FunctionTok{library}\NormalTok{(assertthat)}
+\NormalTok{\})}
 
 \CommentTok{\# Доколку не се достапни, инсталирај со:}
 \CommentTok{\# install.packages("dplyr")}
 \CommentTok{\# install.packages("readr")}
+\CommentTok{\# install.packages(assertthat)}
 
 \CommentTok{\# Функција за групирање и сумирање трошоци}
-\CommentTok{\# Аргументот \textasciigrave{}trosoci\textasciigrave{} е патека до табелата што треба да се трансформира}
+\CommentTok{\# Аргументот \textasciigrave{}trosoci\_tabela\textasciigrave{} е патека до табелата што треба да се трансформира}
 
 \NormalTok{sumiraj\_trosoci }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(trosoci\_tabela) \{}
-  
+
   \CommentTok{\# Вчитај ги податоците}
-\NormalTok{  trosoci }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(trosoci\_tabela)}
+\NormalTok{  trosoci }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(trosoci\_tabela, }\AttributeTok{col\_types =} \StringTok{"ccn"}\NormalTok{)}
+  
+\NormalTok{  assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(}
+    \FunctionTok{inherits}\NormalTok{(trosoci, }\StringTok{"data.frame"}\NormalTok{),}
+    \AttributeTok{msg =} \StringTok{"Табелата не беше вчитана како \textasciigrave{}data.frame\textasciigrave{}."}\NormalTok{)}
+
+\NormalTok{  assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(}\FunctionTok{all}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"vraboten"}\NormalTok{, }\StringTok{"tip\_na\_trosok"}\NormalTok{, }\StringTok{"cena"}\NormalTok{) }\SpecialCharTok{\%in\%} \FunctionTok{names}\NormalTok{(trosoci)), }
+    \AttributeTok{msg =} \StringTok{"Табелата мора да содржи колони со имињата: \textquotesingle{}vraboten\textquotesingle{}, \textquotesingle{}tip\_na\_trosok\textquotesingle{}, \textquotesingle{}cena\textquotesingle{}."}\NormalTok{)}
+  
+\NormalTok{  assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(}\FunctionTok{is.numeric}\NormalTok{(trosoci}\SpecialCharTok{$}\NormalTok{cena), }
+    \AttributeTok{msg =} \StringTok{"Колоната \textasciigrave{}cena\textasciigrave{} мора да биде нумеричка."}\NormalTok{)}
+  
   
   \CommentTok{\# Групирај и пресметај суми}
 \NormalTok{  trosoci\_sumirani }\OtherTok{\textless{}{-}}\NormalTok{ trosoci }\SpecialCharTok{\%\textgreater{}\%}
     \FunctionTok{group\_by}\NormalTok{(vraboten, tip\_na\_trosok) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{arrange}\NormalTok{(vraboten, tip\_na\_trosok)}
-  
+    \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{arrange}\NormalTok{(vraboten, tip\_na\_trosok)}
+
   \CommentTok{\# Направи патека за дестинација}
 \NormalTok{  folder\_name }\OtherTok{\textless{}{-}} \FunctionTok{dirname}\NormalTok{(trosoci\_tabela)}
 \NormalTok{  base\_name }\OtherTok{\textless{}{-}}\NormalTok{ tools}\SpecialCharTok{::}\FunctionTok{file\_path\_sans\_ext}\NormalTok{(}\FunctionTok{basename}\NormalTok{(trosoci\_tabela))}
 \NormalTok{  new\_name }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(base\_name, }\StringTok{"sumirani.csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"{-}"}\NormalTok{)}
 \NormalTok{  destinacija }\OtherTok{\textless{}{-}} \FunctionTok{file.path}\NormalTok{(folder\_name, new\_name)}
-  
+
   \CommentTok{\# Зачувај}
   \FunctionTok{write\_csv}\NormalTok{(trosoci\_sumirani, }\AttributeTok{path =}\NormalTok{ destinacija)}
 \NormalTok{\}}
 
-\CommentTok{\# Земи го првиот аргумент}
-\NormalTok{dadeni\_trosoci }\OtherTok{\textless{}{-}} \FunctionTok{commandArgs}\NormalTok{(}\AttributeTok{trailingOnly =} \ConstantTok{TRUE}\NormalTok{)[[}\DecValTok{1}\NormalTok{]]}
+\CommentTok{\# Земи го првиот аргумент (табелата)}
+\NormalTok{dadeni\_trosoci }\OtherTok{\textless{}{-}}\NormalTok{ arguments}\SpecialCharTok{$}\NormalTok{tabela\_so\_trosoci}
 
 \CommentTok{\# Изврши ја функцијата}
 \FunctionTok{sumiraj\_trosoci}\NormalTok{(}\AttributeTok{trosoci =}\NormalTok{ dadeni\_trosoci)}
@@ -793,8 +795,8 @@ TODO:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{ux440ux435ux437ux438ux43cux435}{%
-\section{Резиме}\label{ux440ux435ux437ux438ux43cux435}}
+\hypertarget{ux440ux435ux437ux438ux43cux435-1}{%
+\section{Резиме}\label{ux440ux435ux437ux438ux43cux435-1}}
 
 Во ова поглавје видовме како нашите едноставни три линии код напишани набрзина можеме да ги претвориме во постабилна скрипта која веќе ги има следните карактеристики значајни за репродуцибилност:
 
@@ -819,7 +821,123 @@ TODO:
 \hypertarget{ux440ux435ux43fux440ux43eux434ux443ux446ux438ux431ux438ux43bux43dux438-ux43fux440ux43eux435ux43aux442ux438}{%
 \chapter{Репродуцибилни проекти}\label{ux440ux435ux43fux440ux43eux434ux443ux446ux438ux431ux438ux43bux43dux438-ux43fux440ux43eux435ux43aux442ux438}}
 
-Во претходното поглавје разгледавме како можеме нашиот едноставен код да
+Во претходното поглавје разгледавме како можеме нашиот едноставен код да го конвертираме во скрипта која ќе биде лесна за користење и до некоја мера издржлива во различни работни средини. Но како што напоменавме, сеуште правиме некои претпоставки за начинот на кој ќе биде користена скриптата и за ресурсите кои ќе им бидат достапни на корисниците. Една од овие претпоставки беше дека колегите кои ќе ја користат нашата скрипта ќе имаат адекватни табели за обработување. Ова е до некоја мера разумна претпоставка доколку скриптата се користи рамките на една организација, или доколку типот на табели кои ги обработува се доволно познати и распространети. Но ваквите случаи, иако значајни, претставуваат само дел инстанците кога треба да разговараме за репродуцибилни анализи. Да разгледаме некои примери:
+
+Пример 1: Работите во невладина организација чијшто фунцкионирање зависи од надворешни грантови, како од македонски така и од странски извори. Се почесто, донорите поставуаат услови за активностите кои тие ги подджуваат, дека сите податоци кои вашата организација ги собира (преку анкети, истражувања, и контакти) како и сите анализи на тие податоци треба да се транспарентни и репродуцибилни (РЕФ ????: Нели има некоја ЕУ регулатива за ова). Што во пракса значи дека со завршниот извештај за проектот во кој ги презентирате резултатите, вие ќе треба исто така да покажете јавна депозиција на податоците и изворниот код користен да се добиат презентираните резултати. Со други зборови, пред вас е задача за репродуцибилна анализа, слично на она што го видовме погоре, но со далеку повеќе код, скрипти, и податоци. Критичната разлика е во контекстот. Ако претходно претпоставуваме дека корисниците на нашиот репродуцибилен код ќе имаат пристап до податоците, сега кога треба да ги споделиме податоците \emph{надвор} од нашата организација, таа претпоставка веќе не важи. Значи ни треба начин да го споделиме нашиот програмски код заедно со податоците кои ги обработуваме, инаку никој надвор од нашата организација нема да може да ја повтори анализата.
+
+Пример 2: Работите во индустриска лабораторија каде што вашата работа е да правите статистичка обработка на експериментални резултати или анализи за контрола на квалитет. Вашата организација повторно фунцкионира преку надворешни грантови или клиенти кои очекуваат дека резултатите од вашата лабораторија ќе може да бида независно потврдени. Во пракса ова повторно значи објавување на репродуцибилен проект, со податоци и програмски код, кој што ќе работи во контекст многу различен од вашата лабораторија.
+
+Пример 3: Накратко, бидејќи патернот е јасен. Вие сте научен истражувач на некој универзитет или институт. Вашата работа зависи од објавување трудови и аплицирање за грантови. Се поголем број на научни журнали имаат стриктни барања за транспарентни и репродуцибилни анализи без кои нема ни да го рецензираат трудот. Вас ви треба репродуцибилен проект.
+
+Во ова поглавје ќе се запознаеме со две стратегии за организирање на репродуцибилни проекти. Првата стратегија (Направи сам) е едноставна за поставување и не зависи од дополнителна инфраструктура (додатни библиотеки), но ако проектот е комплексен, оваа опција може да бара повеќе грижа, особено за стабилност на подолг рок. Втората стратегија е да се повикаме на некоја веќе готова платформа за поставување на безбедна структура за репродуцибилни проекти. Втората стратегија генерално треба да се преферира, но имајќи во предвид дека секој нов пакет си бара одреден период на запознавање и дека во некои случаи првата опција е сосема адекватна, ќе збориваме за двете стратегии.
+
+\hypertarget{ux441ux442ux440ux430ux442ux435ux433ux438ux458ux430-1-ux43dux430ux43fux440ux430ux432ux438-ux441ux430ux43c}{%
+\section{Стратегија 1: Направи сам}\label{ux441ux442ux440ux430ux442ux435ux433ux438ux458ux430-1-ux43dux430ux43fux440ux430ux432ux438-ux441ux430ux43c}}
+
+\hypertarget{ux441ux442ux440ux443ux43aux442ux443ux440ux430}{%
+\subsection{Структура}\label{ux441ux442ux440ux443ux43aux442ux443ux440ux430}}
+
+Креирање безбедна структура за репродуцибилност во основа е едноставно. Да речеме дека имаме извештај со два графикони и три табели, и дека секој график и табела се базирани на различни сетови на податоци. Имајќи ги во предвид нашите цели:
+
+\begin{itemize}
+\tightlist
+\item
+  да направиме што е можно помалку претпоставки за средината во која ќе биде повторена нашата анализа и\\
+\item
+  да направиме што е можно полесно да се снајде некој без никакво претходно искуство со нашиот проект
+\end{itemize}
+
+можеме секој елемент на нашиот извештај да го енкапсулираме во посебен фолдер. Во секој фолдер мора да ги вклучиме \textbf{податоците и програмскиот код} кои се неопходни за ре-креирање на графиконот или табелата. За детални објаснувања, можеме во да вклучиме \texttt{README} фалј во оние фолдери каде што е неопходно. Главен \texttt{README} фалј на првото ниво на нашиот проект \textbf{мора да биде вклучен}. Тука, го опишуваме нашиот проект, што подетално тоа подобро, и даваме објаснување за како да се користат податоците и кодот кој е вклучен во субфолдерите. Ова е особено битно доколку скриптите зависат една од друга и треба да се извршат во некој редослед, на пример ако мора прво да го извршиме кодот во \texttt{tabela\_1} пред да можеме да работиме со \texttt{tabela\_2}.
+
+Во нашиот случај, со два графикони и три табели сите со различни податоци, би ја имаме следната структура:
+
+\begin{verbatim}
+strategija_1/
+├── grafik_1
+│   ├── code_grafik_1.py
+│   └── data_grafik_1.csv
+├── grafik_2
+│   ├── code_grafik_2.py
+│   └── data_grafik_2.csv
+├── README
+├── tabela_1
+│   ├── code_tabela_1.py
+│   └── data_tabela_1.csv
+├── tabela_2
+│   ├── code_tabela_2.py
+│   └── data_tabela_2.csv
+└── tabela_3
+    ├── code_tabela_3.py
+    └── data_tabela_3.csv
+\end{verbatim}
+
+Доколку графиконите 1 и 2 се базирани на исти податоци како табелите 1 и 2, тогаш можеме да ги групираме, со што би избегнале непотребно копирање на истите податоци на две места:
+
+\begin{verbatim}
+strategija_1/
+├── grafik_1
+│   ├── code_grafik_1.py
+│   ├── code_tabela_1.py
+│   └── data_grafik_1.csv
+├── grafik_2
+│   ├── code_grafik_2.py
+│   ├── code_tabela_2.py
+│   └── data_grafik_2.csv
+├── README
+└── tabela_3
+    ├── code_tabela_3.py
+    └── data_tabela_3.csv
+\end{verbatim}
+
+Но генерално, при одлучување за структурата на проектот треба да си го поставиме прашањето „како најлесно ќе се снајде некој што никогаш претходно нема работено со овие податоци или тип на анализи?{}``. Доколку одговорот на ова прашање сугерира да се копираат истите податоци на две места, и податоците се доволно мали да го дозволат тоа, тогаш е подобро да се направи вишокот отколку да се направи ре-анализата покомплицирана.
+
+\hypertarget{ux43fux440ux435ux434ux43dux43eux441ux442ux438}{%
+\subsection{Предности}\label{ux43fux440ux435ux434ux43dux43eux441ux442ux438}}
+
+Како оваа стратегија овозможува репродуцибилност? Доколку нашиот код ги следи принципите за кои збориваме претходно, спарувањето на податоците со кодот што треба да се користи за нивна обработка во еден фолдер изолирани од остатокот на проектот значи дека:
+
+\begin{itemize}
+\tightlist
+\item
+  шансите корисникот на нашиот проект да ги помеша фајловите се минимални,\\
+\item
+  нашиот код може да биде поедноставен бидејќи вчитува податоци во истиот фолдер, и конечно
+\item
+  сите резултати од извршувањето на нашиот код (на пример пдф од графикон) ќе се зачуваат во истиот фолдер.
+\end{itemize}
+
+Оваа едноставна, линеарна поврзаност е веројатно најбезбедна од аспект на поставување и користење подоцна од некој кој нема никакво претходно познавање. Дополнително, ваквата структура овозможува модуларност, во смисол на тоа дека секоја табела или графикон може да се ре-креира независно од остатокот на анализата, ако, на пример, нашиот соработник или рецензент сака да провери само одреден аспект на истражувањето.
+
+\hypertarget{ux43dux435ux434ux43eux441ux442ux430ux442ux43eux446ux438}{%
+\subsection{Недостатоци}\label{ux43dux435ux434ux43eux441ux442ux430ux442ux43eux446ux438}}
+
+Главните недостатоци на оваа стратегија се непотребното повторување на код или податоци (не секогаш, но често), и тоа што оваа организација станува незгодна ако имаме голем или комплициран извештај со многу анализи кои би сакале да ги одделиме.
+
+Можното непотребно повторување да податоци веќе спомнавме погоре, како одлука помеѓу создавање вишок и леснотија на користење. Генерално, најдобро е да се избегне дупликација на податоци, бидејќи податоците се (типично) најголемиот (во смисол на меморија) дел од нашиот пакет, а сакаме нашиот пакет да биде што попортабилен.
+
+За повторувањето на програмски код имаме слична дилема. Доколку нашите табели или графици, кои ги правиме со посебни скрипти во посебни фолдери, имаат делови со идентичен код (на пример сите скрипти ги прават истите проверки за табелите, или сите скрипти за табела ја прават истата сумација по групи), тогаш можеме делот од кодот што се повторува да го изолираме во посебна скрипта што сите други скрипти ќе ја повикуваат. Оваа опција е подобра бидејќи доколку најдеме грешка или сакаме да направиме некое подобрување, тоа го правиме само во скриптата со заеднички код, додека пак доколку тој код се дуплицира во повеќе скрипти, ќе треба да ги модифицираме сите. Во ваков случај со изолиран заеднички код, нашата структура може да се промени во нешто налик на следниот дијаграм.
+
+\begin{verbatim}
+strategija_1/
+├── README
+├── zaednicki-kod.py
+├── grafik_1
+│   ├── code_grafik_1.py
+│   ├── code_tabela_1.py
+│   └── data_grafik_1.csv
+├── grafik_2
+│   ├── code_grafik_2.py
+│   ├── code_tabela_2.py
+│   └── data_grafik_2.csv
+└── tabela_3
+    ├── code_tabela_3.py
+    └── data_tabela_3.csv
+\end{verbatim}
+
+Вториот недостаток, незгодноста кога проектот станува голем и комплициран, станува јасен со претходниот дијаграм. Кога скриптите, и фунцкии внатре во скриптите, почнуваат да стануваат зависни една од друга, предностите на линерано изолирање на кодот и податоците почнуваат да се смалуваат. На пример, ако \texttt{code\_tabela\_3.py} има функција \texttt{sumiraj-po-grupi()} која повикува две функции од \texttt{zaednicki-kod.py} и ја вчитува табелата што резултира од модулот \texttt{grafik\_2}, тогаш немаме баш линеарна зависност туку нешто покомплицирано. И иако сеуште можеме рачно да ги организираме ваквите врски помеѓу код и податоци, веројатно е време да разгледаме други опции за организирање на нашиот проект.
+
+\hypertarget{ux441ux442ux440ux430ux442ux435ux433ux438ux458ux430-2}{%
+\section{Стратегија 2:}\label{ux441ux442ux440ux430ux442ux435ux433ux438ux458ux430-2}}
 
   \bibliography{book.bib,packages.bib}
 
