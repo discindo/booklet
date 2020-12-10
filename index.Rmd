@@ -1,25 +1,12 @@
 --- 
-title: "A Minimal Book Example"
-author: "Yihui Xie"
+title: "Препораки за репродуцибилно анализирање на податоци"
+author: "Теофил Наков, Новица Наков"
 date: "`r Sys.Date()`"
+output: html_document
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: [book.bib, packages.bib, pckg.bib]
 biblio-style: apalike
 link-citations: yes
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
-
-# План:
-
-title: Препораки за репродуцибилно ракување, анализирање, и објавување на податоци  
-more realistic title: Препораки за репродуцибилно анализирање на податоци  
-c1: Вовед  
-c2: Алатки  
-c3: Типична анализа (која никој, дури ни авторот, не може да ја повтори)  
-c4: Брза конверзија во репродуцибилна анализа: Скрипта  
-c5: Репродуцибилни документи / извештаи (Rmd)  
-c6: Контрола на изворниот код (git / GitHub)  
-c7: Што ако вашиот колега има Mac, или друга верзија на `R`? Docker.  
-c8: Заклучок  
-c9: Литература  
