@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Не-повторливи анализи | Препораки за репродуцибилно анализирање на податоци</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Не-повторливи анализи | Препораки за репродуцибилно анализирање на податоци" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Не-повторливи анализи | Препораки за репродуцибилно анализирање на податоци" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Теофил Наков, Новица Наков" />
+
+
+<meta name="date" content="2020-12-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tools.html"/>
+<link rel="next" href="conversion.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Вовед</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#analogy"><i class="fa fa-check"></i><b>1.1</b> Аналогија</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#organ"><i class="fa fa-check"></i><b>1.2</b> Организација</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#што-беше-планот"><i class="fa fa-check"></i><b>1.2.1</b> Што беше планот:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="tools.html"><a href="tools.html#програмски-јазик-r"><i class="fa fa-check"></i><b>2.1</b> Програмски јазик: <code>R</code></a></li>
+<li class="chapter" data-level="2.2" data-path="tools.html"><a href="tools.html#контрола-на-изворен-код-git"><i class="fa fa-check"></i><b>2.2</b> Контрола на изворен код: <code>git</code></a></li>
+<li class="chapter" data-level="2.3" data-path="tools.html"><a href="tools.html#виртуелни-контејнери-docker"><i class="fa fa-check"></i><b>2.3</b> Виртуелни контејнери: <code>docker</code></a></li>
+<li class="chapter" data-level="2.4" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>2.4</b> Резиме</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="не-повторливи-анализи.html"><a href="не-повторливи-анализи.html"><i class="fa fa-check"></i><b>3</b> Не-повторливи анализи</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="не-повторливи-анализи.html"><a href="не-повторливи-анализи.html#typical"><i class="fa fa-check"></i><b>3.1</b> Типична анализа (која никој, дури ни авторот, не може да ја повтори)</a></li>
+<li class="chapter" data-level="3.2" data-path="не-повторливи-анализи.html"><a href="не-повторливи-анализи.html#indicators"><i class="fa fa-check"></i><b>3.2</b> Типични пракси кои доведуваат до не-повторливи анализи</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="conversion.html"><a href="conversion.html"><i class="fa fa-check"></i><b>4</b> Конверзија во повторлив код</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="conversion.html"><a href="conversion.html#податоци"><i class="fa fa-check"></i><b>4.1</b> Податоци</a></li>
+<li class="chapter" data-level="4.2" data-path="conversion.html"><a href="conversion.html#први-чекори-кон-повторливост"><i class="fa fa-check"></i><b>4.2</b> Први чекори кон повторливост</a></li>
+<li class="chapter" data-level="4.3" data-path="conversion.html"><a href="conversion.html#функција"><i class="fa fa-check"></i><b>4.3</b> Функција</a></li>
+<li class="chapter" data-level="4.4" data-path="conversion.html"><a href="conversion.html#rscript-што-може-да-го-користиме-без-да-отвараме-r"><i class="fa fa-check"></i><b>4.4</b> Rscript што може да го користиме без да отвараме <code>R</code></a></li>
+<li class="chapter" data-level="4.5" data-path="conversion.html"><a href="conversion.html#резиме-1"><i class="fa fa-check"></i><b>4.5</b> Резиме</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="повторливи-проекти.html"><a href="повторливи-проекти.html"><i class="fa fa-check"></i><b>5</b> Повторливи проекти</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="повторливи-проекти.html"><a href="повторливи-проекти.html#стратегија-1-направи-сам"><i class="fa fa-check"></i><b>5.1</b> Стратегија 1: Направи сам</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="повторливи-проекти.html"><a href="повторливи-проекти.html#структура"><i class="fa fa-check"></i><b>5.1.1</b> Структура</a></li>
+<li class="chapter" data-level="5.1.2" data-path="повторливи-проекти.html"><a href="повторливи-проекти.html#предности"><i class="fa fa-check"></i><b>5.1.2</b> Предности</a></li>
+<li class="chapter" data-level="5.1.3" data-path="повторливи-проекти.html"><a href="повторливи-проекти.html#недостатоци"><i class="fa fa-check"></i><b>5.1.3</b> Недостатоци</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="повторливи-проекти.html"><a href="повторливи-проекти.html#стратегија-2"><i class="fa fa-check"></i><b>5.2</b> Стратегија 2:</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="повторливи-проекти.html"><a href="повторливи-проекти.html#структура-1"><i class="fa fa-check"></i><b>5.2.1</b> Структура</a></li>
+<li class="chapter" data-level="5.2.2" data-path="повторливи-проекти.html"><a href="повторливи-проекти.html#предности-1"><i class="fa fa-check"></i><b>5.2.2</b> Предности</a></li>
+<li class="chapter" data-level="5.2.3" data-path="повторливи-проекти.html"><a href="повторливи-проекти.html#недостатоци-1"><i class="fa fa-check"></i><b>5.2.3</b> Недостатоци</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Препораки за репродуцибилно анализирање на податоци</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="не-повторливи-анализи" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Не-повторливи анализи</h1>
+<div id="typical" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Типична анализа (која никој, дури ни авторот, не може да ја повтори)</h2>
+<p>Да погледнеме една хипотетичка но веројатно честа ситуација. Вие работите на некој проект што се однесува на податоци за сточарство во Македонија. Поврзани сте со локална дата база, имате големо парче податоци во качени меморија, и работна средина со 10 закачени <code>R</code> пакети (библиотеки).</p>
+<p>Ви стигнува ургентна е-пошта од колега кои бараат да се направи сумирање на месечните трошоци на работа групирано по тип на трошок и по вработен. Вие велите, ах, ова ајде на брзина, ги снимате податоците во <code>Downloads</code> и почнувате:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="не-повторливи-анализи.html#cb1-1" aria-hidden="true" tabindex="-1"></a>trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/trosoci-moja-firma.csv&quot;</span>)</span>
+<span id="cb1-2"><a href="не-повторливи-анализи.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="не-повторливи-анализи.html#cb1-3" aria-hidden="true" tabindex="-1"></a>trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span> </span>
+<span id="cb1-4"><a href="не-повторливи-анализи.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-5"><a href="не-повторливи-анализи.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="не-повторливи-анализи.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb1-7"><a href="не-повторливи-анализи.html#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="не-повторливи-анализи.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(trosoci_sumirani, </span>
+<span id="cb1-9"><a href="не-повторливи-анализи.html#cb1-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">path =</span> <span class="st">&quot;~/Download/trosoci-moja-firma-sumirani.csv&quot;</span>)</span></code></pre></div>
+<p>За пет минути сте готови со минимална дистракција, па дури и не мрднавте од претходниот проект. Ја праќате новата табела на колегата. Супер. Фала многу.</p>
+<p>Пола саат подоцна стигнува е-пошта од претпоставениот со пофалба за брзо завршената работа и соработката со колегата. Шефицата исто вели ајде прати ни го кодот за да го забрзаме процесот во иднина и да не одземаме време од комплексните анализи кои ти се примарна задача. Вие го копирате кодо од историја на вашето <code>Rstudio</code> и го праќате:</p>
+<pre><code>trosoci &lt;- read_csv(&quot;~/Downloads/trosoci-moja-firma.csv&quot;)
+
+trosoci_sumirani &lt;- trosoci %&gt;% 
+  group_by(vraboten, tip_na_trosok) %&gt;% 
+  summarise_at(&quot;cena&quot;, &quot;sum&quot;) %&gt;% 
+  arrange(vraboten, tip_na_trosok)
+
+write_csv(trosoci_sumirani, 
+          path = &quot;~/Download/trosoci-moja-firma-sumirani.csv&quot;)</code></pre>
+<p>Но, како што можеби веќе очекувате, приказната не завршува тука. Стигнува нова пошта со пораката: "Кај мене ова не работи?!?“ Зошто? Па има неколку можни причини:</p>
+<ol style="list-style-type: decimal">
+<li><p>Првата линија код чита податоци од <code>~/Downloads/trosoci-moja-firma.csv</code>. Зошто претпоставуваме дека колагите ќе ја имаат таа табела во тој фолдер? <strong>Проблем со податоците (состојките)</strong></p></li>
+<li><p>Првата линија код чита податоци од <code>~/Downloads/trosoci-moja-firma.csv</code>. Зошто претпоставуваме дека колегата ќе работи на <code>Linux</code> а не <code>Windows</code> на пример, па дури и да ги имаат податоците во <code>Downloads</code> патеката до тој фолдер ќе биде различна (на пр. <code>C:\Downloads)</code> не <code>~/Downloads</code>)? <strong>Проблем со податоците (состојките) и со кодот (рецептата)</strong></p></li>
+<li><p>Во кодот што го пративме, не повикуваме никакви пакети, иако користиме функции од два не-стандардни пакети во <code>R</code>: <code>readr</code> и <code>dplyr</code>. Ние не ги повикавме овие пакети бидејќи беа закачени во проектотот на кој работевме претходно (сететесе дека не отворивме нов проект). Зошто претпоставуваме дека колегите ќе ги имаат овие пакети закачени во нивната работна средина? <strong>Проблем со кодот (рецептата) и со зависности (алатки)</strong>.</p></li>
+</ol>
+<p>И иако ова личи за тривијален пример, проблемите не се тривијални. Обидете се да екстраполирате кон сериозна анализа со 500 линии код и ќе видите дека е скоро невозможно да се следи процесот и повтори анализата без далеку поголема грижа околу рецептат.</p>
+<p>Горе се главните проблеми кои ја прават нашата кратка анализа не-повторлива Но има и уште неколку дополнителни забелешки:</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Патеката <code>~/Downloads/trosoci-moja-firma.csv</code> е со голема веројатност надвор од работната папка за било кој од вработените. Веројанто никој не работи во <code>Downloads</code>, туку во фолдер наменети за различни проекти.</p></li>
+<li><p>Дополнително, многу често папки како <code>Downloads</code> да се бришат/празнат со цел да не чуваме застарени датотеки кои може повторно да ги симнеме. Значи за една недела, дури ни ние самите можеби нема да можеме да ја повториме анализата бидејќи датотеката ќе биде избришана.</p></li>
+<li><p>На втората команда во нашиот код, ние ја користиме функцијата <code>summarise_at</code> што е цонвениент начин за да дадеме инструкција да се сумираат цените. Но, зависно од верзијата на <code>R</code> и <code>dplyr</code>, функцијата <code>summarise_at</code> можеби нема да биде достапна. Доколку вашиот колега користи многу стара верзија на <code>dplyr</code>, функцијата <code>summarise_at</code> нема да биде дел од тој пакет со таа верзија, додека со најновата верзија на <code>dplyr</code>, ќе добиеме предупредување за <code>summarise_at</code> дека наскоро ќе биде заменета со подобра алтернатива. Се разбира овие детали не се толку битни, но веројатно е очигледна поентата дека треба да укажеме која верзија од некоја пакет сме ја користеле за да може да се повтори нашата анализа.</p></li>
+<li><p>Патеката која ја користиме за да ја зачуваме табелата е фиксна, што значи ако сакаме да ја повториме процедурата за некоја втора табела, при зачувување ќе ја замениме првата зачувана табела.</p></li>
+</ol>
+<p>Значи во навидно едноставна задача, што може да се заврши со три линии код, ние прекршивме неколку правила за безбедна пракса при анализирање на податоци. Во ова сценарио, дури ни оригиналиот автор на кодот не може да гарантира дека ќе може да ја повтори обработката на податоците во иднина.</p>
+</div>
+<div id="indicators" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Типични пракси кои доведуваат до не-повторливи анализи</h2>
+<p>Корисно е да споменеме некои од главните пракси кои доведуваат до ситуации како примерот погоре. Доколку при анализа на податоци, некој аспект од вашата средина наликува на некоја од овие забелешки, тогаш имајќе во предвид дека вашата анализа може да биде проблематична за повторување. Генерално, обидете се да ги идентификувате и корегирате ваквите проблеми што е можно порано, бидејќи никој од нас не сака да менува код од стотици линии или да заменува библиотека откако сме завршиле пола од работа.</p>
+<ul>
+<li><p>Податоците и кодот не се сместени во истиот директориум. На пример податоци во <code>C:/Data</code> а код во <code>C:/Analizi</code></p></li>
+<li><p>Кодот користи апсолутни патеки за вчитување или зачувување на табели (на пример: <code>C:/Data/Мај2020/трошоци/</code>). Ваквите апсолутни патеки со голема сигурност не се портабилни</p></li>
+<li><p>Код без документација (коментари кои типично почнуваат со #) или <code>README</code> фајл кој ќе укаже како, во кој редослед, да се користат скриптите и кои податоци се користат во која скрипта или кој график</p></li>
+<li><p>Код без повикани зависности (користени библиотеки) и без информација за верзиите на повиканите зависности</p></li>
+<li><p>Објекти со податоци кои не се експлицитно вчитани со код (укажува на податоци кои се во нашата работна средина но веројатно <em>нема</em> да бидата достапни за други)</p></li>
+<li><p>Работиме на нешто што вклучува случајност (randomness) но немаме наместено зачеток за генераторот на рандом бројки (<code>set.seed</code> во <code>R</code>). Ова се случува секогаш кога делиме податоци на сетови за тренирање и тестирање во машинско учење на пример.</p></li>
+</ul>
+<p>Очекуваме дека оваа листа ќе расте како напредува овој текст и подоцна.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tools.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conversion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["booklet.pdf", "booklet.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

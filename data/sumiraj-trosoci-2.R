@@ -1,7 +1,7 @@
 # (data/sumiraj-trosoci-2.R)
 
 'Сумирај трошоци групирани по вработен и тип на трошок. 
- Табелаta со трошоци мора да ги содржи колоните: `vraboten`, `tip_na_trosok`, и `cena`.
+ Табелата со трошоци мора да ги содржи колоните: `vraboten`, `tip_na_trosok`, и `cena`.
  
  Usage:
     sumiraj-trosoci-2.R <tabela_so_trosoci>
