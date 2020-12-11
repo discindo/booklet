@@ -1,0 +1,12 @@
+# Контрола на изворниот код (git / GitHub)  
+
+`Git` е последната алатка 
+...
+
+# not too much about git (of course that is not the point anyway)
+
+# just about creating a github repo where you can push rmd in main and html in gh-pages thus making your reserarch public on the web
+
+
+
+### референци: https://git-scm.com/book/en/v2
