@@ -234,88 +234,54 @@ Rscript sumiraj_trosoci.R trosoci_dekemvri_2020.csv
 Да го конвертираме нашиот код во ваква скрипта е лесно. Доколку кодот го процесираме со `Rscript`, треба само да го земеме името на фајлот даден по името на скриптата (тоа е табелата со трошоци), и да го предадеме на нашата функција (внатре во скриптата):
 
 ```{r, eval=FALSE}
-# (data/sumiraj-trosoci-2.R)
+# (data/sumiraj-trosoci-1.R)
 
-'Сумирај трошоци групирани по вработен и тип на трошок. 
- Табелата со трошоци мора да ги содржи колоните: `vraboten`, `tip_na_trosok`, и `cena`.
- 
- Usage:
-    sumiraj-trosoci-2.R <tabela_so_trosoci>
-    sumiraj-trosoci-2.R --help
-    sumiraj-trosoci-2.R --version
+# Употреба:
+# Вчитај ја оваа скипта во R за да ја користиш функцијата `sumiraj_trosoci`  
 
- Options:
-    --help      Прикажи помош
-    --version   Прикажи верзија
-    
-' -> doc
-
-# Логика за аргументи
-library(docopt)
-arguments <- docopt(doc, version = "Сумирај трошоци 2.0\n")
-
-# Провери дали табелата е csv формат
-assertthat::assert_that(assertthat::has_extension(arguments$tabela_so_trosoci, ext = "csv"))
-
-# Закачи ги ти пакетите кои се користат подолу
-suppressPackageStartupMessages({
-  library(dplyr)
-  library(readr)
-  library(assertthat)
-})
+# Закачи ги ти пакетите кои се користат подолу 
+library(dplyr)
+library(readr)
 
 # Доколку не се достапни, инсталирај со:
 # install.packages("dplyr")
 # install.packages("readr")
-# install.packages(assertthat)
 
 # Функција за групирање и сумирање трошоци
-# Аргументот `trosoci_tabela` е патека до табелата што треба да се трансформира
+# Аргументот `trosoci` е патека до табелата што треба да се трансформира
 
 sumiraj_trosoci <- function(trosoci_tabela) {
-
+  
   # Вчитај ги податоците
-  trosoci <- read_csv(trosoci_tabela, col_types = "ccn")
-  
-  assertthat::assert_that(
-    inherits(trosoci, "data.frame"),
-    msg = "Табелата не беше вчитана како `data.frame`.")
-
-  assertthat::assert_that(all(c("vraboten", "tip_na_trosok", "cena") %in% names(trosoci)), 
-    msg = "Табелата мора да содржи колони со имињата: 'vraboten', 'tip_na_trosok', 'cena'.")
-  
-  assertthat::assert_that(is.numeric(trosoci$cena), 
-    msg = "Колоната `cena` мора да биде нумеричка.")
-  
+  trosoci <- read_csv(trosoci_tabela)
   
   # Групирај и пресметај суми
   trosoci_sumirani <- trosoci %>%
     group_by(vraboten, tip_na_trosok) %>%
-    summarise_at("cena", "sum") %>%
-    arrange(vraboten, tip_na_trosok)
-
+    summarise_at("cena", "sum") %>% 
+  arrange(vraboten, tip_na_trosok)
+  
   # Направи патека за дестинација
   folder_name <- dirname(trosoci_tabela)
   base_name <- tools::file_path_sans_ext(basename(trosoci_tabela))
   new_name <- paste(base_name, "sumirani.csv", sep="-")
   destinacija <- file.path(folder_name, new_name)
-
+  
   # Зачувај
   write_csv(trosoci_sumirani, path = destinacija)
 }
 
-# Земи го првиот аргумент (табелата)
-dadeni_trosoci <- arguments$tabela_so_trosoci
+# Земи го првиот аргумент
+dadeni_trosoci <- commandArgs(trailingOnly=TRUE)[[1]]
 
 # Изврши ја функцијата
 sumiraj_trosoci(trosoci = dadeni_trosoci)
 
-
 ```
 
-Доколку го тестирате кодот додека читате го имате преземено директориумот за овој текст, оваа скрипта и податоците за трошоци се наоѓаат како фолдерот **`data`** под името **`/sumiraj-trosoci-1.R`** и **`trosoci-moja-firma.csv`**.
+Доколку го тестирате кодот додека читате го имате преземено директориумот за овој текст, оваа скрипта и податоците за трошоци се наоѓаат како фолдерот **`data`** под името **`sumiraj-trosoci-1.R`** и **`trosoci-moja-firma.csv`**.
 
-Доколку сакаме навистина да се потрудиме, како поради безбедност така и поради лесно користење на ваквата скрипта, можеме да додадеме кратко упатство за користење на оваа скрипта, и код за проверка на аргументот.
+Доколку сакаме навистина да се потрудиме, како поради безбедност така и поради лесно користење на ваквата скрипта, можеме да додадеме кратко упатство за користење, и код за проверка на аргументот.
 
 За да направиме упатство за користење, ќе го користиме пакетот [`docopt`](https://github.com/docopt/docopt.R) кој што користи таканаречен `docstring`, односно текст којшто следи некои правила за форматирање со цел да биде лесно парсиран како прирачник за употреба на нашата скрипта. `docopt/docstring` имаат еквиваленти во сите други програмски јазици, така да доколку програмирате во `Python` или `Perl` веројатно ви се веќе познати овие концепти.
 
@@ -346,7 +312,7 @@ arguments <- docopt(doc, version = "Сумирај трошоци 2.0\n")
 assertthat::assert_that(
   assertthat::has_extension(arguments$tabela_so_trosoci, ext = "csv"))
 
-# Закачи ги ти пакетите кои се користат подолу
+# Закачи ги пакетите кои се користат подолу
 suppressPackageStartupMessages({
   library(dplyr)
   library(readr)
