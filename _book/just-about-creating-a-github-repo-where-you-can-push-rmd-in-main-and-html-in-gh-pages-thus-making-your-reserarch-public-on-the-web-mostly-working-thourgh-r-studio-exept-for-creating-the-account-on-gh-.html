@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Алатки | Препораки за репродуцибилно анализирање на податоци</title>
+  <title>Chapter 10 just about creating a github repo where you can push rmd in main and html in gh-pages thus making your reserarch public on the web mostly working thourgh r studio exept for creating the account on gh. | Препораки за репродуцибилно анализирање на податоци</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Алатки | Препораки за репродуцибилно анализирање на податоци" />
+  <meta property="og:title" content="Chapter 10 just about creating a github repo where you can push rmd in main and html in gh-pages thus making your reserarch public on the web mostly working thourgh r studio exept for creating the account on gh. | Препораки за репродуцибилно анализирање на податоци" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Алатки | Препораки за репродуцибилно анализирање на податоци" />
+  <meta name="twitter:title" content="Chapter 10 just about creating a github repo where you can push rmd in main and html in gh-pages thus making your reserarch public on the web mostly working thourgh r studio exept for creating the account on gh. | Препораки за репродуцибилно анализирање на податоци" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro.html"/>
-<link rel="next" href="анализи-што-не-може-да-се-повторат.html"/>
+<link rel="prev" href="not-too-much-about-git-of-course-that-is-not-the-point-anyway.html"/>
+
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -212,59 +212,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tools" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Алатки</h1>
-<div id="програмски-јазик-r" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Програмски јазик: <code>R</code></h2>
-<p>Генерално земено, во денешно време, доколку анализирате податоци тоа вероратно го правите со помош на <code>Python</code> (и пакети како: <code>pandas, numpy, matplotlib</code>) или <code>R</code> (со пакети како: <code>dplyr</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2020</a>)</span>, <code>data.table</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-data.table" role="doc-biblioref">Dowle and Srinivasan 2019</a>)</span>, <code>ggplot2</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-ggplot2" role="doc-biblioref">Wickham, Chang, et al. 2020</a>)</span>). Доколку работите на пониско ниво или вашата работа е поблиска до математика, можеби користите <code>c#</code> за забрзување на вашиот код, но генерално, ретко кога јазик од типот на <code>c#</code> сe користи за интерактивна анализа на податоци, графирање, или машинско учење. Конечно понови јазици, како <code>Julia</code> и <code>Scala</code> имаат дополнителни предности со тоа што овозможуваат полесно пишување код во експлоративни сесии како <code>Python</code> ili <code>R</code> но со брзина на компутација што е поблиска до <code>c</code> или <code>c#</code>. Во секој случај, препораките дадени во овој текст се апликабилни без разлика на програмскиот јазик што го користите.</p>
-<p>Во овој текст генерално ќе работиме со софтверски алатки од <code>R</code> екосистемот. <code>R</code> е програмски јазик пред се наменет кон статистички анализи, и иако не е најраспространет или најшироко користен, е од особено значење за анализа на податоци, и следствено повторлива анализа на податоци. Главните причини за употребата на <code>R</code> авторите на овој текст секојдневно користат <code>R</code> и <code>Rstudio</code> и поради тоа што има еден куп дополнителни екстензии во оваа средина кои овозможуваат лесно пишување на повторливи технички извештаи, научни трудови (<code>Rmarkdown</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-rmarkdown" role="doc-biblioref">Allaire et al. 2020</a>)</span>), книги (<code>bookdown</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-bookdown" role="doc-biblioref">Xie 2020b</a>)</span>), веб апликации (<code>shiny</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-shiny" role="doc-biblioref">Chang et al. 2020</a>)</span>), блогови (<code>blogdown</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-blogdown" role="doc-biblioref">Xie 2020a</a>)</span>), итн. Самиот овој текст го пишувамe со помош на <code>bookdown</code>, што овозможува неверојатно лесно составање и објавивање на подолги текстови (книги) со поглавја, компјутерски код, и математичка нотација со едно копче во <code>Rstudio</code>.</p>
-<p>Во овој текст немаме намера да навлегуваме длабоко во самото кодирање во <code>R</code>. Нашиот приод ќе биде да објасниме одреден принцип со обични зборови и да покажеме како тоа би можело да изгледа со <code>R</code> код. Што значи, дури и да не знаете ништо за <code>R</code> би можеле да го следите текстот и да ги употребите препораките во вашиот омилен програмски јазик за обработка на податоци.</p>
-<p>Во некои делови ќе користиме материјали кои се специфични за <code>R</code> и <code>Rstudio</code> (на пример <code>Rmarkdown</code>) така што можеби ќе има технички детали кои нема да може да директно да ги примените во <code>Jypiter</code> тетратка или доколку работите во друг текст едитор (<code>VScode</code>). Но повторно, имајќи предвид дека препораките ќе тежнеат кон тоа како да пишуваме код којшто ќе бара минимална интервенција при (ре)анализа на податоци, ваквите аспекти специфични за <code>Rstudio</code> ќе бидат сведени на минимум. Генерално, целта ни е да креираме пакет (фолдер) за правење пита што вклучува се што е неопходно за нашиот пријател да може без многу мислење да ја направи истата пита. За да го олесниме овој процес, треба да се стремиме кон тоа да не користиме специјален тарун (софтвер) за да ги сукаме корите, бидејќи таков тарун можеби нема да биде лесно достапен за нашиот пријател. Со други зборови, повторувањето на нашите резултати генерално не треба да зависи од едиторот за текст којшто ние го користиме.</p>
-</div>
-<div id="контрола-на-изворен-код-git" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Контрола на изворен код: <code>git</code></h2>
-<p>Контрола на изворниот код, најчесто со <code>git</code> (поглавје <a href="#git"><strong>??</strong></a>), е платформата што ни дава безбедност и слобода во секоја активност поврзана со програмски код, вклучително и при анализирање и ревизирање анализи на податоци. Во основа, <code>git</code> e систем за <code>undo</code>/<code>redo</code> на стероиди, што може да следи две или повеќе верзии на изворниот код (гранки), од два или повеќе компјутери, овозможува соработници од различни локации истовремено да праваt поправки и унапредувања без да си ги пребришуваат промените, и дозволува да се вратите на верзијата од пред два месеци без да ги изгубите меѓувремени промени. Во денешно време е невозможно да се замисли организација која зависи од програмски код за дел од своите фунцкии без употреба на <code>git</code> (или друг систем на контрола на изворен код). Стриктно гледано, <code>git</code> не е неопходен за правење повторливи анализи. Можно е да напишеме и споделиме скрипта која обработува некои податоците без да ги следиме промените на тој код. Но имајќи во предвид дека при обработка на податоци постојано се соочуваме со одлуки и ревизии, веројатно е ќе се најдеме на брег на река каде што ќе сакаме целиот товар да го спакуваме во водоотпорена вреќа пред да ја преминеме реката. <code>git</code> го овозможува токму тоа и скоро сигурно ќе го користите доколку работите на транспарентната анализа на податоци.</p>
-</div>
-<div id="виртуелни-контејнери-docker" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Виртуелни контејнери: <code>docker</code></h2>
-<p>Иако досега зборувавме дека, во принцип, повторливите анализи се полесни доколку зависат од помалку алатки и не зависат од работната маса, оваа цел може да стане тешко остварлива, особено имајќи во предвид големите количина на различни типови на податоци (big data) кои се користат во анализи или за предикција. Оттука треба да се запознаеме и со начини на кои можеме да ги пратиме не само нашите состојки (брашно, квасец), рецепта (напишани чекори, слики), и алатки (сукало, тарун) туку и самата соба во која ја правиме питата вклучително и дрвата што ја загреваат фурната како и самата фурна. За споделување од ваков тип ќе зборуваме за <code>docker</code> (поглавје <a href="#docker"><strong>??</strong></a>). <code>docker</code> е софтвер за креирање на виртуелен контејнер (пакет) кој покрај програмскиот код (<code>R</code> скрипти) и алатките (неопходни <code>R</code> пакети) може да вклучува и неопходна верзија на <code>Rstudio</code> и надворешни податоци. Ваков приод ни е потребен кога соработниците кои ќе сакаат да ја повторат нашата анализа користат друг оперативен систем, или не се активни корисници на <code>R</code> па ги немаат најновите верзии на зависностите, или едноставно кога сакаме да правиме што е можно помалку претпоставки за условите во кои нашата анализа ќе треба да биде повторена.</p>
-</div>
-<div id="резиме" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Резиме</h2>
-<p>Корисно е да ги табулираме овие алатки во споредба со компонентите кои ги воведовме претходно во поглавје <a href="intro.html#analogy">1.1</a>):</p>
-<table>
-<caption><span id="tab:unnamed-chunk-1">Table 2.1: </span>Компонентите на повторување на анализа со соодветните софтверски алатки.</caption>
-<thead>
-<tr class="header">
-<th align="left">Аналог</th>
-<th align="left">Компонента</th>
-<th align="left">Алатка</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Состојки</td>
-<td align="left">Податоци</td>
-<td align="left">csv, MySQL</td>
-</tr>
-<tr class="even">
-<td align="left">Рецепта</td>
-<td align="left">Изворен код</td>
-<td align="left">R, git</td>
-</tr>
-<tr class="odd">
-<td align="left">Алатки</td>
-<td align="left">Зависности на кодот</td>
-<td align="left">dplyr, ggplot2</td>
-</tr>
-<tr class="even">
-<td align="left">Кујна</td>
-<td align="left">Виртуелен контејнер</td>
-<td align="left">docker</td>
-</tr>
-</tbody>
-</table>
+<div id="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh." class="section level1" number="10">
+<h1><span class="header-section-number">Chapter 10</span> just about creating a github repo where you can push rmd in main and html in gh-pages thus making your reserarch public on the web mostly working thourgh r studio exept for creating the account on gh.</h1>
+<div id="референци-httpsgit-scm.combookenv2" class="section level3" number="10.0.1">
+<h3><span class="header-section-number">10.0.1</span> референци: <a href="https://git-scm.com/book/en/v2" class="uri">https://git-scm.com/book/en/v2</a></h3>
 
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-R-rmarkdown" class="csl-entry">
+Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2020. <em>Rmarkdown: Dynamic Documents for r</em>. <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.
+</div>
+<div id="ref-R-shiny" class="csl-entry">
+Chang, Winston, Joe Cheng, JJ Allaire, Yihui Xie, and Jonathan McPherson. 2020. <em>Shiny: Web Application Framework for r</em>. <a href="http://shiny.rstudio.com">http://shiny.rstudio.com</a>.
+</div>
+<div id="ref-R-data.table" class="csl-entry">
+Dowle, Matt, and Arun Srinivasan. 2019. <em>Data.table: Extension of ‘data.frame‘</em>. <a href="https://CRAN.R-project.org/package=data.table">https://CRAN.R-project.org/package=data.table</a>.
+</div>
+<div id="ref-wickham2015r" class="csl-entry">
+Wickham, Hadley. 2015. <em>R Packages: Organize, Test, Document, and Share Your Code</em>. " O’Reilly Media, Inc.".
+</div>
+<div id="ref-R-ggplot2" class="csl-entry">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2020. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
+</div>
+<div id="ref-R-dplyr" class="csl-entry">
+Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2020. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
+<div id="ref-R-blogdown" class="csl-entry">
+Xie, Yihui. 2020a. <em>Blogdown: Create Blogs and Websites with r Markdown</em>. <a href="https://github.com/rstudio/blogdown">https://github.com/rstudio/blogdown</a>.
+</div>
+<div id="ref-R-bookdown" class="csl-entry">
+———. 2020b. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.
+</div>
+<div id="ref-R-bookdown" class="csl-entry">
+———. 2020b. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://github.com/rstudio/bookdown">https://github.com/rstudio/bookdown</a>.
+</div>
+</div>
 </div>
 </div>
             </section>
@@ -272,8 +254,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="анализи-што-не-може-да-се-повторат.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="not-too-much-about-git-of-course-that-is-not-the-point-anyway.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

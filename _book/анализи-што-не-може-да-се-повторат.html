@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Алатки | Препораки за репродуцибилно анализирање на податоци</title>
+  <title>Chapter 3 Анализи што не може да се повторат | Препораки за репродуцибилно анализирање на податоци</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Алатки | Препораки за репродуцибилно анализирање на податоци" />
+  <meta property="og:title" content="Chapter 3 Анализи што не може да се повторат | Препораки за репродуцибилно анализирање на податоци" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Алатки | Препораки за репродуцибилно анализирање на податоци" />
+  <meta name="twitter:title" content="Chapter 3 Анализи што не може да се повторат | Препораки за репродуцибилно анализирање на податоци" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro.html"/>
-<link rel="next" href="анализи-што-не-може-да-се-повторат.html"/>
+<link rel="prev" href="tools.html"/>
+<link rel="next" href="conversion.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -212,58 +212,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="tools" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Алатки</h1>
-<div id="програмски-јазик-r" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Програмски јазик: <code>R</code></h2>
-<p>Генерално земено, во денешно време, доколку анализирате податоци тоа вероратно го правите со помош на <code>Python</code> (и пакети како: <code>pandas, numpy, matplotlib</code>) или <code>R</code> (со пакети како: <code>dplyr</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2020</a>)</span>, <code>data.table</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-data.table" role="doc-biblioref">Dowle and Srinivasan 2019</a>)</span>, <code>ggplot2</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-ggplot2" role="doc-biblioref">Wickham, Chang, et al. 2020</a>)</span>). Доколку работите на пониско ниво или вашата работа е поблиска до математика, можеби користите <code>c#</code> за забрзување на вашиот код, но генерално, ретко кога јазик од типот на <code>c#</code> сe користи за интерактивна анализа на податоци, графирање, или машинско учење. Конечно понови јазици, како <code>Julia</code> и <code>Scala</code> имаат дополнителни предности со тоа што овозможуваат полесно пишување код во експлоративни сесии како <code>Python</code> ili <code>R</code> но со брзина на компутација што е поблиска до <code>c</code> или <code>c#</code>. Во секој случај, препораките дадени во овој текст се апликабилни без разлика на програмскиот јазик што го користите.</p>
-<p>Во овој текст генерално ќе работиме со софтверски алатки од <code>R</code> екосистемот. <code>R</code> е програмски јазик пред се наменет кон статистички анализи, и иако не е најраспространет или најшироко користен, е од особено значење за анализа на податоци, и следствено повторлива анализа на податоци. Главните причини за употребата на <code>R</code> авторите на овој текст секојдневно користат <code>R</code> и <code>Rstudio</code> и поради тоа што има еден куп дополнителни екстензии во оваа средина кои овозможуваат лесно пишување на повторливи технички извештаи, научни трудови (<code>Rmarkdown</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-rmarkdown" role="doc-biblioref">Allaire et al. 2020</a>)</span>), книги (<code>bookdown</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-bookdown" role="doc-biblioref">Xie 2020b</a>)</span>), веб апликации (<code>shiny</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-shiny" role="doc-biblioref">Chang et al. 2020</a>)</span>), блогови (<code>blogdown</code> <span class="citation">(<a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#ref-R-blogdown" role="doc-biblioref">Xie 2020a</a>)</span>), итн. Самиот овој текст го пишувамe со помош на <code>bookdown</code>, што овозможува неверојатно лесно составање и објавивање на подолги текстови (книги) со поглавја, компјутерски код, и математичка нотација со едно копче во <code>Rstudio</code>.</p>
-<p>Во овој текст немаме намера да навлегуваме длабоко во самото кодирање во <code>R</code>. Нашиот приод ќе биде да објасниме одреден принцип со обични зборови и да покажеме како тоа би можело да изгледа со <code>R</code> код. Што значи, дури и да не знаете ништо за <code>R</code> би можеле да го следите текстот и да ги употребите препораките во вашиот омилен програмски јазик за обработка на податоци.</p>
-<p>Во некои делови ќе користиме материјали кои се специфични за <code>R</code> и <code>Rstudio</code> (на пример <code>Rmarkdown</code>) така што можеби ќе има технички детали кои нема да може да директно да ги примените во <code>Jypiter</code> тетратка или доколку работите во друг текст едитор (<code>VScode</code>). Но повторно, имајќи предвид дека препораките ќе тежнеат кон тоа како да пишуваме код којшто ќе бара минимална интервенција при (ре)анализа на податоци, ваквите аспекти специфични за <code>Rstudio</code> ќе бидат сведени на минимум. Генерално, целта ни е да креираме пакет (фолдер) за правење пита што вклучува се што е неопходно за нашиот пријател да може без многу мислење да ја направи истата пита. За да го олесниме овој процес, треба да се стремиме кон тоа да не користиме специјален тарун (софтвер) за да ги сукаме корите, бидејќи таков тарун можеби нема да биде лесно достапен за нашиот пријател. Со други зборови, повторувањето на нашите резултати генерално не треба да зависи од едиторот за текст којшто ние го користиме.</p>
+<div id="анализи-што-не-може-да-се-повторат" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Анализи што не може да се повторат</h1>
+<div id="typical" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Типична анализа (која никој, дури ни авторот, не може да ја повтори)</h2>
+<p>Да погледнеме една хипотетичка но веројатно честа ситуација. Вие работите на некој проект што се однесува на податоци за сточарство во Македонија. Поврзани сте со локална дата база, имате големо парче податоци вчитани во меморија и работна средина со 10 закачени <code>R</code> пакети (библиотеки).</p>
+<p>Ви стигнува ургентна е-пошта од колега кој бара да се направи сумирање на месечните трошоци на работа групирано по тип на трошок и по вработен. Вие велите, ах, ајде ова на брзина, ги снимате податоците во <code>Downloads</code> и почнувате:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="анализи-што-не-може-да-се-повторат.html#cb1-1" aria-hidden="true" tabindex="-1"></a>trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/trosoci-moja-firma.csv&quot;</span>)</span>
+<span id="cb1-2"><a href="анализи-што-не-може-да-се-повторат.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="анализи-што-не-може-да-се-повторат.html#cb1-3" aria-hidden="true" tabindex="-1"></a>trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span> </span>
+<span id="cb1-4"><a href="анализи-што-не-може-да-се-повторат.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-5"><a href="анализи-што-не-може-да-се-повторат.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="анализи-што-не-може-да-се-повторат.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb1-7"><a href="анализи-што-не-може-да-се-повторат.html#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="анализи-што-не-може-да-се-повторат.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(trosoci_sumirani, </span>
+<span id="cb1-9"><a href="анализи-што-не-може-да-се-повторат.html#cb1-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">path =</span> <span class="st">&quot;~/Download/trosoci-moja-firma-sumirani.csv&quot;</span>)</span></code></pre></div>
+<p>За пет минути сте готови со минимална дистракција, па дури и не мрднавте од претходниот проект. Ја праќате новата табела на колегата. Супер. Фала многу.</p>
+<p>Половина час подоцна стигнува е-пошта од претпоставениот со пофалба за брзо завршената работа и соработката со колегата. Шефицата исто вели ајде прати ни го кодот за да го забрзаме процесот во иднина и да не одземаме време од комплексните анализи кои ти се примарна задача. Вие го копирате кодот од историја на вашето <code>Rstudio</code> и го праќате:</p>
+<pre><code>trosoci &lt;- read_csv(&quot;~/Downloads/trosoci-moja-firma.csv&quot;)
+
+trosoci_sumirani &lt;- trosoci %&gt;% 
+  group_by(vraboten, tip_na_trosok) %&gt;% 
+  summarise_at(&quot;cena&quot;, &quot;sum&quot;) %&gt;% 
+  arrange(vraboten, tip_na_trosok)
+
+write_csv(trosoci_sumirani, 
+          path = &quot;~/Download/trosoci-moja-firma-sumirani.csv&quot;)</code></pre>
+<p>Но, како што можеби веќе очекувате, приказната не завршува тука. Стигнува нова пошта со пораката: "Кај мене ова не работи?!?“ Зошто? Па има неколку можни причини:</p>
+<ol style="list-style-type: decimal">
+<li><p>Првата линија код чита податоци од <code>~/Downloads/trosoci-moja-firma.csv</code>. Зошто претпоставуваме дека колегите ќе ја имаат таа табела во тој фолдер? <strong>Проблем со податоците (состојките)</strong></p></li>
+<li><p>Првата линија код чита податоци од <code>~/Downloads/trosoci-moja-firma.csv</code>. Зошто претпоставуваме дека колегата ќе работи на <code>Linux</code> а не <code>Windows</code> на пример, па дури и да ги имаат податоците во <code>Downloads</code> патеката до тој фолдер ќе биде различна (на пр. <code>C:\Downloads)</code> не <code>~/Downloads</code>)? <strong>Проблем со податоците (состојките) и со кодот (рецептот)</strong></p></li>
+<li><p>Во кодот што го пративме, не вчитуваме никакви пакети, иако користиме функции од два нестандардни пакети во <code>R</code>: <code>readr</code> и <code>dplyr</code>. Ние не ги вчитавме овие пакети бидејќи беа закачени во проектот на којшто работевме претходно (сетете се дека не отворивме нов проект). Зошто претпоставуваме дека колегите ќе ги имаат овие пакети закачени во нивната работна средина? <strong>Проблем со кодот (рецептот) и со зависности (алатки)</strong>.</p></li>
+</ol>
+<p>И иако ова личи за тривијален пример, проблемите не се тривијални. Обидете се да екстраполирате кон сериозна анализа со 500 линии код и ќе видите дека е скоро невозможно да се следи процесот и повтори анализата без далеку поголема грижа околу рецептат.</p>
+<p>Горе се главните проблеми кои ја прават нашата кратка анализа не-повторлива Но има и уште неколку дополнителни забелешки:</p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Патеката <code>~/Downloads/trosoci-moja-firma.csv</code> е со голема веројатност надвор од работната папка за било кој од вработените. Веројатнио никој не работи во <code>Downloads</code>, туку во фолдер наменет за различни проекти.</p></li>
+<li><p>Дополнително, многу е често папки како <code>Downloads</code> да се бришат/празнат со цел да не чуваме застарени датотеки коишто повторно можеме да ги симнеме. Значи за една недела, дури ни ние самите можеби нема да можеме да ја повториме анализата бидејќи датотеката ќе биде избришана.</p></li>
+<li><p>На втората команда во нашиот код, ние ја користиме функцијата <code>summarise_at</code> којашто е едноставен начин да дадеме инструкција да се сумираат цените. Но, зависно од верзијата на <code>R</code> и <code>dplyr</code>, функцијата <code>summarise_at</code> можеби нема да биде достапна. Доколку вашиот колега користи многу стара верзија на <code>dplyr</code>, функцијата <code>summarise_at</code> нема да биде дел од тој пакет со таа верзија, додека со најновата верзија на <code>dplyr</code>, ќе добиеме предупредување за <code>summarise_at</code> дека наскоро ќе биде заменета со подобра алтернатива. Се разбира овие детали не се толку битни, но веројатно е очигледна поентата дека треба да укажеме која верзија од некој пакет сме ја користеле за да може да се повтори нашата анализа.</p></li>
+<li><p>Патеката која ја користиме за да ја зачуваме табелата е фиксна, што значи ако сакаме да ја повториме процедурата за некоја втора табела, при зачувување ќе ја замениме првата зачувана табела.</p></li>
+</ol>
+<p>Значи во навидно едноставна задача, што може да се заврши со три линии код, ние прекршивме неколку правила за безбедна пракса при анализирање на податоци. Во ова сценарио, дури ни оригиналниот автор на кодот не би можел да гарантира дека ќе може да ја повтори обработката на податоците во иднина.</p>
 </div>
-<div id="контрола-на-изворен-код-git" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Контрола на изворен код: <code>git</code></h2>
-<p>Контрола на изворниот код, најчесто со <code>git</code> (поглавје <a href="#git"><strong>??</strong></a>), е платформата што ни дава безбедност и слобода во секоја активност поврзана со програмски код, вклучително и при анализирање и ревизирање анализи на податоци. Во основа, <code>git</code> e систем за <code>undo</code>/<code>redo</code> на стероиди, што може да следи две или повеќе верзии на изворниот код (гранки), од два или повеќе компјутери, овозможува соработници од различни локации истовремено да праваt поправки и унапредувања без да си ги пребришуваат промените, и дозволува да се вратите на верзијата од пред два месеци без да ги изгубите меѓувремени промени. Во денешно време е невозможно да се замисли организација која зависи од програмски код за дел од своите фунцкии без употреба на <code>git</code> (или друг систем на контрола на изворен код). Стриктно гледано, <code>git</code> не е неопходен за правење повторливи анализи. Можно е да напишеме и споделиме скрипта која обработува некои податоците без да ги следиме промените на тој код. Но имајќи во предвид дека при обработка на податоци постојано се соочуваме со одлуки и ревизии, веројатно е ќе се најдеме на брег на река каде што ќе сакаме целиот товар да го спакуваме во водоотпорена вреќа пред да ја преминеме реката. <code>git</code> го овозможува токму тоа и скоро сигурно ќе го користите доколку работите на транспарентната анализа на податоци.</p>
-</div>
-<div id="виртуелни-контејнери-docker" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Виртуелни контејнери: <code>docker</code></h2>
-<p>Иако досега зборувавме дека, во принцип, повторливите анализи се полесни доколку зависат од помалку алатки и не зависат од работната маса, оваа цел може да стане тешко остварлива, особено имајќи во предвид големите количина на различни типови на податоци (big data) кои се користат во анализи или за предикција. Оттука треба да се запознаеме и со начини на кои можеме да ги пратиме не само нашите состојки (брашно, квасец), рецепта (напишани чекори, слики), и алатки (сукало, тарун) туку и самата соба во која ја правиме питата вклучително и дрвата што ја загреваат фурната како и самата фурна. За споделување од ваков тип ќе зборуваме за <code>docker</code> (поглавје <a href="#docker"><strong>??</strong></a>). <code>docker</code> е софтвер за креирање на виртуелен контејнер (пакет) кој покрај програмскиот код (<code>R</code> скрипти) и алатките (неопходни <code>R</code> пакети) може да вклучува и неопходна верзија на <code>Rstudio</code> и надворешни податоци. Ваков приод ни е потребен кога соработниците кои ќе сакаат да ја повторат нашата анализа користат друг оперативен систем, или не се активни корисници на <code>R</code> па ги немаат најновите верзии на зависностите, или едноставно кога сакаме да правиме што е можно помалку претпоставки за условите во кои нашата анализа ќе треба да биде повторена.</p>
-</div>
-<div id="резиме" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Резиме</h2>
-<p>Корисно е да ги табулираме овие алатки во споредба со компонентите кои ги воведовме претходно во поглавје <a href="intro.html#analogy">1.1</a>):</p>
-<table>
-<caption><span id="tab:unnamed-chunk-1">Table 2.1: </span>Компонентите на повторување на анализа со соодветните софтверски алатки.</caption>
-<thead>
-<tr class="header">
-<th align="left">Аналог</th>
-<th align="left">Компонента</th>
-<th align="left">Алатка</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Состојки</td>
-<td align="left">Податоци</td>
-<td align="left">csv, MySQL</td>
-</tr>
-<tr class="even">
-<td align="left">Рецепта</td>
-<td align="left">Изворен код</td>
-<td align="left">R, git</td>
-</tr>
-<tr class="odd">
-<td align="left">Алатки</td>
-<td align="left">Зависности на кодот</td>
-<td align="left">dplyr, ggplot2</td>
-</tr>
-<tr class="even">
-<td align="left">Кујна</td>
-<td align="left">Виртуелен контејнер</td>
-<td align="left">docker</td>
-</tr>
-</tbody>
-</table>
+<div id="indicators" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Типични пракси кои доведуваат до не-повторливи анализи</h2>
+<p>Корисно е да споменеме некои од главните пракси кои доведуваат до ситуации како примерот погоре. Доколку при анализа на податоци некој аспект од вашата средина наликува на некоја од овие забелешки, тогаш имајте предвид дека вашата анализа може да биде проблематична за повторување. Генерално, обидете се да ги идентификувате и корегирате ваквите проблеми што е можно порано, бидејќи никој од нас не сака да менува код од стотици линии или да заменува библиотека откако сме завршиле пола од работата.</p>
+<ul>
+<li><p>Податоците и кодот не се сместени во истиот директориум. На пример податоци во <code>C:/Data</code>, а код во <code>C:/Analizi</code>.</p></li>
+<li><p>Кодот користи апсолутни патеки за вчитување или зачувување на табели (на пример: <code>C:/Data/Мај2020/трошоци/</code>). Ваквите апсолутни патеки со голема сигурност не се портабилни.</p></li>
+<li><p>Код без документација (коментари кои типично почнуваат со #) или <code>README</code> фајл кој ќе укаже како, по кој редослед да се користат скриптите и кои податоци се користат во која скрипта или кој график.</p></li>
+<li><p>Код без повикани зависности (користени библиотеки) и без информација за верзиите на повиканите зависности.</p></li>
+<li><p>Објекти со податоци кои не се експлицитно вчитани со код (укажува на податоци кои се во нашата работна средина но веројатно <em>нема</em> да бидат достапни за други).</p></li>
+<li><p>Работиме на нешто што вклучува случајност (randomness) но немаме наместено зачеток за генераторот на рандом бројки (<code>set.seed</code> во <code>R</code>). Ова се случува секогаш кога делиме податоци на сетови за тренирање и тестирање во машинско учење на пример.</p></li>
+</ul>
+<p>Очекуваме дека оваа листа ќе расте како што овој текст напредува понатаму.</p>
 
 </div>
 </div>
@@ -272,8 +274,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="анализи-што-не-може-да-се-повторат.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tools.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conversion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
