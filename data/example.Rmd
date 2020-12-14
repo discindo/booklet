@@ -1,0 +1,32 @@
+---
+title: "Проба"
+author: "Душко долгоушко"
+date: "12/14/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+Ова е R Markdown документ
+
+Кога ќе го кликнете копчето **Knit** во `Rstudio`, 
+или извршите `rmarkdown::render()` во `R` конзола
+ќе се генерира документ што ја вклучува содржината
+и резултатит од интегрираниот R код. На пример:
+
+```{r cars}
+summary(cars)
+```
+
+## Вклучување графици
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Параметарот `echo = FALSE` го додадовме за да го _скриеме_
+прикажеме `R` кодот што го прави графикот

@@ -1,8 +1,14 @@
 ---
-title: "Препораки за репродуцибилно анализирање на податоци"
+title: "Препораки за повторливо анализирање на податоци"
 author: "Теофил Наков, Новица Наков"
 date: "`r Sys.Date()`"
 output: html_document
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib, pckg.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Прирачник за повторливо анализирање и објавување на податоци. Дискутираме теми, процедури, и алатки од `R` екосистемот кои олеснуваат обработка на податоци со најдобрите и најбезбедни пракси и кои овозможуваат повторување на анализите со минимален труд од страна на надворешен корисник."
 ---
 
 ```{r setup, include=FALSE}
