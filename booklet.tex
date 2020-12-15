@@ -5,13 +5,12 @@
 \documentclass[
 ]{book}
 \usepackage{lmodern}
-\usepackage{amsmath}
+\usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
-  \usepackage{amssymb}
 \else % if luatex or xetex
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
@@ -37,7 +36,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Препораки за репродуцибилно анализирање на податоци},
+  pdftitle={Препораки за повторливо анализирање на податоци},
   pdfauthor={Теофил Наков, Новица Наков},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -91,7 +90,7 @@
 % Allow footnotes in longtable head/foot
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
-\usepackage{graphicx}
+\usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -109,15 +108,12 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
-\ifluatex
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Препораки за репродуцибилно анализирање на податоци}
+\title{Препораки за повторливо анализирање на податоци}
 \author{Теофил Наков, Новица Наков}
-\date{2020-12-13}
+\date{2020-12-15}
 
 \begin{document}
 \maketitle
@@ -166,6 +162,13 @@
 ** NEEDS TO BE UPDATED BASED ON LATER CHAPTERS AND NEEDS TO LINK TO LATER CHAPTER**
 
 По воведот, прво ќе се запознаеме со софтверските алатки кои ќе ги користиме понатаму (Поглавје 2: Алатки), и ќе посочиме некои од најчестите случаи кога една анализа, дури и да имаме најдобри намери, може да биде ``неповторлива`` (Поглавје 3: Не-повторливи анализи). Понатаму ќе ги разгледаме главните начини на кои постоечки код за некоја анализа која е тешка да се повтори може да се конвертира во повторлива анализа (Поглавје 4: Конверзија во повторлив код и Поглавје 5: Повтрливи проекти) и за пишување на документи коишто ги покажуваат нашите размислувањз, претпоставки, хипотези, заедно со кодот што го користиме за нивно тестирање и резултатите од тие тестови (Поглавје 5: Повторливи документи / извештаи (Rmd)). За крај, ќе зборуваме за контола на изворниот код со \texttt{git} што ни дава слобода и безбедност за променување и подобрување (Поглавје 6: Контрола на изворниот код) и за случаевите кога дури и се околу нашата анализа да е повторливо, некој едноставно не може да ја повтори нашата анализа бидејќи нема пристап до алатките коишто ние ги користиме (Поглавје 7: Што ако вашиот колега има Mac, или друга верзија на \texttt{R}? Docker.). Текстот го затвораме со заклучок и литература со препорака во најмала рака да ги погледнете ресурсите дадени во библиографијата бидејќи содржат далеку подетални и ефективни третмани на темата на повторливо ракување, анализирање и објавување на податоци.
+
+\hypertarget{ux437ux430-ux43eux432ux43eux458-ux43fux440ux438ux440ux430ux447ux43dux438ux43a}{%
+\section{За овој прирачник}\label{ux437ux430-ux43eux432ux43eux458-ux43fux440ux438ux440ux430ux447ux43dux438ux43a}}
+
+Овој прирачник е изработен како дел од проектот „Отворени податоци за отворена иднина``, поддржан од програмата Цивика Мобилитас, а спроведен од Слободен софтвер Македонија.
+
+Содржината на овој прирачник е единствена одговорност на Слободен софтвер Македонија и на ниту еден начин не може да се смета дека ги одразува гледиштата на Цивика мобилитас, Швајцарската агенција за развој и соработка (SDC) или организациите што ја спроведуваат.
 
 \hypertarget{ux448ux442ux43e-ux431ux435ux448ux435-ux43fux43bux430ux43dux43eux442}{%
 \subsection{Што беше планот:}\label{ux448ux442ux43e-ux431ux435ux448ux435-ux43fux43bux430ux43dux43eux442}}
@@ -248,15 +251,15 @@ c9: Литература
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{trosoci }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"\textasciitilde{}/Downloads/trosoci{-}moja{-}firma.csv"}\NormalTok{)}
+\NormalTok{trosoci <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"~/Downloads/trosoci-moja-firma.csv"}\NormalTok{)}
 
-\NormalTok{trosoci\_sumirani }\OtherTok{\textless{}{-}}\NormalTok{ trosoci }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{group\_by}\NormalTok{(vraboten, tip\_na\_trosok) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{arrange}\NormalTok{(vraboten, tip\_na\_trosok)}
+\NormalTok{trosoci_sumirani <-}\StringTok{ }\NormalTok{trosoci }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(vraboten, tip_na_trosok) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(vraboten, tip_na_trosok)}
 
-\FunctionTok{write\_csv}\NormalTok{(trosoci\_sumirani, }
-          \AttributeTok{path =} \StringTok{"\textasciitilde{}/Download/trosoci{-}moja{-}firma{-}sumirani.csv"}\NormalTok{)}
+\KeywordTok{write_csv}\NormalTok{(trosoci_sumirani, }
+          \DataTypeTok{path =} \StringTok{"~/Download/trosoci-moja-firma-sumirani.csv"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -364,10 +367,10 @@ write_csv(trosoci_sumirani,
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{trosoci }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{group\_by}\NormalTok{(vraboten, tip\_na\_trosok) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{arrange}\NormalTok{(vraboten, tip\_na\_trosok)}
+\NormalTok{trosoci }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(vraboten, tip_na_trosok) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(vraboten, tip_na_trosok)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -409,21 +412,21 @@ write_csv(trosoci_sumirani,
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Вчитај ги ти пакетите кои се користат подолу }
-\FunctionTok{library}\NormalTok{(dplyr)}
-\FunctionTok{library}\NormalTok{(readr)}
+\CommentTok{# Вчитај ги ти пакетите кои се користат подолу }
+\KeywordTok{library}\NormalTok{(dplyr)}
+\KeywordTok{library}\NormalTok{(readr)}
 
-\CommentTok{\# Доколку не се достапни, инсталирај со:}
-\CommentTok{\# install.packages("dplyr")}
-\CommentTok{\# install.packages("readr")}
+\CommentTok{# Доколку не се достапни, инсталирај со:}
+\CommentTok{# install.packages("dplyr")}
+\CommentTok{# install.packages("readr")}
 
-\NormalTok{trosoci }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"data/trosoci{-}moja{-}firma.csv"}\NormalTok{)}
-\NormalTok{trosoci\_sumirani }\OtherTok{\textless{}{-}}\NormalTok{ trosoci }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{group\_by}\NormalTok{(vraboten, tip\_na\_trosok) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{)}\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{arrange}\NormalTok{(vraboten, tip\_na\_trosok)}
-\FunctionTok{write\_csv}\NormalTok{(trosoci\_sumirani, }
-          \AttributeTok{path =} \StringTok{"data/trosoci{-}moja{-}firma{-}sumirani.csv"}\NormalTok{)}
+\NormalTok{trosoci <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(}\StringTok{"data/trosoci-moja-firma.csv"}\NormalTok{)}
+\NormalTok{trosoci_sumirani <-}\StringTok{ }\NormalTok{trosoci }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(vraboten, tip_na_trosok) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{)}\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(vraboten, tip_na_trosok)}
+\KeywordTok{write_csv}\NormalTok{(trosoci_sumirani, }
+          \DataTypeTok{path =} \StringTok{"data/trosoci-moja-firma-sumirani.csv"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -431,40 +434,40 @@ write_csv(trosoci_sumirani,
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Вчитај ги ти пакетите кои се користат подолу }
-\FunctionTok{library}\NormalTok{(dplyr)}
-\FunctionTok{library}\NormalTok{(readr)}
+\CommentTok{# Вчитај ги ти пакетите кои се користат подолу }
+\KeywordTok{library}\NormalTok{(dplyr)}
+\KeywordTok{library}\NormalTok{(readr)}
 
-\CommentTok{\# Доколку не се достапни, инсталирај со:}
-\CommentTok{\# install.packages("dplyr")}
-\CommentTok{\# install.packages("readr")}
+\CommentTok{# Доколку не се достапни, инсталирај со:}
+\CommentTok{# install.packages("dplyr")}
+\CommentTok{# install.packages("readr")}
 
-\CommentTok{\# ВНИМАНИЕ:}
-\CommentTok{\# Скриптата нема да работи доколку не внесете валидни дестинации}
-\CommentTok{\# за фајлови за вчитување и зачувување}
-\NormalTok{pateka\_do\_input }\OtherTok{\textless{}{-}} \ConstantTok{NULL} \CommentTok{\# "data/trosoci{-}moja{-}firma.csv"}
-\NormalTok{pateka\_za\_output }\OtherTok{\textless{}{-}} \ConstantTok{NULL} \CommentTok{\# "data/trosoci{-}moja{-}firma{-}sumirani.csv"}
+\CommentTok{# ВНИМАНИЕ:}
+\CommentTok{# Скриптата нема да работи доколку не внесете валидни дестинации}
+\CommentTok{# за фајлови за вчитување и зачувување}
+\NormalTok{pateka_do_input <-}\StringTok{ }\OtherTok{NULL} \CommentTok{# "data/trosoci-moja-firma.csv"}
+\NormalTok{pateka_za_output <-}\StringTok{ }\OtherTok{NULL} \CommentTok{# "data/trosoci-moja-firma-sumirani.csv"}
 
-\CommentTok{\# На пример:}
-\CommentTok{\# pateka\_do\_input \textless{}{-} "\textasciitilde{}/Downloads/trosoci{-}moja{-}firma.csv" }
-\CommentTok{\# pateka\_do\_output \textless{}{-} "\textasciitilde{}/Downloads/trosoci{-}moja{-}firma{-}sumirani.csv" }
+\CommentTok{# На пример:}
+\CommentTok{# pateka_do_input <- "~/Downloads/trosoci-moja-firma.csv" }
+\CommentTok{# pateka_do_output <- "~/Downloads/trosoci-moja-firma-sumirani.csv" }
 
-\CommentTok{\# или:}
-\CommentTok{\# pateka\_do\_input \textless{}{-} "C:\textbackslash{}rabota\textbackslash{}podatoci\textbackslash{}trosoci\textbackslash{}trosoci{-}moja{-}firma.csv"}
-\CommentTok{\# pateka\_do\_output \textless{}{-} "C:\textbackslash{}rabota\textbackslash{}podatoci\textbackslash{}trosoci\textbackslash{}trosoci{-}moja{-}firma{-}sumirani.csv"}
+\CommentTok{# или:}
+\CommentTok{# pateka_do_input <- "C:\textbackslash{}rabota\textbackslash{}podatoci\textbackslash{}trosoci\textbackslash{}trosoci-moja-firma.csv"}
+\CommentTok{# pateka_do_output <- "C:\textbackslash{}rabota\textbackslash{}podatoci\textbackslash{}trosoci\textbackslash{}trosoci-moja-firma-sumirani.csv"}
 
-\CommentTok{\# Вчитај ги податоците}
-\NormalTok{trosoci }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(pateka\_do\_input)}
+\CommentTok{# Вчитај ги податоците}
+\NormalTok{trosoci <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(pateka_do_input)}
 
-\CommentTok{\# Групирај и пресметај суми}
-\NormalTok{trosoci\_sumirani }\OtherTok{\textless{}{-}}\NormalTok{ trosoci }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{group\_by}\NormalTok{(vraboten, tip\_na\_trosok) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{arrange}\NormalTok{(vraboten, tip\_na\_trosok)}
+\CommentTok{# Групирај и пресметај суми}
+\NormalTok{trosoci_sumirani <-}\StringTok{ }\NormalTok{trosoci }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(vraboten, tip_na_trosok) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(vraboten, tip_na_trosok)}
 
-\CommentTok{\# Зачувај}
-\FunctionTok{write\_csv}\NormalTok{(trosoci\_sumirani, }
-          \AttributeTok{path =}\NormalTok{ pateka\_za\_output)}
+\CommentTok{# Зачувај}
+\KeywordTok{write_csv}\NormalTok{(trosoci_sumirani, }
+          \DataTypeTok{path =}\NormalTok{ pateka_za_output)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -475,20 +478,20 @@ write_csv(trosoci_sumirani,
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{sumiraj\_trosoci }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(trosoci, destinacija) \{}
+\NormalTok{sumiraj_trosoci <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(trosoci, destinacija) \{}
   
-  \CommentTok{\# Вчитај ги податоците}
-\NormalTok{  trosoci }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(trosoci)}
+  \CommentTok{# Вчитај ги податоците}
+\NormalTok{  trosoci <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(trosoci)}
   
-  \CommentTok{\# Групирај и пресметај суми}
-\NormalTok{  trosoci\_sumirani }\OtherTok{\textless{}{-}}\NormalTok{ trosoci }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(vraboten, tip\_na\_trosok) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{arrange}\NormalTok{(vraboten, tip\_na\_trosok)}
+  \CommentTok{# Групирај и пресметај суми}
+\NormalTok{  trosoci_sumirani <-}\StringTok{ }\NormalTok{trosoci }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{group_by}\NormalTok{(vraboten, tip_na_trosok) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{summarise_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(vraboten, tip_na_trosok)}
   
-  \CommentTok{\# Зачувај}
-  \FunctionTok{write\_csv}\NormalTok{(trosoci\_sumirani,}
-            \AttributeTok{path =}\NormalTok{ destinacija)}
+  \CommentTok{# Зачувај}
+  \KeywordTok{write_csv}\NormalTok{(trosoci_sumirani,}
+            \DataTypeTok{path =}\NormalTok{ destinacija)}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -497,28 +500,28 @@ write_csv(trosoci_sumirani,
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Функција за групирање и сумирање трошоци}
-\CommentTok{\# Аргументот \textasciigrave{}trosoci\textasciigrave{} е патека до табелата што треба да се трансформира}
+\CommentTok{# Функција за групирање и сумирање трошоци}
+\CommentTok{# Аргументот `trosoci` е патека до табелата што треба да се трансформира}
 
-\NormalTok{sumiraj\_trosoci }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(trosoci\_tabela) \{}
+\NormalTok{sumiraj_trosoci <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(trosoci_tabela) \{}
   
-  \CommentTok{\# Вчитај ги податоците}
-\NormalTok{  trosoci }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(trosoci\_tabela)}
+  \CommentTok{# Вчитај ги податоците}
+\NormalTok{  trosoci <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(trosoci_tabela)}
   
-  \CommentTok{\# Групирај и пресметај суми}
-\NormalTok{  trosoci\_sumirani }\OtherTok{\textless{}{-}}\NormalTok{ trosoci }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(vraboten, tip\_na\_trosok) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{arrange}\NormalTok{(vraboten, tip\_na\_trosok)}
+  \CommentTok{# Групирај и пресметај суми}
+\NormalTok{  trosoci_sumirani <-}\StringTok{ }\NormalTok{trosoci }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{group_by}\NormalTok{(vraboten, tip_na_trosok) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{summarise_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(vraboten, tip_na_trosok)}
   
-  \CommentTok{\# Направи патека за дестинација}
-\NormalTok{  folder\_name }\OtherTok{\textless{}{-}} \FunctionTok{dirname}\NormalTok{(trosoci\_tabela)}
-\NormalTok{  base\_name }\OtherTok{\textless{}{-}}\NormalTok{ tools}\SpecialCharTok{::}\FunctionTok{file\_path\_sans\_ext}\NormalTok{(}\FunctionTok{basename}\NormalTok{(trosoci\_tabela))}
-\NormalTok{  new\_name }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(base\_name, }\StringTok{"sumirani.csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"{-}"}\NormalTok{)}
-\NormalTok{  destinacija }\OtherTok{\textless{}{-}} \FunctionTok{file.path}\NormalTok{(folder\_name, new\_name)}
+  \CommentTok{# Направи патека за дестинација}
+\NormalTok{  folder_name <-}\StringTok{ }\KeywordTok{dirname}\NormalTok{(trosoci_tabela)}
+\NormalTok{  base_name <-}\StringTok{ }\NormalTok{tools}\OperatorTok{::}\KeywordTok{file_path_sans_ext}\NormalTok{(}\KeywordTok{basename}\NormalTok{(trosoci_tabela))}
+\NormalTok{  new_name <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(base_name, }\StringTok{"sumirani.csv"}\NormalTok{, }\DataTypeTok{sep=}\StringTok{"-"}\NormalTok{)}
+\NormalTok{  destinacija <-}\StringTok{ }\KeywordTok{file.path}\NormalTok{(folder_name, new_name)}
   
-  \CommentTok{\# Зачувај}
-  \FunctionTok{write\_csv}\NormalTok{(trosoci\_sumirani, }\AttributeTok{path =}\NormalTok{ destinacija)}
+  \CommentTok{# Зачувај}
+  \KeywordTok{write_csv}\NormalTok{(trosoci_sumirani, }\DataTypeTok{path =}\NormalTok{ destinacija)}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -527,39 +530,39 @@ write_csv(trosoci_sumirani,
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Употреба:}
-\CommentTok{\# Вчитај ја оваа скипта во R за да ја користиш функцијата \textasciigrave{}sumiraj\_trosoci\textasciigrave{}  }
+\CommentTok{# Употреба:}
+\CommentTok{# Вчитај ја оваа скипта во R за да ја користиш функцијата `sumiraj_trosoci`  }
 
-\CommentTok{\# Вчитај ги ти пакетите кои се користат подолу }
-\FunctionTok{library}\NormalTok{(dplyr)}
-\FunctionTok{library}\NormalTok{(readr)}
+\CommentTok{# Вчитај ги ти пакетите кои се користат подолу }
+\KeywordTok{library}\NormalTok{(dplyr)}
+\KeywordTok{library}\NormalTok{(readr)}
 
-\CommentTok{\# Доколку не се достапни, инсталирај со:}
-\CommentTok{\# install.packages("dplyr")}
-\CommentTok{\# install.packages("readr")}
+\CommentTok{# Доколку не се достапни, инсталирај со:}
+\CommentTok{# install.packages("dplyr")}
+\CommentTok{# install.packages("readr")}
 
-\CommentTok{\# Функција за групирање и сумирање трошоци}
-\CommentTok{\# Аргументот \textasciigrave{}trosoci\textasciigrave{} е патека до табелата што треба да се трансформира}
+\CommentTok{# Функција за групирање и сумирање трошоци}
+\CommentTok{# Аргументот `trosoci` е патека до табелата што треба да се трансформира}
 
-\NormalTok{sumiraj\_trosoci }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(trosoci\_tabela) \{}
+\NormalTok{sumiraj_trosoci <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(trosoci_tabela) \{}
   
-  \CommentTok{\# Вчитај ги податоците}
-\NormalTok{  trosoci }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(trosoci\_tabela)}
+  \CommentTok{# Вчитај ги податоците}
+\NormalTok{  trosoci <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(trosoci_tabela)}
   
-  \CommentTok{\# Групирај и пресметај суми}
-\NormalTok{  trosoci\_sumirani }\OtherTok{\textless{}{-}}\NormalTok{ trosoci }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(vraboten, tip\_na\_trosok) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{arrange}\NormalTok{(vraboten, tip\_na\_trosok)}
+  \CommentTok{# Групирај и пресметај суми}
+\NormalTok{  trosoci_sumirani <-}\StringTok{ }\NormalTok{trosoci }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{group_by}\NormalTok{(vraboten, tip_na_trosok) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{summarise_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(vraboten, tip_na_trosok)}
   
-  \CommentTok{\# Направи патека за дестинација}
-\NormalTok{  folder\_name }\OtherTok{\textless{}{-}} \FunctionTok{dirname}\NormalTok{(trosoci\_tabela)}
-\NormalTok{  base\_name }\OtherTok{\textless{}{-}}\NormalTok{ tools}\SpecialCharTok{::}\FunctionTok{file\_path\_sans\_ext}\NormalTok{(}\FunctionTok{basename}\NormalTok{(trosoci\_tabela))}
-\NormalTok{  new\_name }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(base\_name, }\StringTok{"sumirani.csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"{-}"}\NormalTok{)}
-\NormalTok{  destinacija }\OtherTok{\textless{}{-}} \FunctionTok{file.path}\NormalTok{(folder\_name, new\_name)}
+  \CommentTok{# Направи патека за дестинација}
+\NormalTok{  folder_name <-}\StringTok{ }\KeywordTok{dirname}\NormalTok{(trosoci_tabela)}
+\NormalTok{  base_name <-}\StringTok{ }\NormalTok{tools}\OperatorTok{::}\KeywordTok{file_path_sans_ext}\NormalTok{(}\KeywordTok{basename}\NormalTok{(trosoci_tabela))}
+\NormalTok{  new_name <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(base_name, }\StringTok{"sumirani.csv"}\NormalTok{, }\DataTypeTok{sep=}\StringTok{"-"}\NormalTok{)}
+\NormalTok{  destinacija <-}\StringTok{ }\KeywordTok{file.path}\NormalTok{(folder_name, new_name)}
   
-  \CommentTok{\# Зачувај}
-  \FunctionTok{write\_csv}\NormalTok{(trosoci\_sumirani, }\AttributeTok{path =}\NormalTok{ destinacija)}
+  \CommentTok{# Зачувај}
+  \KeywordTok{write_csv}\NormalTok{(trosoci_sumirani, }\DataTypeTok{path =}\NormalTok{ destinacija)}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
@@ -576,7 +579,7 @@ TODO:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ExtensionTok{Rscript}\NormalTok{ sumiraj\_trosoci.R trosoci\_dekemvri\_2020.csv}
+\ExtensionTok{Rscript}\NormalTok{ sumiraj_trosoci.R trosoci_dekemvri_2020.csv}
 \end{Highlighting}
 \end{Shaded}
 
@@ -584,48 +587,48 @@ TODO:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# (data/sumiraj{-}trosoci{-}1.R)}
+\CommentTok{# (data/sumiraj-trosoci-1.R)}
 
-\CommentTok{\# Употреба:}
-\CommentTok{\# Вчитај ја оваа скипта во R за да ја користиш функцијата \textasciigrave{}sumiraj\_trosoci\textasciigrave{}  }
+\CommentTok{# Употреба:}
+\CommentTok{# Вчитај ја оваа скипта во R за да ја користиш функцијата `sumiraj_trosoci`  }
 
-\CommentTok{\# Закачи ги ти пакетите кои се користат подолу }
-\FunctionTok{library}\NormalTok{(dplyr)}
-\FunctionTok{library}\NormalTok{(readr)}
+\CommentTok{# Закачи ги ти пакетите кои се користат подолу }
+\KeywordTok{library}\NormalTok{(dplyr)}
+\KeywordTok{library}\NormalTok{(readr)}
 
-\CommentTok{\# Доколку не се достапни, инсталирај со:}
-\CommentTok{\# install.packages("dplyr")}
-\CommentTok{\# install.packages("readr")}
+\CommentTok{# Доколку не се достапни, инсталирај со:}
+\CommentTok{# install.packages("dplyr")}
+\CommentTok{# install.packages("readr")}
 
-\CommentTok{\# Функција за групирање и сумирање трошоци}
-\CommentTok{\# Аргументот \textasciigrave{}trosoci\textasciigrave{} е патека до табелата што треба да се трансформира}
+\CommentTok{# Функција за групирање и сумирање трошоци}
+\CommentTok{# Аргументот `trosoci` е патека до табелата што треба да се трансформира}
 
-\NormalTok{sumiraj\_trosoci }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(trosoci\_tabela) \{}
+\NormalTok{sumiraj_trosoci <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(trosoci_tabela) \{}
   
-  \CommentTok{\# Вчитај ги податоците}
-\NormalTok{  trosoci }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(trosoci\_tabela)}
+  \CommentTok{# Вчитај ги податоците}
+\NormalTok{  trosoci <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(trosoci_tabela)}
   
-  \CommentTok{\# Групирај и пресметај суми}
-\NormalTok{  trosoci\_sumirani }\OtherTok{\textless{}{-}}\NormalTok{ trosoci }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(vraboten, tip\_na\_trosok) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{arrange}\NormalTok{(vraboten, tip\_na\_trosok)}
+  \CommentTok{# Групирај и пресметај суми}
+\NormalTok{  trosoci_sumirani <-}\StringTok{ }\NormalTok{trosoci }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{group_by}\NormalTok{(vraboten, tip_na_trosok) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{summarise_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(vraboten, tip_na_trosok)}
   
-  \CommentTok{\# Направи патека за дестинација}
-\NormalTok{  folder\_name }\OtherTok{\textless{}{-}} \FunctionTok{dirname}\NormalTok{(trosoci\_tabela)}
-\NormalTok{  base\_name }\OtherTok{\textless{}{-}}\NormalTok{ tools}\SpecialCharTok{::}\FunctionTok{file\_path\_sans\_ext}\NormalTok{(}\FunctionTok{basename}\NormalTok{(trosoci\_tabela))}
-\NormalTok{  new\_name }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(base\_name, }\StringTok{"sumirani.csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"{-}"}\NormalTok{)}
-\NormalTok{  destinacija }\OtherTok{\textless{}{-}} \FunctionTok{file.path}\NormalTok{(folder\_name, new\_name)}
+  \CommentTok{# Направи патека за дестинација}
+\NormalTok{  folder_name <-}\StringTok{ }\KeywordTok{dirname}\NormalTok{(trosoci_tabela)}
+\NormalTok{  base_name <-}\StringTok{ }\NormalTok{tools}\OperatorTok{::}\KeywordTok{file_path_sans_ext}\NormalTok{(}\KeywordTok{basename}\NormalTok{(trosoci_tabela))}
+\NormalTok{  new_name <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(base_name, }\StringTok{"sumirani.csv"}\NormalTok{, }\DataTypeTok{sep=}\StringTok{"-"}\NormalTok{)}
+\NormalTok{  destinacija <-}\StringTok{ }\KeywordTok{file.path}\NormalTok{(folder_name, new_name)}
   
-  \CommentTok{\# Зачувај}
-  \FunctionTok{write\_csv}\NormalTok{(trosoci\_sumirani, }\AttributeTok{path =}\NormalTok{ destinacija)}
+  \CommentTok{# Зачувај}
+  \KeywordTok{write_csv}\NormalTok{(trosoci_sumirani, }\DataTypeTok{path =}\NormalTok{ destinacija)}
 \NormalTok{\}}
 
-\CommentTok{\# Земи го првиот аргумент}
-\NormalTok{dadeni\_trosoci }\OtherTok{\textless{}{-}} \FunctionTok{commandArgs}\NormalTok{(}\AttributeTok{trailingOnly=}\ConstantTok{TRUE}\NormalTok{)[[}\DecValTok{1}\NormalTok{]]}
+\CommentTok{# Земи го првиот аргумент}
+\NormalTok{dadeni_trosoci <-}\StringTok{ }\KeywordTok{commandArgs}\NormalTok{(}\DataTypeTok{trailingOnly=}\OtherTok{TRUE}\NormalTok{)[[}\DecValTok{1}\NormalTok{]]}
 
-\CommentTok{\# Изврши ја функцијата}
-\FunctionTok{sumiraj\_trosoci}\NormalTok{(}\AttributeTok{trosoci =}\NormalTok{ dadeni\_trosoci)}
+\CommentTok{# Изврши ја функцијата}
+\KeywordTok{sumiraj_trosoci}\NormalTok{(}\DataTypeTok{trosoci =}\NormalTok{ dadeni_trosoci)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -639,77 +642,77 @@ TODO:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# (data/sumiraj{-}trosoci{-}2.R)}
+\CommentTok{# (data/sumiraj-trosoci-2.R)}
 
-\StringTok{\textquotesingle{}Сумирај трошоци групирани по вработен и тип на трошок. }
-\StringTok{ Табелаta со трошоци мора да ги содржи колоните: \textasciigrave{}vraboten\textasciigrave{}, \textasciigrave{}tip\_na\_trosok\textasciigrave{}, и \textasciigrave{}cena\textasciigrave{}.}
+\StringTok{'Сумирај трошоци групирани по вработен и тип на трошок. }
+\StringTok{ Табелаta со трошоци мора да ги содржи колоните: `vraboten`, `tip_na_trosok`, и `cena`.}
 \StringTok{ }
 \StringTok{ Usage:}
-\StringTok{    sumiraj{-}trosoci{-}2.R \textless{}tabela\_so\_trosoci\textgreater{}}
-\StringTok{    sumiraj{-}trosoci{-}2.R {-}{-}help}
-\StringTok{    sumiraj{-}trosoci{-}2.R {-}{-}version}
+\StringTok{    sumiraj-trosoci-2.R <tabela_so_trosoci>}
+\StringTok{    sumiraj-trosoci-2.R --help}
+\StringTok{    sumiraj-trosoci-2.R --version}
 
 \StringTok{ Options:}
-\StringTok{    {-}{-}help      Прикажи помош}
-\StringTok{    {-}{-}version   Прикажи верзија}
+\StringTok{    --help      Прикажи помош}
+\StringTok{    --version   Прикажи верзија}
 \StringTok{    }
-\StringTok{\textquotesingle{}} \OtherTok{{-}\textgreater{}}\NormalTok{ doc}
+\StringTok{'}\NormalTok{ ->}\StringTok{ }\NormalTok{doc}
 
-\CommentTok{\# Логика за аргументи}
-\FunctionTok{library}\NormalTok{(docopt)}
-\NormalTok{arguments }\OtherTok{\textless{}{-}} \FunctionTok{docopt}\NormalTok{(doc, }\AttributeTok{version =} \StringTok{"Сумирај трошоци 2.0}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\CommentTok{# Логика за аргументи}
+\KeywordTok{library}\NormalTok{(docopt)}
+\NormalTok{arguments <-}\StringTok{ }\KeywordTok{docopt}\NormalTok{(doc, }\DataTypeTok{version =} \StringTok{"Сумирај трошоци 2.0}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
 
-\CommentTok{\# Провери дали табелата е csv формат}
-\NormalTok{assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(}
-\NormalTok{  assertthat}\SpecialCharTok{::}\FunctionTok{has\_extension}\NormalTok{(arguments}\SpecialCharTok{$}\NormalTok{tabela\_so\_trosoci, }\AttributeTok{ext =} \StringTok{"csv"}\NormalTok{))}
+\CommentTok{# Провери дали табелата е csv формат}
+\NormalTok{assertthat}\OperatorTok{::}\KeywordTok{assert_that}\NormalTok{(}
+\NormalTok{  assertthat}\OperatorTok{::}\KeywordTok{has_extension}\NormalTok{(arguments}\OperatorTok{$}\NormalTok{tabela_so_trosoci, }\DataTypeTok{ext =} \StringTok{"csv"}\NormalTok{))}
 
-\CommentTok{\# Вчитај ги ти пакетите кои се користат подолу}
-\FunctionTok{suppressPackageStartupMessages}\NormalTok{(\{}
-  \FunctionTok{library}\NormalTok{(dplyr)}
-  \FunctionTok{library}\NormalTok{(readr)}
-  \FunctionTok{library}\NormalTok{(assertthat)}
+\CommentTok{# Вчитај ги ти пакетите кои се користат подолу}
+\KeywordTok{suppressPackageStartupMessages}\NormalTok{(\{}
+  \KeywordTok{library}\NormalTok{(dplyr)}
+  \KeywordTok{library}\NormalTok{(readr)}
+  \KeywordTok{library}\NormalTok{(assertthat)}
 \NormalTok{\})}
 
-\CommentTok{\# Доколку не се достапни, инсталирај со:}
-\CommentTok{\# install.packages("dplyr")}
-\CommentTok{\# install.packages("readr")}
-\CommentTok{\# install.packages(assertthat)}
+\CommentTok{# Доколку не се достапни, инсталирај со:}
+\CommentTok{# install.packages("dplyr")}
+\CommentTok{# install.packages("readr")}
+\CommentTok{# install.packages(assertthat)}
 
-\CommentTok{\# Функција за групирање и сумирање трошоци}
-\CommentTok{\# Аргументот \textasciigrave{}trosoci\_tabela\textasciigrave{} е патека до табелата што треба да се трансформира}
+\CommentTok{# Функција за групирање и сумирање трошоци}
+\CommentTok{# Аргументот `trosoci_tabela` е патека до табелата што треба да се трансформира}
 
-\NormalTok{sumiraj\_trosoci }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(trosoci\_tabela) \{}
+\NormalTok{sumiraj_trosoci <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(trosoci_tabela) \{}
 
-  \CommentTok{\# Вчитај ги податоците}
-\NormalTok{  trosoci }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(trosoci\_tabela)}
+  \CommentTok{# Вчитај ги податоците}
+\NormalTok{  trosoci <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(trosoci_tabela)}
   
-\NormalTok{  assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(}\FunctionTok{inherits}\NormalTok{(trosoci, }\StringTok{"data.frame"}\NormalTok{), }\AttributeTok{msg =} \StringTok{"Табелата не беше вчитана како \textasciigrave{}data.frame\textasciigrave{}."}\NormalTok{)}
-\NormalTok{  assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(}\FunctionTok{all}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"vraboten"}\NormalTok{, }\StringTok{"tip\_na\_trosok"}\NormalTok{, }\StringTok{"cena"}\NormalTok{) }\SpecialCharTok{\%in\%} \FunctionTok{names}\NormalTok{(trosoci)), }
-                          \AttributeTok{msg =} \StringTok{"Табелата мора да содржи колони со имињата: \textquotesingle{}vraboten\textquotesingle{}, \textquotesingle{}tip\_na\_trosok\textquotesingle{}, \textquotesingle{}cena\textquotesingle{}."}\NormalTok{)}
-\NormalTok{  assertthat}\SpecialCharTok{::}\FunctionTok{assert\_that}\NormalTok{(}\FunctionTok{is.numeric}\NormalTok{(trosoci}\SpecialCharTok{$}\NormalTok{cena), }\AttributeTok{msg =} \StringTok{"Колоната \textasciigrave{}cena\textasciigrave{} мора да биде нумеричка."}\NormalTok{)}
+\NormalTok{  assertthat}\OperatorTok{::}\KeywordTok{assert_that}\NormalTok{(}\KeywordTok{inherits}\NormalTok{(trosoci, }\StringTok{"data.frame"}\NormalTok{), }\DataTypeTok{msg =} \StringTok{"Табелата не беше вчитана како `data.frame`."}\NormalTok{)}
+\NormalTok{  assertthat}\OperatorTok{::}\KeywordTok{assert_that}\NormalTok{(}\KeywordTok{all}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"vraboten"}\NormalTok{, }\StringTok{"tip_na_trosok"}\NormalTok{, }\StringTok{"cena"}\NormalTok{) }\OperatorTok{%in%}\StringTok{ }\KeywordTok{names}\NormalTok{(trosoci)), }
+                          \DataTypeTok{msg =} \StringTok{"Табелата мора да содржи колони со имињата: 'vraboten', 'tip_na_trosok', 'cena'."}\NormalTok{)}
+\NormalTok{  assertthat}\OperatorTok{::}\KeywordTok{assert_that}\NormalTok{(}\KeywordTok{is.numeric}\NormalTok{(trosoci}\OperatorTok{$}\NormalTok{cena), }\DataTypeTok{msg =} \StringTok{"Колоната `cena` мора да биде нумеричка."}\NormalTok{)}
   
   
-  \CommentTok{\# Групирај и пресметај суми}
-\NormalTok{  trosoci\_sumirani }\OtherTok{\textless{}{-}}\NormalTok{ trosoci }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{group\_by}\NormalTok{(vraboten, tip\_na\_trosok) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{summarise\_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{arrange}\NormalTok{(vraboten, tip\_na\_trosok)}
+  \CommentTok{# Групирај и пресметај суми}
+\NormalTok{  trosoci_sumirani <-}\StringTok{ }\NormalTok{trosoci }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{group_by}\NormalTok{(vraboten, tip_na_trosok) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{summarise_at}\NormalTok{(}\StringTok{"cena"}\NormalTok{, }\StringTok{"sum"}\NormalTok{) }\OperatorTok{%>%}
+\StringTok{    }\KeywordTok{arrange}\NormalTok{(vraboten, tip_na_trosok)}
 
-  \CommentTok{\# Направи патека за дестинација}
-\NormalTok{  folder\_name }\OtherTok{\textless{}{-}} \FunctionTok{dirname}\NormalTok{(trosoci\_tabela)}
-\NormalTok{  base\_name }\OtherTok{\textless{}{-}}\NormalTok{ tools}\SpecialCharTok{::}\FunctionTok{file\_path\_sans\_ext}\NormalTok{(}\FunctionTok{basename}\NormalTok{(trosoci\_tabela))}
-\NormalTok{  new\_name }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(base\_name, }\StringTok{"sumirani.csv"}\NormalTok{, }\AttributeTok{sep=}\StringTok{"{-}"}\NormalTok{)}
-\NormalTok{  destinacija }\OtherTok{\textless{}{-}} \FunctionTok{file.path}\NormalTok{(folder\_name, new\_name)}
+  \CommentTok{# Направи патека за дестинација}
+\NormalTok{  folder_name <-}\StringTok{ }\KeywordTok{dirname}\NormalTok{(trosoci_tabela)}
+\NormalTok{  base_name <-}\StringTok{ }\NormalTok{tools}\OperatorTok{::}\KeywordTok{file_path_sans_ext}\NormalTok{(}\KeywordTok{basename}\NormalTok{(trosoci_tabela))}
+\NormalTok{  new_name <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(base_name, }\StringTok{"sumirani.csv"}\NormalTok{, }\DataTypeTok{sep=}\StringTok{"-"}\NormalTok{)}
+\NormalTok{  destinacija <-}\StringTok{ }\KeywordTok{file.path}\NormalTok{(folder_name, new_name)}
 
-  \CommentTok{\# Зачувај}
-  \FunctionTok{write\_csv}\NormalTok{(trosoci\_sumirani, }\AttributeTok{path =}\NormalTok{ destinacija)}
+  \CommentTok{# Зачувај}
+  \KeywordTok{write_csv}\NormalTok{(trosoci_sumirani, }\DataTypeTok{path =}\NormalTok{ destinacija)}
 \NormalTok{\}}
 
-\CommentTok{\# Земи го првиот аргумент (табелата)}
-\NormalTok{dadeni\_trosoci }\OtherTok{\textless{}{-}}\NormalTok{ arguments}\SpecialCharTok{$}\NormalTok{tabela\_so\_trosoci}
+\CommentTok{# Земи го првиот аргумент (табелата)}
+\NormalTok{dadeni_trosoci <-}\StringTok{ }\NormalTok{arguments}\OperatorTok{$}\NormalTok{tabela_so_trosoci}
 
-\CommentTok{\# Изврши ја функцијата}
-\FunctionTok{sumiraj\_trosoci}\NormalTok{(}\AttributeTok{trosoci =}\NormalTok{ dadeni\_trosoci)}
+\CommentTok{# Изврши ја функцијата}
+\KeywordTok{sumiraj_trosoci}\NormalTok{(}\DataTypeTok{trosoci =}\NormalTok{ dadeni_trosoci)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -717,12 +720,12 @@ TODO:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{$ }\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R }
+\NormalTok{$ }\ExtensionTok{Rscript}\NormalTok{ sumiraj-trosoci-2.R }
 \ExtensionTok{Error}\NormalTok{: Сумирај трошоци групирани по вработен и тип на трошок. }
- \ExtensionTok{Табелаta}\NormalTok{ со трошоци мора да ги содржи колоните: }\KeywordTok{\textasciigrave{}}\ExtensionTok{vraboten}\KeywordTok{\textasciigrave{}}\NormalTok{, }\KeywordTok{\textasciigrave{}}\ExtensionTok{tip\_na\_trosok}\KeywordTok{\textasciigrave{}}\NormalTok{, и }\KeywordTok{\textasciigrave{}}\ExtensionTok{cena}\KeywordTok{\textasciigrave{}}\NormalTok{.}
+\NormalTok{ Табела}\ExtensionTok{ta}\NormalTok{ со трошоци мора да ги содржи колоните: }\KeywordTok{`}\ExtensionTok{vraboten}\KeywordTok{`}\NormalTok{, }\KeywordTok{`}\ExtensionTok{tip_na_trosok}\KeywordTok{`}\NormalTok{, и }\KeywordTok{`}\ExtensionTok{cena}\KeywordTok{`}\NormalTok{.}
  
  \ExtensionTok{Usage}\NormalTok{:}
-    \ExtensionTok{sumiraj{-}trosoci{-}2.R} \OperatorTok{\textless{}}\NormalTok{tabela\_so\_trosoci}\OperatorTok{\textgreater{}}
+    \ExtensionTok{sumiraj-trosoci-2.R} \OperatorTok{<}\NormalTok{tabela_so_trosoci}\OperatorTok{>}
     
 \ExtensionTok{Execution}\NormalTok{ halted}
 \end{Highlighting}
@@ -732,13 +735,13 @@ TODO:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{$ }\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R trosoci{-}moja{-}firma.csv }
+\NormalTok{$ }\ExtensionTok{Rscript}\NormalTok{ sumiraj-trosoci-2.R trosoci-moja-firma.csv }
 \NormalTok{[}\ExtensionTok{1}\NormalTok{] TRUE}
 \ExtensionTok{Parsed}\NormalTok{ with column specification:}
 \ExtensionTok{cols}\NormalTok{(}
-  \ExtensionTok{vraboten}\NormalTok{ = col\_character(),}
-  \ExtensionTok{tip\_na\_trosok}\NormalTok{ = col\_character(),}
-  \ExtensionTok{cena}\NormalTok{ = col\_double()}
+  \ExtensionTok{vraboten}\NormalTok{ = col_character(),}
+  \ExtensionTok{tip_na_trosok}\NormalTok{ = col_character(),}
+  \ExtensionTok{cena}\NormalTok{ = col_double()}
 \NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -747,8 +750,8 @@ TODO:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R trosoci{-}moja{-}firma.xls }
-\ExtensionTok{Error}\NormalTok{: File }\StringTok{\textquotesingle{}trosoci{-}moja{-}firma.xls\textquotesingle{}}\NormalTok{ does not have extension csv}
+\ExtensionTok{Rscript}\NormalTok{ sumiraj-trosoci-2.R trosoci-moja-firma.xls }
+\ExtensionTok{Error}\NormalTok{: File }\StringTok{'trosoci-moja-firma.xls'}\NormalTok{ does not have extension csv}
 \ExtensionTok{Execution}\NormalTok{ halted}
 \end{Highlighting}
 \end{Shaded}
@@ -757,21 +760,21 @@ TODO:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ExtensionTok{Rscript}\NormalTok{ sumiraj{-}trosoci{-}2.R trosoci{-}moja{-}firma{-}eur.csv}
+\ExtensionTok{Rscript}\NormalTok{ sumiraj-trosoci-2.R trosoci-moja-firma-eur.csv}
 \NormalTok{[}\ExtensionTok{1}\NormalTok{] TRUE}
 \ExtensionTok{Parsed}\NormalTok{ with column specification:}
 \ExtensionTok{cols}\NormalTok{(}
-  \ExtensionTok{vraboten}\NormalTok{ = col\_character(),}
-  \ExtensionTok{tip\_na\_trosok}\NormalTok{ = col\_character(),}
-  \ExtensionTok{eur}\NormalTok{ = col\_double()}
+  \ExtensionTok{vraboten}\NormalTok{ = col_character(),}
+  \ExtensionTok{tip_na_trosok}\NormalTok{ = col_character(),}
+  \ExtensionTok{eur}\NormalTok{ = col_double()}
 \NormalTok{)}
-\ExtensionTok{Error}\NormalTok{: Табелата мора да содржи колони со имињата: }\StringTok{\textquotesingle{}vraboten\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}tip\_na\_trosok\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}cena\textquotesingle{}}\NormalTok{.}
+\ExtensionTok{Error}\NormalTok{: Табелата мора да содржи колони со имињата: }\StringTok{'vraboten'}\NormalTok{, }\StringTok{'tip_na_trosok'}\NormalTok{, }\StringTok{'cena'}\NormalTok{.}
 \ExtensionTok{Execution}\NormalTok{ halted}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{ux440ux435ux437ux438ux43cux435-1}{%
-\section{Резиме}\label{ux440ux435ux437ux438ux43cux435-1}}
+\hypertarget{ux440ux435ux437ux438ux43cux435}{%
+\section{Резиме}\label{ux440ux435ux437ux438ux43cux435}}
 
 Во ова поглавје видовме како нашите едноставни три линии код напишани набрзина можеме да ги претвориме во постабилна скрипта која веќе ги има следните карактеристики значајни за повторливост:
 
@@ -793,10 +796,184 @@ TODO:
 
 Независно, иако направиме голем напредок кон повторлива обработка на податоци, сѐ уште правиме некакви претпоставки за контекстот во кој скриптата ќе биде користена. На пример, претпоставуваме дека сите потенцијални корисници ќе имаат табелата со трошoци, дека сите корисници ќе имаат \texttt{R} и \texttt{Rscript} инсталирано за да можат да ја извршат скриптата, и дека сите корисници ќе ги имаат инсталирано библиотеките од кои зависи нашата скрипта. Во следните поглавја ќе разгледаме начини на кои може да составиме повторливи проекти кои вклучуваат многу скрипти и податоци и прават минимални претпоставки за средината во која некој ќе се обиде да ја повтори нашата анализа.
 
+\hypertarget{ux43fux43eux432ux442ux43eux440ux43bux438ux432ux438-ux434ux43eux43aux443ux43cux435ux43dux442ux438-ux438ux437ux432ux435ux448ux442ux430ux438-ux441ux43e-ux43fux438ux441ux43cux435ux43dux43e-ux43fux440ux43eux433ux440ux430ux43cux438ux440ux430ux45aux435-r-markdown-rmd}{%
+\chapter{Повторливи документи / извештаи со писмено програмирање (R + markdown) \{rmd\}}\label{ux43fux43eux432ux442ux43eux440ux43bux438ux432ux438-ux434ux43eux43aux443ux43cux435ux43dux442ux438-ux438ux437ux432ux435ux448ux442ux430ux438-ux441ux43e-ux43fux438ux441ux43cux435ux43dux43e-ux43fux440ux43eux433ux440ux430ux43cux438ux440ux430ux45aux435-r-markdown-rmd}}
+
+Во претходното поглавје, се запознавме со некои од главните методи за обезбедување на нашиот програмски код со цел да биде фунцкионален и на нечиј друг компјутер. Разгледавме ситуација со една скрипта и една табела со резултати, но доколку се запрашаме, сигурно ќе се согласиме дека речиси никогаш не е доволно да се испрати (или објави) само една табела или пресметка. Наспроти, често потребно е да се додаде текстуално објаснување или некаков друг контекст на податоците. Исто така, во многу случаи, нашите визуелизации во форма на табели или графици, или нашите статистички резултати (t-vrednosti, p-вредности, равенки за регресија), треба да ги прикажеме заедно со програмскиот код кој сме го напишале за да дојдеме то тие резултати.
+
+За едноставно комбинирање на код, податоци, резултати и текст во еден документ, светот на \texttt{R} се користи \texttt{Rmarkdown}. \texttt{Rmarkdown} овозможува комбинирање на сите елементи на едно истражување во документ погоден за понатамошно споделување. Патем, така е напишан и овој прирачник, кој исто така цели да биде повторлив.
+
+\hypertarget{ux444ux43eux440ux43cux430ux442ux438ux440ux430ux45aux435-ux43dux430-ux442ux435ux43aux441ux442-ux441ux43e-markdown}{%
+\section{Форматирање на текст со markdown}\label{ux444ux43eux440ux43cux430ux442ux438ux440ux430ux45aux435-ux43dux430-ux442ux435ux43aux441ux442-ux441ux43e-markdown}}
+
+Markdown, за разлика од \emph{markup} програмски јазици како \texttt{HTML} или \texttt{LaTeX} има за цел да го поедностави процесот на форматирање на текст. За детална референца на филозофијата и синтаксата на \texttt{markdown}, погледнете ги официјалните вебсајти нa \href{https://daringfireball.net/projects/markdown/syntax}{оригиналната спецификација} или поновата \href{https://commonmark.org/}{стандардизирана спецификација}. Во контекст на \texttt{R} и \texttt{Rstudio} погледнете го поглавјето за \href{https://r4ds.had.co.nz/r-markdown.html}{Rmarkdown во книгата R for Data Science} или \href{https://emilyriederer.netlify.app/post/rmarkdown-driven-development/}{овој блогпост} (и линковите таму) посветен на процесот на развивање на \texttt{R} код, или развивање на една анализа низ призмата на писмено програмирање со \texttt{Rmarkdown} („писмено`` го преведуваме од англиското `literal programming').
+
+Тука, накратко ќе ги споменеме најчестите компоненти. На пример, обичниот текст со мала декорација прикажан тука:
+
+\begin{verbatim}
+Оваа _реченица_ е напишана во **markdown** но не е процесирана за да се покаже синтаксата. 
+На [овој линк](https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html) или 
+[овој линк](https://rmarkdown.rstudio.com/authoring_quick_tour.html) можете да 
+прочитате повеќе за пишување `Rmarkdown`. 
+
+За директни калкулации во текстот, користите ja следната синтакса: `р 3.14 * 2`. 
+Kаде што првиот елемент на парчето (chunk) укажува како да го процесираме кодот што следи. 
+**За `R` користете `r`**. (Во ова не-процесирано парче, не користиме кирилично `р` токму со
+цел на тоа да ја покажеме синтакста без да го конвертираме кодот во пресметаната вредност)
+
+За прикажување математичка нотација, користете: $P = r^2 * \pi$
+\end{verbatim}
+
+по процесирањето ќе биде конвертиран во следниот параграф:
+
+\begin{quote}
+Оваа \emph{реченица} е напишана во \textbf{markdown} но не е процесирана за да се покаже синтаксата.
+На \href{https://kbroman.org/knitr_knutshell/pages/Rmarkdown.html}{овој линк} или
+\href{https://rmarkdown.rstudio.com/authoring_quick_tour.html}{овој линк} можете да
+прочитате повеќе за пишување \texttt{Rmarkdown}.
+\end{quote}
+
+\begin{quote}
+За директни калкулации во текстот, користите ja следната синтакса: 6.28.
+Kаде што првиот елемент на парчето (chunk) укажува како да го процесираме кодот што следи.
+\textbf{За \texttt{R} користете \texttt{r}}. (Во ова не-процесирано парче, ние користиме кирилично \texttt{р} токму со
+цел на тоа да ја покажеме синтакста без да го конвертираме кодот во пресметаната вредност.)
+\end{quote}
+
+\begin{quote}
+За прикажување математичка нотација, користете: \(P = r^2 * \pi\)
+\end{quote}
+
+Забележуваме дека е навистина еднотавно да се куца обичен текст кој во HTML, PDF, или Word документ ќе биде прикажан како задебелен, курзив, со линкови, итн.
+
+\hypertarget{ux43fux43bux435ux442ux435ux45aux435-ux43dux430-ux442ux435ux43aux441ux442-ux43aux43eux434-ux438-ux440ux435ux437ux443ux43bux442ux430ux442ux438-ux441ux43e-knitr}{%
+\section{\texorpdfstring{Плетење на текст, код, и резултати со \texttt{knitr}}{Плетење на текст, код, и резултати со knitr}}\label{ux43fux43bux435ux442ux435ux45aux435-ux43dux430-ux442ux435ux43aux441ux442-ux43aux43eux434-ux438-ux440ux435ux437ux443ux43bux442ux430ux442ux438-ux441ux43e-knitr}}
+
+Досега видовме како можеме лесно да маркираме обичен текст кој ќе биде процесиран во убаво форматиран документ. Она што ни недостасува е комбинирање (плетење) на ваквиот текстот со програмски код и резултатите од тој код. \texttt{Rmarkdown} го прави овој чекор супер едноставен. Се што е неопходно е да додадеме парче код кое почнува со нотацијата \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r\}} и завршува со нотацијата \texttt{\textasciigrave{}\textasciigrave{}\textasciigrave{}}. Тогаш \texttt{R} и пакетот \texttt{knitr} ќе се обидат да го интерпретираат и извршат сиот текст во ова парче како \texttt{R} код или коментари што почнуваат со \texttt{\#}. Доколку извршувањето на тој код резултира со табела или график, \texttt{knitr} ќе го прикаже тој елемент веднаш под извршениот код.
+
+Ова е далеку полесно со пример:
+
+\begin{figure}
+\centering
+\includegraphics{www/rmd.png}
+\caption{Пример за еден едноставен Rmd документ што прикажува текст, код, и резултати}
+\end{figure}
+
+Откако ќе го сплетеме овој документ, добиваме:
+
+\begin{figure}
+\centering
+\includegraphics{www/rmd-rendered.png}
+\caption{HTML документ креиран со плетењето на горниот Rmd код}
+\end{figure}
+
+Ова навистина само ја допира површината на тоа што е можно да се направи со алатките како \texttt{rmarkdown} и \texttt{knitr}. Имајќи во предвид дека крајните документи се \texttt{HTML}, \texttt{LaTex}, или \texttt{MS\ Word}, голем дел од богатсвото на можности на овие далеку поопширни \texttt{markup} системи ќе ви бидат достапни кога пишувате анализи во \texttt{Rmd}. Така да, ако сакате да вклучите лого од вашата организација, посебен фонт, специјално форматирње на маргини, пагинација, итн, сето тоа ќе можете тоа да го направите со стандардни медоти достапни во \texttt{HTML} или \texttt{LaTeX} (ЛИНКОВИ \citet{NOCI}??).
+
+\hypertarget{ux438ux437ux432ux435ux448ux442ux430ux438-ux441ux43e-ux43fux430ux440ux430ux43cux435ux442ux440ux438}{%
+\section{Извештаи со параметри}\label{ux438ux437ux432ux435ux448ux442ux430ux438-ux441ux43e-ux43fux430ux440ux430ux43cux435ux442ux440ux438}}
+
+Она што за нас е посебно корисно и интересно, е користењето на оваа платформа за писмено програмирање за пишување на \href{https://rmarkdown.rstudio.com/developer_parameterized_reports.html\%23parameter_types\%2F}{параметризирани извештаи}. Што значи ова? Па доколку имате некоj стандарден сет на анализи кои треба да ги повторите за сите градови во Македонија, можете да го извршите вашиот \texttt{Rmd} извештај со параметар за тоа кој град треба да биде обработен. Во самиот изворен код на извештајот, дефинирате \texttt{yaml} преамбула налик на следната
+
+\begin{verbatim}
+---
+title: Мој Извештај
+output: html_document
+params:
+  grad: Tetovo
+---
+\end{verbatim}
+
+Ова креира листа на параметри со името \texttt{params} која е достапна во \texttt{R} средината за време на извршувањето на документот, чијшто елементи може да ги употребите на следниот начин:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{params}\OperatorTok{$}\NormalTok{grad}
+\end{Highlighting}
+\end{Shaded}
+
+Доколку имаме некоја функција во нашиот извештај која се извршува пред правење на некој график за одреден град:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(dplyr)}
+\NormalTok{filtriraj_gradovi <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(podatoci, potreben_grad) \{}
+\NormalTok{  podatoci }\OperatorTok{%>%}\StringTok{ }\NormalTok{dplyr}\OperatorTok{::}\KeywordTok{filter}\NormalTok{(grad }\OperatorTok{==}\StringTok{ }\NormalTok{potreben_grad)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Тогаш можете параметарот даден во преамбулата да го искористите при повикувањето на фунцкијата, и сите натамошни резултати ќе бидат посветени на градот што сме го пратиле како параметар:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# претходен код и текст}
+\KeywordTok{filtriraj_gradovi}\NormalTok{(}\DataTypeTok{podatoci =}\NormalTok{ moi_podatoci, }\DataTypeTok{potreben_grad =}\NormalTok{ params}\OperatorTok{$}\NormalTok{grad)}
+\CommentTok{# натамошен код и текст}
+\end{Highlighting}
+\end{Shaded}
+
+За да ги направиме сите извештаи поврзо, во можеме да го повикуваме извршувањето во \texttt{R} конзола:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rmarkdown}\OperatorTok{::}\KeywordTok{render}\NormalTok{(}\DataTypeTok{input =} \StringTok{"mojizvestaj.Rmd"}\NormalTok{, }\DataTypeTok{params =} \KeywordTok{list}\NormalTok{(}\StringTok{"Tetovo"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Оттука, во \texttt{R} можеме дури и да напишеме \texttt{for} циклус со кој што ќе ги процесираме сите градови наеднаш и ќе генерираме посебен \texttt{HTML}, \texttt{PDF} или \texttt{MS\ Word} документ се секој град:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{gradovi <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Tetovo"}\NormalTok{, }\StringTok{"Gostivar"}\NormalTok{, }\StringTok{"Debar"}\NormalTok{, }\StringTok{"Berovo"}\NormalTok{, }\StringTok{"Dojran"}\NormalTok{) }\CommentTok{# ...}
+\ControlFlowTok{for}\NormalTok{ ( i }\ControlFlowTok{in}\NormalTok{ gradovi) \{}
+  \KeywordTok{message}\NormalTok{(}\StringTok{"Подготвувам извештај за: "}\NormalTok{, i)}
+\NormalTok{  rmarkdown}\OperatorTok{::}\KeywordTok{render}\NormalTok{(}\DataTypeTok{input =} \StringTok{"pateka/do/mojizvestaj.Rmd"}\NormalTok{, }\DataTypeTok{params =} \KeywordTok{list}\NormalTok{(i))}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Како оваа стратегија ја подобрува повторливоста на нашите анализи? Доколку немаме извештаи со параметри можеме да замислиме две стратегии. Првата, имаме еден главен \texttt{izvestaj.Rmd} којшто никогаш не го менуваме и правиме копии за секој град, така што набрзо нашата работна средина станува невозможна за менаџирање на долг рок:
+
+\begin{verbatim}
+izvestaj.Rmd
+tetovo-izvestaj.Rmd
+debar-izvestaj.Rmd
+skopje-izvestaj.Rmd
+skopje-izvestaj-juni.Rmd
+skopje-izvestaj-juni-specijalen-so-logo.Rmd
+kichevo-izvestaj-avgust-2019.Rmd
+kicevo-izvestaj-avgust.Rmd
+\end{verbatim}
+
+Втората, имаме еден \texttt{izvestaj.Rmd} којшто го менуваме директно и секогаш мора да го отвориме, промениме, и извршиме рачно. Така да кога ќе стигнат новите податоци следниот месец имаме 2-3 часа работа да го промениме градот во функцијата горе триесетина пати.
+
+Дури и да го имате потребното време за вакви активности, очигледно е дека со овие опции е далеку полесно да направите грешка отколку со извештајот со параметри, којшто го пишувате еднаш и можете да го користите секогаш кога ќе ви треба без да го менувате изворниот код. Доколку треба да се измени или подобри извештајот, тоа се прави со промена на само еден документ, не треба да се сетите дека \texttt{kopje-izvestaj-juni-specijalen-so-logo.Rmd} треба да се промени засебно бидејќи има нешто специфично.
+
+\hypertarget{ux441ux43bux435ux434ux43dux438-ux447ux435ux43aux43eux440ux438}{%
+\section{Следни чекори}\label{ux441ux43bux435ux434ux43dux438-ux447ux435ux43aux43eux440ux438}}
+
+Околината на \texttt{rmarkdown} и \texttt{knitr} е особено богата со алатки за посебни намени што навистина можат да придонесат кон поголема транспарентност, повторливост на вашите анализи и генерално кон поголема продуктивност во вашата работа. Подолу наведуваме само неколку од овие алатки:
+
+\begin{itemize}
+\tightlist
+\item
+  креирање презентации (на пример: тука, тука, тука)
+\item
+  креирање \emph{интерактивни} \texttt{Rmd} документи што користат \texttt{Shiny\ server} позадина (линк)
+\item
+  креирање стилизирани HTML документи со prettyprint (линк)
+\item
+  креирање на книги со bookdown (како овој текст)
+\item
+  креирање на едноставни \texttt{Rmarkdown} вебсајти со \texttt{rmarkdown::render\_site} (\url{https://rmarkdown.rstudio.com/lesson-13.html})
+\item
+  креирање на дашбоарди со \texttt{flexdashboard}
+\end{itemize}
+
 \hypertarget{ux43fux43eux432ux442ux43eux440ux43bux438ux432ux438-ux43fux440ux43eux435ux43aux442ux438}{%
 \chapter{Повторливи проекти}\label{ux43fux43eux432ux442ux43eux440ux43bux438ux432ux438-ux43fux440ux43eux435ux43aux442ux438}}
 
-Во претходното поглавје разгледавме како можеме нашиот едноставен код да го конвертираме во скрипта која ќе биде лесна за користење и до некоја мера издржлива во различни работни средини. Но како што напоменавме, сеуште правиме некои претпоставки за начинот на кој ќе биде користена скриптата и за ресурсите кои ќе им бидат достапни на корисниците. Една од овие претпоставки беше дека колегите кои ќе ја користат нашата скрипта ќе имаат адекватни табели за обработување. Ова е до некоја мера разумна претпоставка доколку скриптата се користи рамките на една организација, или доколку типот на табели кои ги обработува се доволно познати и распространети. Но ваквите случаи, иако значајни, претставуваат само дел инстанците кога треба да разговараме за повторливи анализи. Да разгледаме некои примери:
+Во претходните две поглавја разгледавме како можеме нашиот едноставен код да го конвертираме во скрипта која ќе биде лесна за користење и до некоја мера издржлива во различни работни средини (РЕФ 4) и како да составиме повторлив извештај со повеќе табели и графици со помош на \texttt{Rmd} (REF 5). Но како што напоменавме, сеуште правиме некои претпоставки за начинот на кој ќе биде користена скриптата и за ресурсите кои ќе им бидат достапни на корисниците. Една од овие претпоставки беше дека колегите кои ќе ја користат нашата скрипта ќе имаат адекватни табели за обработување. Ова е до некоја мера разумна претпоставка доколку скриптата се користи рамките на една организација, или доколку типот на табели кои ги обработува се доволно познати и распространети. Но ваквите случаи, иако значајни, претставуваат само дел инстанците кога треба да разговараме за повторливи анализи. Да разгледаме некои примери:
 
 Пример 1: Работите во невладина организација чијшто фунцкионирање зависи од надворешни грантови, како од македонски така и од странски извори. Се почесто, донорите поставуаат услови за активностите кои тие ги подджуваат, дека сите податоци кои вашата организација ги собира (преку анкети, истражувања, и контакти) како и сите анализи на тие податоци треба да се транспарентни и повторливи (РЕФ ????: Нели има некоја ЕУ регулатива за ова). Што во пракса значи дека со завршниот извештај за проектот во кој ги презентирате резултатите, вие ќе треба исто така да покажете јавна депозиција на податоците и изворниот код користен да се добиат презентираните резултати. Со други зборови, пред вас е задача за повторлива анализа, слично на она што го видовме погоре, но со далеку повеќе код, скрипти, и податоци. Критичната разлика е во контекстот. Ако претходно претпоставуваме дека корисниците на нашиот повторлив код ќе имаат пристап до податоците, сега кога треба да ги споделиме податоците \emph{надвор} од нашата организација, таа претпоставка веќе не важи. Значи ни треба начин да го споделиме нашиот програмски код заедно со податоците кои ги обработуваме, инаку никој надвор од нашата организација нема да може да ја повтори анализата.
 
@@ -961,12 +1138,12 @@ strategija_2/
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(devtools)}
-\FunctionTok{library}\NormalTok{(usethis)}
-\NormalTok{devtoos}\SpecialCharTok{::}\FunctionTok{create}\NormalTok{(}\AttributeTok{path =} \StringTok{"mojpaket"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(devtools)}
+\KeywordTok{library}\NormalTok{(usethis)}
+\NormalTok{devtoos}\OperatorTok{::}\KeywordTok{create}\NormalTok{(}\DataTypeTok{path =} \StringTok{"mojpaket"}\NormalTok{)}
 
-\NormalTok{podatoci1 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"\textasciitilde{}/Desktop/moi{-}podatoci.csv"}\NormalTok{)}
-\NormalTok{usethis}\SpecialCharTok{::}\FunctionTok{use\_data}\NormalTok{(}\StringTok{"podatoci1"}\NormalTok{)}
+\NormalTok{podatoci1 <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"~/Desktop/moi-podatoci.csv"}\NormalTok{)}
+\NormalTok{usethis}\OperatorTok{::}\KeywordTok{use_data}\NormalTok{(}\StringTok{"podatoci1"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -986,8 +1163,8 @@ mojpaket/
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(prodigenr)}
-\FunctionTok{setup\_project}\NormalTok{(}\StringTok{"data/mojproekt2"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(prodigenr)}
+\KeywordTok{setup_project}\NormalTok{(}\StringTok{"data/mojproekt2"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1021,27 +1198,16 @@ mojproekt2/
 
 Може да се најдат недостатоци во било кој систем, и секако оваа структура може сеуште да се подобрува, но за робустна организација на вашите повторливи проекти веројатно треба да се држите до некоја од алтернативите дискутирани тука. Она што може да се спомене, не како недостаток, туку предупредување, е дека навинкувањето и целосно искористување на ова структура ќе бара малку повеќе време и учење, како за оној кој го подготвува проектот така и за корисниците.
 
-\hypertarget{ux43fux43eux432ux442ux43eux440ux43bux438ux432ux438-ux434ux43eux43aux443ux43cux435ux43dux442ux438-ux438ux437ux432ux435ux448ux442ux430ux438-rmd}{%
-\chapter{Повторливи документи / извештаи (Rmd)}\label{ux43fux43eux432ux442ux43eux440ux43bux438ux432ux438-ux434ux43eux43aux443ux43cux435ux43dux442ux438-ux438ux437ux432ux435ux448ux442ux430ux438-rmd}}
-
-\hypertarget{note-i-think-this-should-be-a-subsection-of-the-previous-chapter}{%
-\chapter{note: i think this should be a subsection of the previous chapter}\label{note-i-think-this-should-be-a-subsection-of-the-previous-chapter}}
-
-Речиси никогаш не е доволно само да се испрати (или објави) една табела или пресметка. Речиси секој пат потребно е да се додаде објаснување или некаков друг контекст на податоците. Тоа најчесто се прави со текст. За едноставно комбинирање на код, податоци, резултати и текст во еден документ, светот на \texttt{R} се користи \texttt{Rmarkdown}. Патем, така е напишан и овој прирачник.
-
-\texttt{Rmarkdown} овозможува комбинирање на сите елементи на едно истражување во документ погоден за понатамошно споделување.
-
-\hypertarget{referenca-httpsemilyriederer.netlify.apppostrmarkdown-driven-development}{%
-\section{\texorpdfstring{referenca: \url{https://emilyriederer.netlify.app/post/rmarkdown-driven-development/}}{referenca: https://emilyriederer.netlify.app/post/rmarkdown-driven-development/}}\label{referenca-httpsemilyriederer.netlify.apppostrmarkdown-driven-development}}
-
-\hypertarget{da-go-prevedeme-ova-li-httpsr4ds.had.co.nzr-markdown.html-ne-znam}{%
-\section{\texorpdfstring{da go prevedeme ova li: \url{https://r4ds.had.co.nz/r-markdown.html} ne znam}{da go prevedeme ova li: https://r4ds.had.co.nz/r-markdown.html ne znam}}\label{da-go-prevedeme-ova-li-httpsr4ds.had.co.nzr-markdown.html-ne-znam}}
-
 \hypertarget{ux43aux43eux43dux442ux440ux43eux43bux430-ux43dux430-ux438ux437ux432ux43eux440ux43dux438ux43eux442-ux43aux43eux434-git-github}{%
 \chapter{Контрола на изворниот код (git / GitHub)}\label{ux43aux43eux43dux442ux440ux43eux43bux430-ux43dux430-ux438ux437ux432ux43eux440ux43dux438ux43eux442-ux43aux43eux434-git-github}}
 
-\texttt{Git} е последната алатка
-\ldots{}
+Контрола на изворниот код (или дури и на целата содржина во еден истражувачки проект) е можна со помош на користење на алатки како \texttt{Git}. Употребата на \texttt{Git} е олесната благодарение на веб страниците како што се \texttt{Github} или \texttt{Gitlab}.
+
+Контролата на содржината е корисна. Кога пишувате текст или код и потоа менувате, \texttt{Git} овозможува да ги видите тие промени, да споредите, или да ги вратите назад. Може да се каже дека тој е многу напредна верзија на вообичаното \texttt{track\ changes} што се користи во алатки како \texttt{MS\ Word}.
+
+Сепак, детален осврт на можностите и особеносите на \texttt{Git} не е тема овде. За тие што се заинтересирани и сакаат да истражуваат постојат ресурси кои детално ги објаснуваат сите детали. На пр. \url{https://git-scm.com/book/en/v2}
+
+Овде ќе се осврнеме само на една можност која што ја нуди \texttt{Github} за презентирање на HMTL.
 
 \hypertarget{not-too-much-about-git-of-course-that-is-not-the-point-anyway}{%
 \chapter{not too much about git (of course that is not the point anyway)}\label{not-too-much-about-git-of-course-that-is-not-the-point-anyway}}
