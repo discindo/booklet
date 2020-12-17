@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Конверзија во повторлив код | Препораки за повторливо анализирање на податоци</title>
   <meta name="description" content="Прирачник за повторливо анализирање и објавување на податоци. Дискутираме теми, процедури, и алатки од R екосистемот кои олеснуваат обработка на податоци со најдобрите и најбезбедни пракси и кои овозможуваат повторување на анализите со минимален труд од страна на надворешен корисник." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Конверзија во повторлив код | Препораки за повторливо анализирање на податоци" />
   <meta property="og:type" content="book" />
@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Прирачник за повторливо анализирање и објавување на податоци. Дискутираме теми, процедури, и алатки од R екосистемот кои олеснуваат обработка на податоци со најдобрите и најбезбедни пракси и кои овозможуваат повторување на анализите со минимален труд од страна на надворешен корисник." />
   
 
-<meta name="author" content="Теофил Наков, Новица Наков" />
+<meta name="author" content="Теофил Наков, Новица Наков, Слободен софтвер Македонија" />
 
 
 <meta name="date" content="2020-12-16" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="nogood.html"/>
 <link rel="next" href="rmd.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,22 +50,22 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -86,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -135,64 +134,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Вовед</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Вовед</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#analogy"><i class="fa fa-check"></i><b>1.1</b> Аналогија</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#audience"><i class="fa fa-check"></i><b>1.2</b> За кого е наменет овој прирачник</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#organ"><i class="fa fa-check"></i><b>1.3</b> Организација</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#за-овој-прирачник"><i class="fa fa-check"></i><b>1.4</b> За овој прирачник</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a>
-<ul>
+<li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a><ul>
 <li class="chapter" data-level="2.1" data-path="tools.html"><a href="tools.html#програмски-јазик-r"><i class="fa fa-check"></i><b>2.1</b> Програмски јазик: <code>R</code></a></li>
 <li class="chapter" data-level="2.2" data-path="tools.html"><a href="tools.html#контрола-на-изворен-код-git"><i class="fa fa-check"></i><b>2.2</b> Контрола на изворен код: <code>git</code></a></li>
 <li class="chapter" data-level="2.3" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>2.3</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a>
-<ul>
+<li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a><ul>
 <li class="chapter" data-level="3.1" data-path="nogood.html"><a href="nogood.html#typical"><i class="fa fa-check"></i><b>3.1</b> Типична анализа (која никој, дури ни авторот, не може да ја повтори)</a></li>
 <li class="chapter" data-level="3.2" data-path="nogood.html"><a href="nogood.html#indicators"><i class="fa fa-check"></i><b>3.2</b> Типични пракси кои доведуваат до не-повторливи анализи</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="conversion.html"><a href="conversion.html"><i class="fa fa-check"></i><b>4</b> Конверзија во повторлив код</a>
-<ul>
+<li class="chapter" data-level="4" data-path="conversion.html"><a href="conversion.html"><i class="fa fa-check"></i><b>4</b> Конверзија во повторлив код</a><ul>
 <li class="chapter" data-level="4.1" data-path="conversion.html"><a href="conversion.html#податоци"><i class="fa fa-check"></i><b>4.1</b> Податоци</a></li>
 <li class="chapter" data-level="4.2" data-path="conversion.html"><a href="conversion.html#први-чекори-кон-повторливост"><i class="fa fa-check"></i><b>4.2</b> Први чекори кон повторливост</a></li>
 <li class="chapter" data-level="4.3" data-path="conversion.html"><a href="conversion.html#функција"><i class="fa fa-check"></i><b>4.3</b> Функција</a></li>
 <li class="chapter" data-level="4.4" data-path="conversion.html"><a href="conversion.html#rscript-што-може-да-го-користиме-без-да-отвараме-r"><i class="fa fa-check"></i><b>4.4</b> Rscript што може да го користиме без да отвараме <code>R</code></a></li>
-<li class="chapter" data-level="4.5" data-path="conversion.html"><a href="conversion.html#резиме-1"><i class="fa fa-check"></i><b>4.5</b> Резиме</a></li>
+<li class="chapter" data-level="4.5" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>4.5</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Повторливи документи / извештаи со писмено програмирање (R + markdown)</a>
-<ul>
+<li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Повторливи документи / извештаи со писмено програмирање (R + markdown)</a><ul>
 <li class="chapter" data-level="5.1" data-path="rmd.html"><a href="rmd.html#форматирање-на-текст-со-markdown"><i class="fa fa-check"></i><b>5.1</b> Форматирање на текст со markdown</a></li>
 <li class="chapter" data-level="5.2" data-path="rmd.html"><a href="rmd.html#плетење-на-текст-код-и-резултати-со-knitr"><i class="fa fa-check"></i><b>5.2</b> Плетење на текст, код, и резултати со <code>knitr</code></a></li>
 <li class="chapter" data-level="5.3" data-path="rmd.html"><a href="rmd.html#извештаи-со-параметри"><i class="fa fa-check"></i><b>5.3</b> Извештаи со параметри</a></li>
 <li class="chapter" data-level="5.4" data-path="rmd.html"><a href="rmd.html#следни-чекори"><i class="fa fa-check"></i><b>5.4</b> Следни чекори</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="proekti.html"><a href="proekti.html"><i class="fa fa-check"></i><b>6</b> Повторливи проекти</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="proekti.html"><a href="proekti.html#стратегија-1-направи-сам"><i class="fa fa-check"></i><b>6.1</b> Стратегија 1: Направи сам</a>
-<ul>
+<li class="chapter" data-level="6" data-path="proekti.html"><a href="proekti.html"><i class="fa fa-check"></i><b>6</b> Повторливи проекти</a><ul>
+<li class="chapter" data-level="6.1" data-path="proekti.html"><a href="proekti.html#стратегија-1-направи-сам"><i class="fa fa-check"></i><b>6.1</b> Стратегија 1: Направи сам</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="proekti.html"><a href="proekti.html#структура"><i class="fa fa-check"></i><b>6.1.1</b> Структура</a></li>
 <li class="chapter" data-level="6.1.2" data-path="proekti.html"><a href="proekti.html#предности"><i class="fa fa-check"></i><b>6.1.2</b> Предности</a></li>
 <li class="chapter" data-level="6.1.3" data-path="proekti.html"><a href="proekti.html#недостатоци"><i class="fa fa-check"></i><b>6.1.3</b> Недостатоци</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="proekti.html"><a href="proekti.html#стратегија-2-формален-r-пакет-или-некоја-поедноставена-варијанта"><i class="fa fa-check"></i><b>6.2</b> Стратегија 2: Формален <code>R</code> пакет или некоја поедноставена варијанта</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="proekti.html"><a href="proekti.html#стратегија-2-формален-r-пакет-или-некоја-поедноставена-варијанта"><i class="fa fa-check"></i><b>6.2</b> Стратегија 2: Формален <code>R</code> пакет или некоја поедноставена варијанта</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="proekti.html"><a href="proekti.html#структура-1"><i class="fa fa-check"></i><b>6.2.1</b> Структура</a></li>
 <li class="chapter" data-level="6.2.2" data-path="proekti.html"><a href="proekti.html#поставување"><i class="fa fa-check"></i><b>6.2.2</b> Поставување</a></li>
 <li class="chapter" data-level="6.2.3" data-path="proekti.html"><a href="proekti.html#предности-1"><i class="fa fa-check"></i><b>6.2.3</b> Предности</a></li>
 <li class="chapter" data-level="6.2.4" data-path="proekti.html"><a href="proekti.html#недостатоци-1"><i class="fa fa-check"></i><b>6.2.4</b> Недостатоци</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="proekti.html"><a href="proekti.html#резиме-2"><i class="fa fa-check"></i><b>6.3</b> Резиме</a></li>
+<li class="chapter" data-level="6.3" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>6.3</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>7</b> Контрола на изворниот код (git / GitHub)</a>
-<ul>
+<li class="chapter" data-level="7" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>7</b> Контрола на изворниот код (git / GitHub)</a><ul>
 <li class="chapter" data-level="7.0.1" data-path="git.html"><a href="git.html#потребен-софтвер"><i class="fa fa-check"></i><b>7.0.1</b> Потребен софтвер</a></li>
 <li class="chapter" data-level="7.0.2" data-path="git.html"><a href="git.html#чекори"><i class="fa fa-check"></i><b>7.0.2</b> Чекори</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="not-too-much-about-git-of-course-that-is-not-the-point-anyway.html"><a href="not-too-much-about-git-of-course-that-is-not-the-point-anyway.html"><i class="fa fa-check"></i><b>8</b> not too much about git (of course that is not the point anyway)</a></li>
-<li class="chapter" data-level="9" data-path="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><i class="fa fa-check"></i><b>9</b> just about creating a github repo where you can push rmd in main and html in gh-pages thus making your reserarch public on the web mostly working thourgh r studio exept for creating the account on gh.</a>
-<ul>
+<li class="chapter" data-level="9" data-path="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><i class="fa fa-check"></i><b>9</b> just about creating a github repo where you can push rmd in main and html in gh-pages thus making your reserarch public on the web mostly working thourgh r studio exept for creating the account on gh.</a><ul>
 <li class="chapter" data-level="9.0.1" data-path="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#референци-httpsgit-scm.combookenv2"><i class="fa fa-check"></i><b>9.0.1</b> референци: <span>https://git-scm.com/book/en/v2</span></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -216,12 +206,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="conversion" class="section level1" number="4">
+<div id="conversion" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Конверзија во повторлив код</h1>
-<div id="податоци" class="section level2" number="4.1">
+<div id="податоци" class="section level2">
 <h2><span class="header-section-number">4.1</span> Податоци</h2>
 <p>За да може да ги видиме следните чекори во акција неопходни ни се податоци. Табелата за трошоци има три колони (варијабли) <code>vraboten</code>, <code>tip_na_trosok</code> и <code>cena</code>. Еве ги првите неколку редови:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="conversion.html#cb3-1" aria-hidden="true" tabindex="-1"></a>trosoci</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="conversion.html#cb3-1"></a>trosoci</span></code></pre></div>
 <pre><code>## # A tibble: 30 x 3
 ##    vraboten    tip_na_trosok            cena
 ##    &lt;chr&gt;       &lt;chr&gt;                   &lt;dbl&gt;
@@ -237,10 +227,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 Ана И.      печатење                   29
 ## # … with 20 more rows</code></pre>
 <p>Трансформацијата која ја прави нашиот, сѐ уште неповторлив, код можеме исто така да ја видиме во акција:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="conversion.html#cb5-1" aria-hidden="true" tabindex="-1"></a>trosoci <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="conversion.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="conversion.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-4"><a href="conversion.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="conversion.html#cb5-1"></a>trosoci <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb5-2"><a href="conversion.html#cb5-2"></a><span class="st">  </span><span class="kw">group_by</span>(vraboten, tip_na_trosok) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb5-3"><a href="conversion.html#cb5-3"></a><span class="st">  </span><span class="kw">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb5-4"><a href="conversion.html#cb5-4"></a><span class="st">  </span><span class="kw">arrange</span>(vraboten, tip_na_trosok)</span></code></pre></div>
 <pre><code>## # A tibble: 12 x 3
 ## # Groups:   vraboten [5]
 ##    vraboten    tip_na_trosok            cena
@@ -258,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11 Љупчо В.    транспорт                 127
 ## 12 Ристе Н.    транспорт                 116</code></pre>
 </div>
-<div id="први-чекори-кон-повторливост" class="section level2" number="4.2">
+<div id="први-чекори-кон-повторливост" class="section level2">
 <h2><span class="header-section-number">4.2</span> Први чекори кон повторливост</h2>
 <p>Откако сме ги согледале проблемите што доведуваат до тоа резултатот од нашиот код да не може да се повтори (без колегата да почне да чепка и кодира од почеток), можеме да интервенираме. За нашиот код да биде повторлив, минимално треба:</p>
 <ol style="list-style-type: decimal">
@@ -267,295 +257,295 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Да биде детално документиран</p></li>
 </ol>
 <p>Што се однесува до првиот проблем, кодот едноставно нема да работи без тие пакети да се вчитани па дури и нашиот колега да ги има истите фајлови на истите локации како ние. Оваа корекција е едноставна:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="conversion.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Вчитај ги ти пакетите кои се користат подолу </span></span>
-<span id="cb7-2"><a href="conversion.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb7-3"><a href="conversion.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb7-4"><a href="conversion.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="conversion.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Доколку не се достапни, инсталирај со:</span></span>
-<span id="cb7-6"><a href="conversion.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
-<span id="cb7-7"><a href="conversion.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;readr&quot;)</span></span>
-<span id="cb7-8"><a href="conversion.html#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="conversion.html#cb7-9" aria-hidden="true" tabindex="-1"></a>trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/trosoci-moja-firma.csv&quot;</span>)</span>
-<span id="cb7-10"><a href="conversion.html#cb7-10" aria-hidden="true" tabindex="-1"></a>trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span> </span>
-<span id="cb7-11"><a href="conversion.html#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-12"><a href="conversion.html#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>)<span class="sc">%&gt;%</span> </span>
-<span id="cb7-13"><a href="conversion.html#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
-<span id="cb7-14"><a href="conversion.html#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(trosoci_sumirani, </span>
-<span id="cb7-15"><a href="conversion.html#cb7-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">path =</span> <span class="st">&quot;data/trosoci-moja-firma-sumirani.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="conversion.html#cb7-1"></a><span class="co"># Вчитај ги ти пакетите кои се користат подолу </span></span>
+<span id="cb7-2"><a href="conversion.html#cb7-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb7-3"><a href="conversion.html#cb7-3"></a><span class="kw">library</span>(readr)</span>
+<span id="cb7-4"><a href="conversion.html#cb7-4"></a></span>
+<span id="cb7-5"><a href="conversion.html#cb7-5"></a><span class="co"># Доколку не се достапни, инсталирај со:</span></span>
+<span id="cb7-6"><a href="conversion.html#cb7-6"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
+<span id="cb7-7"><a href="conversion.html#cb7-7"></a><span class="co"># install.packages(&quot;readr&quot;)</span></span>
+<span id="cb7-8"><a href="conversion.html#cb7-8"></a></span>
+<span id="cb7-9"><a href="conversion.html#cb7-9"></a>trosoci &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/trosoci-moja-firma.csv&quot;</span>)</span>
+<span id="cb7-10"><a href="conversion.html#cb7-10"></a>trosoci_sumirani &lt;-<span class="st"> </span>trosoci <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-11"><a href="conversion.html#cb7-11"></a><span class="st">  </span><span class="kw">group_by</span>(vraboten, tip_na_trosok) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-12"><a href="conversion.html#cb7-12"></a><span class="st">  </span><span class="kw">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>)<span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb7-13"><a href="conversion.html#cb7-13"></a><span class="st">  </span><span class="kw">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb7-14"><a href="conversion.html#cb7-14"></a><span class="kw">write_csv</span>(trosoci_sumirani, </span>
+<span id="cb7-15"><a href="conversion.html#cb7-15"></a>          <span class="dt">path =</span> <span class="st">&quot;data/trosoci-moja-firma-sumirani.csv&quot;</span>)</span></code></pre></div>
 <p>Што се однесува до втората задача, имаме повеќе можности. Можеме да побараме корисникот да ја зачува патеката во варијабла која ќе биде користена од понатамошниот код. Ова се уште дозволува патеки во друг директориум, и очигледно бара соодветна интервенција од корисникот, но ако ништо друго, корисникот на овој код, доколку ја прочита документацијата, може барем да ја повтори анализата без да добие грешки:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="conversion.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Вчитај ги ти пакетите кои се користат подолу </span></span>
-<span id="cb8-2"><a href="conversion.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb8-3"><a href="conversion.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb8-4"><a href="conversion.html#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="conversion.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Доколку не се достапни, инсталирај со:</span></span>
-<span id="cb8-6"><a href="conversion.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
-<span id="cb8-7"><a href="conversion.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;readr&quot;)</span></span>
-<span id="cb8-8"><a href="conversion.html#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="conversion.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ВНИМАНИЕ:</span></span>
-<span id="cb8-10"><a href="conversion.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Скриптата нема да работи доколку не внесете валидни дестинации</span></span>
-<span id="cb8-11"><a href="conversion.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># за фајлови за вчитување и зачувување</span></span>
-<span id="cb8-12"><a href="conversion.html#cb8-12" aria-hidden="true" tabindex="-1"></a>pateka_do_input <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># &quot;data/trosoci-moja-firma.csv&quot;</span></span>
-<span id="cb8-13"><a href="conversion.html#cb8-13" aria-hidden="true" tabindex="-1"></a>pateka_za_output <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># &quot;data/trosoci-moja-firma-sumirani.csv&quot;</span></span>
-<span id="cb8-14"><a href="conversion.html#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="conversion.html#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co"># На пример:</span></span>
-<span id="cb8-16"><a href="conversion.html#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># pateka_do_input &lt;- &quot;~/Downloads/trosoci-moja-firma.csv&quot; </span></span>
-<span id="cb8-17"><a href="conversion.html#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># pateka_do_output &lt;- &quot;~/Downloads/trosoci-moja-firma-sumirani.csv&quot; </span></span>
-<span id="cb8-18"><a href="conversion.html#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-19"><a href="conversion.html#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># или:</span></span>
-<span id="cb8-20"><a href="conversion.html#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co"># pateka_do_input &lt;- &quot;C:\rabota\podatoci\trosoci\trosoci-moja-firma.csv&quot;</span></span>
-<span id="cb8-21"><a href="conversion.html#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># pateka_do_output &lt;- &quot;C:\rabota\podatoci\trosoci\trosoci-moja-firma-sumirani.csv&quot;</span></span>
-<span id="cb8-22"><a href="conversion.html#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-23"><a href="conversion.html#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Вчитај ги податоците</span></span>
-<span id="cb8-24"><a href="conversion.html#cb8-24" aria-hidden="true" tabindex="-1"></a>trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(pateka_do_input)</span>
-<span id="cb8-25"><a href="conversion.html#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-26"><a href="conversion.html#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Групирај и пресметај суми</span></span>
-<span id="cb8-27"><a href="conversion.html#cb8-27" aria-hidden="true" tabindex="-1"></a>trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span> </span>
-<span id="cb8-28"><a href="conversion.html#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-29"><a href="conversion.html#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-30"><a href="conversion.html#cb8-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
-<span id="cb8-31"><a href="conversion.html#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-32"><a href="conversion.html#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Зачувај</span></span>
-<span id="cb8-33"><a href="conversion.html#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(trosoci_sumirani, </span>
-<span id="cb8-34"><a href="conversion.html#cb8-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">path =</span> pateka_za_output)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="conversion.html#cb8-1"></a><span class="co"># Вчитај ги ти пакетите кои се користат подолу </span></span>
+<span id="cb8-2"><a href="conversion.html#cb8-2"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb8-3"><a href="conversion.html#cb8-3"></a><span class="kw">library</span>(readr)</span>
+<span id="cb8-4"><a href="conversion.html#cb8-4"></a></span>
+<span id="cb8-5"><a href="conversion.html#cb8-5"></a><span class="co"># Доколку не се достапни, инсталирај со:</span></span>
+<span id="cb8-6"><a href="conversion.html#cb8-6"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
+<span id="cb8-7"><a href="conversion.html#cb8-7"></a><span class="co"># install.packages(&quot;readr&quot;)</span></span>
+<span id="cb8-8"><a href="conversion.html#cb8-8"></a></span>
+<span id="cb8-9"><a href="conversion.html#cb8-9"></a><span class="co"># ВНИМАНИЕ:</span></span>
+<span id="cb8-10"><a href="conversion.html#cb8-10"></a><span class="co"># Скриптата нема да работи доколку не внесете валидни дестинации</span></span>
+<span id="cb8-11"><a href="conversion.html#cb8-11"></a><span class="co"># за фајлови за вчитување и зачувување</span></span>
+<span id="cb8-12"><a href="conversion.html#cb8-12"></a>pateka_do_input &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># &quot;data/trosoci-moja-firma.csv&quot;</span></span>
+<span id="cb8-13"><a href="conversion.html#cb8-13"></a>pateka_za_output &lt;-<span class="st"> </span><span class="ot">NULL</span> <span class="co"># &quot;data/trosoci-moja-firma-sumirani.csv&quot;</span></span>
+<span id="cb8-14"><a href="conversion.html#cb8-14"></a></span>
+<span id="cb8-15"><a href="conversion.html#cb8-15"></a><span class="co"># На пример:</span></span>
+<span id="cb8-16"><a href="conversion.html#cb8-16"></a><span class="co"># pateka_do_input &lt;- &quot;~/Downloads/trosoci-moja-firma.csv&quot; </span></span>
+<span id="cb8-17"><a href="conversion.html#cb8-17"></a><span class="co"># pateka_do_output &lt;- &quot;~/Downloads/trosoci-moja-firma-sumirani.csv&quot; </span></span>
+<span id="cb8-18"><a href="conversion.html#cb8-18"></a></span>
+<span id="cb8-19"><a href="conversion.html#cb8-19"></a><span class="co"># или:</span></span>
+<span id="cb8-20"><a href="conversion.html#cb8-20"></a><span class="co"># pateka_do_input &lt;- &quot;C:\rabota\podatoci\trosoci\trosoci-moja-firma.csv&quot;</span></span>
+<span id="cb8-21"><a href="conversion.html#cb8-21"></a><span class="co"># pateka_do_output &lt;- &quot;C:\rabota\podatoci\trosoci\trosoci-moja-firma-sumirani.csv&quot;</span></span>
+<span id="cb8-22"><a href="conversion.html#cb8-22"></a></span>
+<span id="cb8-23"><a href="conversion.html#cb8-23"></a><span class="co"># Вчитај ги податоците</span></span>
+<span id="cb8-24"><a href="conversion.html#cb8-24"></a>trosoci &lt;-<span class="st"> </span><span class="kw">read_csv</span>(pateka_do_input)</span>
+<span id="cb8-25"><a href="conversion.html#cb8-25"></a></span>
+<span id="cb8-26"><a href="conversion.html#cb8-26"></a><span class="co"># Групирај и пресметај суми</span></span>
+<span id="cb8-27"><a href="conversion.html#cb8-27"></a>trosoci_sumirani &lt;-<span class="st"> </span>trosoci <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-28"><a href="conversion.html#cb8-28"></a><span class="st">  </span><span class="kw">group_by</span>(vraboten, tip_na_trosok) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-29"><a href="conversion.html#cb8-29"></a><span class="st">  </span><span class="kw">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb8-30"><a href="conversion.html#cb8-30"></a><span class="st">  </span><span class="kw">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb8-31"><a href="conversion.html#cb8-31"></a></span>
+<span id="cb8-32"><a href="conversion.html#cb8-32"></a><span class="co"># Зачувај</span></span>
+<span id="cb8-33"><a href="conversion.html#cb8-33"></a><span class="kw">write_csv</span>(trosoci_sumirani, </span>
+<span id="cb8-34"><a href="conversion.html#cb8-34"></a>          <span class="dt">path =</span> pateka_za_output)</span></code></pre></div>
 </div>
-<div id="функција" class="section level2" number="4.3">
+<div id="функција" class="section level2">
 <h2><span class="header-section-number">4.3</span> Функција</h2>
 <p>Алтернатива која бара малку поголема подготовка е да го напишеме функција којашто ќе работи на ист начин, земајќи ги патеките како аргументи:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="conversion.html#cb9-1" aria-hidden="true" tabindex="-1"></a>sumiraj_trosoci <span class="ot">&lt;-</span> <span class="cf">function</span>(trosoci, destinacija) {</span>
-<span id="cb9-2"><a href="conversion.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-3"><a href="conversion.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Вчитај ги податоците</span></span>
-<span id="cb9-4"><a href="conversion.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(trosoci)</span>
-<span id="cb9-5"><a href="conversion.html#cb9-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-6"><a href="conversion.html#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Групирај и пресметај суми</span></span>
-<span id="cb9-7"><a href="conversion.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span></span>
-<span id="cb9-8"><a href="conversion.html#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span></span>
-<span id="cb9-9"><a href="conversion.html#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-10"><a href="conversion.html#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
-<span id="cb9-11"><a href="conversion.html#cb9-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb9-12"><a href="conversion.html#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Зачувај</span></span>
-<span id="cb9-13"><a href="conversion.html#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_csv</span>(trosoci_sumirani,</span>
-<span id="cb9-14"><a href="conversion.html#cb9-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">path =</span> destinacija)</span>
-<span id="cb9-15"><a href="conversion.html#cb9-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="conversion.html#cb9-1"></a>sumiraj_trosoci &lt;-<span class="st"> </span><span class="cf">function</span>(trosoci, destinacija) {</span>
+<span id="cb9-2"><a href="conversion.html#cb9-2"></a>  </span>
+<span id="cb9-3"><a href="conversion.html#cb9-3"></a>  <span class="co"># Вчитај ги податоците</span></span>
+<span id="cb9-4"><a href="conversion.html#cb9-4"></a>  trosoci &lt;-<span class="st"> </span><span class="kw">read_csv</span>(trosoci)</span>
+<span id="cb9-5"><a href="conversion.html#cb9-5"></a>  </span>
+<span id="cb9-6"><a href="conversion.html#cb9-6"></a>  <span class="co"># Групирај и пресметај суми</span></span>
+<span id="cb9-7"><a href="conversion.html#cb9-7"></a>  trosoci_sumirani &lt;-<span class="st"> </span>trosoci <span class="op">%&gt;%</span></span>
+<span id="cb9-8"><a href="conversion.html#cb9-8"></a><span class="st">    </span><span class="kw">group_by</span>(vraboten, tip_na_trosok) <span class="op">%&gt;%</span></span>
+<span id="cb9-9"><a href="conversion.html#cb9-9"></a><span class="st">    </span><span class="kw">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb9-10"><a href="conversion.html#cb9-10"></a><span class="st">  </span><span class="kw">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb9-11"><a href="conversion.html#cb9-11"></a>  </span>
+<span id="cb9-12"><a href="conversion.html#cb9-12"></a>  <span class="co"># Зачувај</span></span>
+<span id="cb9-13"><a href="conversion.html#cb9-13"></a>  <span class="kw">write_csv</span>(trosoci_sumirani,</span>
+<span id="cb9-14"><a href="conversion.html#cb9-14"></a>            <span class="dt">path =</span> destinacija)</span>
+<span id="cb9-15"><a href="conversion.html#cb9-15"></a>}</span></code></pre></div>
 <p>Често, сакаме табелата којашто ја снимаме да го има истото основно име како табелата што ја трансформираме (на пример <code>moja-tabela.csv</code> и <code>moja-tabela-medijani.csv</code>) и да се наоѓа во истиот фолдер. Со малку манипулација на текст во <code>R</code> (ова е уште полесно во <code>Python</code>) добиваме:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="conversion.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Функција за групирање и сумирање трошоци</span></span>
-<span id="cb10-2"><a href="conversion.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Аргументот `trosoci` е патека до табелата што треба да се трансформира</span></span>
-<span id="cb10-3"><a href="conversion.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="conversion.html#cb10-4" aria-hidden="true" tabindex="-1"></a>sumiraj_trosoci <span class="ot">&lt;-</span> <span class="cf">function</span>(trosoci_tabela) {</span>
-<span id="cb10-5"><a href="conversion.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-6"><a href="conversion.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Вчитај ги податоците</span></span>
-<span id="cb10-7"><a href="conversion.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(trosoci_tabela)</span>
-<span id="cb10-8"><a href="conversion.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-9"><a href="conversion.html#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Групирај и пресметај суми</span></span>
-<span id="cb10-10"><a href="conversion.html#cb10-10" aria-hidden="true" tabindex="-1"></a>  trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span></span>
-<span id="cb10-11"><a href="conversion.html#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span></span>
-<span id="cb10-12"><a href="conversion.html#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-13"><a href="conversion.html#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
-<span id="cb10-14"><a href="conversion.html#cb10-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-15"><a href="conversion.html#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Направи патека за дестинација</span></span>
-<span id="cb10-16"><a href="conversion.html#cb10-16" aria-hidden="true" tabindex="-1"></a>  folder_name <span class="ot">&lt;-</span> <span class="fu">dirname</span>(trosoci_tabela)</span>
-<span id="cb10-17"><a href="conversion.html#cb10-17" aria-hidden="true" tabindex="-1"></a>  base_name <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">file_path_sans_ext</span>(<span class="fu">basename</span>(trosoci_tabela))</span>
-<span id="cb10-18"><a href="conversion.html#cb10-18" aria-hidden="true" tabindex="-1"></a>  new_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(base_name, <span class="st">&quot;sumirani.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;-&quot;</span>)</span>
-<span id="cb10-19"><a href="conversion.html#cb10-19" aria-hidden="true" tabindex="-1"></a>  destinacija <span class="ot">&lt;-</span> <span class="fu">file.path</span>(folder_name, new_name)</span>
-<span id="cb10-20"><a href="conversion.html#cb10-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-21"><a href="conversion.html#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Зачувај</span></span>
-<span id="cb10-22"><a href="conversion.html#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_csv</span>(trosoci_sumirani, <span class="at">path =</span> destinacija)</span>
-<span id="cb10-23"><a href="conversion.html#cb10-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="conversion.html#cb10-1"></a><span class="co"># Функција за групирање и сумирање трошоци</span></span>
+<span id="cb10-2"><a href="conversion.html#cb10-2"></a><span class="co"># Аргументот `trosoci` е патека до табелата што треба да се трансформира</span></span>
+<span id="cb10-3"><a href="conversion.html#cb10-3"></a></span>
+<span id="cb10-4"><a href="conversion.html#cb10-4"></a>sumiraj_trosoci &lt;-<span class="st"> </span><span class="cf">function</span>(trosoci_tabela) {</span>
+<span id="cb10-5"><a href="conversion.html#cb10-5"></a>  </span>
+<span id="cb10-6"><a href="conversion.html#cb10-6"></a>  <span class="co"># Вчитај ги податоците</span></span>
+<span id="cb10-7"><a href="conversion.html#cb10-7"></a>  trosoci &lt;-<span class="st"> </span><span class="kw">read_csv</span>(trosoci_tabela)</span>
+<span id="cb10-8"><a href="conversion.html#cb10-8"></a>  </span>
+<span id="cb10-9"><a href="conversion.html#cb10-9"></a>  <span class="co"># Групирај и пресметај суми</span></span>
+<span id="cb10-10"><a href="conversion.html#cb10-10"></a>  trosoci_sumirani &lt;-<span class="st"> </span>trosoci <span class="op">%&gt;%</span></span>
+<span id="cb10-11"><a href="conversion.html#cb10-11"></a><span class="st">    </span><span class="kw">group_by</span>(vraboten, tip_na_trosok) <span class="op">%&gt;%</span></span>
+<span id="cb10-12"><a href="conversion.html#cb10-12"></a><span class="st">    </span><span class="kw">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-13"><a href="conversion.html#cb10-13"></a><span class="st">  </span><span class="kw">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb10-14"><a href="conversion.html#cb10-14"></a>  </span>
+<span id="cb10-15"><a href="conversion.html#cb10-15"></a>  <span class="co"># Направи патека за дестинација</span></span>
+<span id="cb10-16"><a href="conversion.html#cb10-16"></a>  folder_name &lt;-<span class="st"> </span><span class="kw">dirname</span>(trosoci_tabela)</span>
+<span id="cb10-17"><a href="conversion.html#cb10-17"></a>  base_name &lt;-<span class="st"> </span>tools<span class="op">::</span><span class="kw">file_path_sans_ext</span>(<span class="kw">basename</span>(trosoci_tabela))</span>
+<span id="cb10-18"><a href="conversion.html#cb10-18"></a>  new_name &lt;-<span class="st"> </span><span class="kw">paste</span>(base_name, <span class="st">&quot;sumirani.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;-&quot;</span>)</span>
+<span id="cb10-19"><a href="conversion.html#cb10-19"></a>  destinacija &lt;-<span class="st"> </span><span class="kw">file.path</span>(folder_name, new_name)</span>
+<span id="cb10-20"><a href="conversion.html#cb10-20"></a>  </span>
+<span id="cb10-21"><a href="conversion.html#cb10-21"></a>  <span class="co"># Зачувај</span></span>
+<span id="cb10-22"><a href="conversion.html#cb10-22"></a>  <span class="kw">write_csv</span>(trosoci_sumirani, <span class="dt">path =</span> destinacija)</span>
+<span id="cb10-23"><a href="conversion.html#cb10-23"></a>}</span></code></pre></div>
 <p>Целата скрипта по овие промени би изгледала вака:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="conversion.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Употреба:</span></span>
-<span id="cb11-2"><a href="conversion.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Вчитај ја оваа скипта во R за да ја користиш функцијата `sumiraj_trosoci`  </span></span>
-<span id="cb11-3"><a href="conversion.html#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="conversion.html#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Вчитај ги ти пакетите кои се користат подолу </span></span>
-<span id="cb11-5"><a href="conversion.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb11-6"><a href="conversion.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb11-7"><a href="conversion.html#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="conversion.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Доколку не се достапни, инсталирај со:</span></span>
-<span id="cb11-9"><a href="conversion.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
-<span id="cb11-10"><a href="conversion.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;readr&quot;)</span></span>
-<span id="cb11-11"><a href="conversion.html#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-12"><a href="conversion.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Функција за групирање и сумирање трошоци</span></span>
-<span id="cb11-13"><a href="conversion.html#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Аргументот `trosoci` е патека до табелата што треба да се трансформира</span></span>
-<span id="cb11-14"><a href="conversion.html#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="conversion.html#cb11-15" aria-hidden="true" tabindex="-1"></a>sumiraj_trosoci <span class="ot">&lt;-</span> <span class="cf">function</span>(trosoci_tabela) {</span>
-<span id="cb11-16"><a href="conversion.html#cb11-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-17"><a href="conversion.html#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Вчитај ги податоците</span></span>
-<span id="cb11-18"><a href="conversion.html#cb11-18" aria-hidden="true" tabindex="-1"></a>  trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(trosoci_tabela)</span>
-<span id="cb11-19"><a href="conversion.html#cb11-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-20"><a href="conversion.html#cb11-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Групирај и пресметај суми</span></span>
-<span id="cb11-21"><a href="conversion.html#cb11-21" aria-hidden="true" tabindex="-1"></a>  trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span></span>
-<span id="cb11-22"><a href="conversion.html#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span></span>
-<span id="cb11-23"><a href="conversion.html#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-24"><a href="conversion.html#cb11-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
-<span id="cb11-25"><a href="conversion.html#cb11-25" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-26"><a href="conversion.html#cb11-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Направи патека за дестинација</span></span>
-<span id="cb11-27"><a href="conversion.html#cb11-27" aria-hidden="true" tabindex="-1"></a>  folder_name <span class="ot">&lt;-</span> <span class="fu">dirname</span>(trosoci_tabela)</span>
-<span id="cb11-28"><a href="conversion.html#cb11-28" aria-hidden="true" tabindex="-1"></a>  base_name <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">file_path_sans_ext</span>(<span class="fu">basename</span>(trosoci_tabela))</span>
-<span id="cb11-29"><a href="conversion.html#cb11-29" aria-hidden="true" tabindex="-1"></a>  new_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(base_name, <span class="st">&quot;sumirani.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;-&quot;</span>)</span>
-<span id="cb11-30"><a href="conversion.html#cb11-30" aria-hidden="true" tabindex="-1"></a>  destinacija <span class="ot">&lt;-</span> <span class="fu">file.path</span>(folder_name, new_name)</span>
-<span id="cb11-31"><a href="conversion.html#cb11-31" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-32"><a href="conversion.html#cb11-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Зачувај</span></span>
-<span id="cb11-33"><a href="conversion.html#cb11-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_csv</span>(trosoci_sumirani, <span class="at">path =</span> destinacija)</span>
-<span id="cb11-34"><a href="conversion.html#cb11-34" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="conversion.html#cb11-1"></a><span class="co"># Употреба:</span></span>
+<span id="cb11-2"><a href="conversion.html#cb11-2"></a><span class="co"># Вчитај ја оваа скипта во R за да ја користиш функцијата `sumiraj_trosoci`  </span></span>
+<span id="cb11-3"><a href="conversion.html#cb11-3"></a></span>
+<span id="cb11-4"><a href="conversion.html#cb11-4"></a><span class="co"># Вчитај ги ти пакетите кои се користат подолу </span></span>
+<span id="cb11-5"><a href="conversion.html#cb11-5"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb11-6"><a href="conversion.html#cb11-6"></a><span class="kw">library</span>(readr)</span>
+<span id="cb11-7"><a href="conversion.html#cb11-7"></a></span>
+<span id="cb11-8"><a href="conversion.html#cb11-8"></a><span class="co"># Доколку не се достапни, инсталирај со:</span></span>
+<span id="cb11-9"><a href="conversion.html#cb11-9"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
+<span id="cb11-10"><a href="conversion.html#cb11-10"></a><span class="co"># install.packages(&quot;readr&quot;)</span></span>
+<span id="cb11-11"><a href="conversion.html#cb11-11"></a></span>
+<span id="cb11-12"><a href="conversion.html#cb11-12"></a><span class="co"># Функција за групирање и сумирање трошоци</span></span>
+<span id="cb11-13"><a href="conversion.html#cb11-13"></a><span class="co"># Аргументот `trosoci` е патека до табелата што треба да се трансформира</span></span>
+<span id="cb11-14"><a href="conversion.html#cb11-14"></a></span>
+<span id="cb11-15"><a href="conversion.html#cb11-15"></a>sumiraj_trosoci &lt;-<span class="st"> </span><span class="cf">function</span>(trosoci_tabela) {</span>
+<span id="cb11-16"><a href="conversion.html#cb11-16"></a>  </span>
+<span id="cb11-17"><a href="conversion.html#cb11-17"></a>  <span class="co"># Вчитај ги податоците</span></span>
+<span id="cb11-18"><a href="conversion.html#cb11-18"></a>  trosoci &lt;-<span class="st"> </span><span class="kw">read_csv</span>(trosoci_tabela)</span>
+<span id="cb11-19"><a href="conversion.html#cb11-19"></a>  </span>
+<span id="cb11-20"><a href="conversion.html#cb11-20"></a>  <span class="co"># Групирај и пресметај суми</span></span>
+<span id="cb11-21"><a href="conversion.html#cb11-21"></a>  trosoci_sumirani &lt;-<span class="st"> </span>trosoci <span class="op">%&gt;%</span></span>
+<span id="cb11-22"><a href="conversion.html#cb11-22"></a><span class="st">    </span><span class="kw">group_by</span>(vraboten, tip_na_trosok) <span class="op">%&gt;%</span></span>
+<span id="cb11-23"><a href="conversion.html#cb11-23"></a><span class="st">    </span><span class="kw">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb11-24"><a href="conversion.html#cb11-24"></a><span class="st">  </span><span class="kw">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb11-25"><a href="conversion.html#cb11-25"></a>  </span>
+<span id="cb11-26"><a href="conversion.html#cb11-26"></a>  <span class="co"># Направи патека за дестинација</span></span>
+<span id="cb11-27"><a href="conversion.html#cb11-27"></a>  folder_name &lt;-<span class="st"> </span><span class="kw">dirname</span>(trosoci_tabela)</span>
+<span id="cb11-28"><a href="conversion.html#cb11-28"></a>  base_name &lt;-<span class="st"> </span>tools<span class="op">::</span><span class="kw">file_path_sans_ext</span>(<span class="kw">basename</span>(trosoci_tabela))</span>
+<span id="cb11-29"><a href="conversion.html#cb11-29"></a>  new_name &lt;-<span class="st"> </span><span class="kw">paste</span>(base_name, <span class="st">&quot;sumirani.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;-&quot;</span>)</span>
+<span id="cb11-30"><a href="conversion.html#cb11-30"></a>  destinacija &lt;-<span class="st"> </span><span class="kw">file.path</span>(folder_name, new_name)</span>
+<span id="cb11-31"><a href="conversion.html#cb11-31"></a>  </span>
+<span id="cb11-32"><a href="conversion.html#cb11-32"></a>  <span class="co"># Зачувај</span></span>
+<span id="cb11-33"><a href="conversion.html#cb11-33"></a>  <span class="kw">write_csv</span>(trosoci_sumirani, <span class="dt">path =</span> destinacija)</span>
+<span id="cb11-34"><a href="conversion.html#cb11-34"></a>}</span></code></pre></div>
 <p>Што сме постигнале до сега? Зависностите на кодот се решени. Документација имаме, впрочем, пишување на коментари во кодот треба да стане навика. И имаме функција на која може да и дадеме табела која што се наоѓа било каде и да зачуваме сумирана табела во истиот фолдер.</p>
 </div>
-<div id="rscript-што-може-да-го-користиме-без-да-отвараме-r" class="section level2" number="4.4">
+<div id="rscript-што-може-да-го-користиме-без-да-отвараме-r" class="section level2">
 <h2><span class="header-section-number">4.4</span> Rscript што може да го користиме без да отвараме <code>R</code></h2>
 <p>TODO:
 (for windows see: <a href="https://stackoverflow.com/questions/3506007/running-r-code-from-command-line-windows" class="uri">https://stackoverflow.com/questions/3506007/running-r-code-from-command-line-windows</a>)</p>
 <p>Нашиот код е далеку подобар и има повеќе шанси да работи на други компјутери, но се уште може да се каже дека има некои недостатоци. На пример, корисникот <em>мора</em> да отвори <code>R</code>, да ја вчита скриптата, и да ја изврши функцијата. Тоа е можеби во ред доколку нашиот колега има доволно познавање од <code>R</code>, но можеби нашиот шеф не знае <code>R</code> или едноставно нема време за чепкање во <code>R</code> терминал. Можеби сака решение од една линија:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="conversion.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> sumiraj_trosoci.R trosoci_dekemvri_2020.csv</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="conversion.html#cb12-1"></a><span class="ex">Rscript</span> sumiraj_trosoci.R trosoci_dekemvri_2020.csv</span></code></pre></div>
 <p>Да го конвертираме нашиот код во ваква скрипта е лесно. Доколку кодот го процесираме со <code>Rscript</code>, треба само да го земеме името на фајлот даден по името на скриптата (тоа е табелата со трошоци), и да го предадеме на нашата функција (внатре во скриптата):</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="conversion.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (data/sumiraj-trosoci-1.R)</span></span>
-<span id="cb13-2"><a href="conversion.html#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="conversion.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Употреба:</span></span>
-<span id="cb13-4"><a href="conversion.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Вчитај ја оваа скипта во R за да ја користиш функцијата `sumiraj_trosoci`  </span></span>
-<span id="cb13-5"><a href="conversion.html#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="conversion.html#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Закачи ги ти пакетите кои се користат подолу </span></span>
-<span id="cb13-7"><a href="conversion.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb13-8"><a href="conversion.html#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb13-9"><a href="conversion.html#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="conversion.html#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Доколку не се достапни, инсталирај со:</span></span>
-<span id="cb13-11"><a href="conversion.html#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
-<span id="cb13-12"><a href="conversion.html#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;readr&quot;)</span></span>
-<span id="cb13-13"><a href="conversion.html#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="conversion.html#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Функција за групирање и сумирање трошоци</span></span>
-<span id="cb13-15"><a href="conversion.html#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Аргументот `trosoci` е патека до табелата што треба да се трансформира</span></span>
-<span id="cb13-16"><a href="conversion.html#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-17"><a href="conversion.html#cb13-17" aria-hidden="true" tabindex="-1"></a>sumiraj_trosoci <span class="ot">&lt;-</span> <span class="cf">function</span>(trosoci_tabela) {</span>
-<span id="cb13-18"><a href="conversion.html#cb13-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-19"><a href="conversion.html#cb13-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Вчитај ги податоците</span></span>
-<span id="cb13-20"><a href="conversion.html#cb13-20" aria-hidden="true" tabindex="-1"></a>  trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(trosoci_tabela)</span>
-<span id="cb13-21"><a href="conversion.html#cb13-21" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-22"><a href="conversion.html#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Групирај и пресметај суми</span></span>
-<span id="cb13-23"><a href="conversion.html#cb13-23" aria-hidden="true" tabindex="-1"></a>  trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span></span>
-<span id="cb13-24"><a href="conversion.html#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span></span>
-<span id="cb13-25"><a href="conversion.html#cb13-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-26"><a href="conversion.html#cb13-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
-<span id="cb13-27"><a href="conversion.html#cb13-27" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-28"><a href="conversion.html#cb13-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Направи патека за дестинација</span></span>
-<span id="cb13-29"><a href="conversion.html#cb13-29" aria-hidden="true" tabindex="-1"></a>  folder_name <span class="ot">&lt;-</span> <span class="fu">dirname</span>(trosoci_tabela)</span>
-<span id="cb13-30"><a href="conversion.html#cb13-30" aria-hidden="true" tabindex="-1"></a>  base_name <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">file_path_sans_ext</span>(<span class="fu">basename</span>(trosoci_tabela))</span>
-<span id="cb13-31"><a href="conversion.html#cb13-31" aria-hidden="true" tabindex="-1"></a>  new_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(base_name, <span class="st">&quot;sumirani.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;-&quot;</span>)</span>
-<span id="cb13-32"><a href="conversion.html#cb13-32" aria-hidden="true" tabindex="-1"></a>  destinacija <span class="ot">&lt;-</span> <span class="fu">file.path</span>(folder_name, new_name)</span>
-<span id="cb13-33"><a href="conversion.html#cb13-33" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-34"><a href="conversion.html#cb13-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Зачувај</span></span>
-<span id="cb13-35"><a href="conversion.html#cb13-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_csv</span>(trosoci_sumirani, <span class="at">path =</span> destinacija)</span>
-<span id="cb13-36"><a href="conversion.html#cb13-36" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb13-37"><a href="conversion.html#cb13-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-38"><a href="conversion.html#cb13-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Земи го првиот аргумент</span></span>
-<span id="cb13-39"><a href="conversion.html#cb13-39" aria-hidden="true" tabindex="-1"></a>dadeni_trosoci <span class="ot">&lt;-</span> <span class="fu">commandArgs</span>(<span class="at">trailingOnly=</span><span class="cn">TRUE</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb13-40"><a href="conversion.html#cb13-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-41"><a href="conversion.html#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Изврши ја функцијата</span></span>
-<span id="cb13-42"><a href="conversion.html#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="fu">sumiraj_trosoci</span>(<span class="at">trosoci =</span> dadeni_trosoci)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="conversion.html#cb13-1"></a><span class="co"># (data/sumiraj-trosoci-1.R)</span></span>
+<span id="cb13-2"><a href="conversion.html#cb13-2"></a></span>
+<span id="cb13-3"><a href="conversion.html#cb13-3"></a><span class="co"># Употреба:</span></span>
+<span id="cb13-4"><a href="conversion.html#cb13-4"></a><span class="co"># Вчитај ја оваа скипта во R за да ја користиш функцијата `sumiraj_trosoci`  </span></span>
+<span id="cb13-5"><a href="conversion.html#cb13-5"></a></span>
+<span id="cb13-6"><a href="conversion.html#cb13-6"></a><span class="co"># Закачи ги ти пакетите кои се користат подолу </span></span>
+<span id="cb13-7"><a href="conversion.html#cb13-7"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb13-8"><a href="conversion.html#cb13-8"></a><span class="kw">library</span>(readr)</span>
+<span id="cb13-9"><a href="conversion.html#cb13-9"></a></span>
+<span id="cb13-10"><a href="conversion.html#cb13-10"></a><span class="co"># Доколку не се достапни, инсталирај со:</span></span>
+<span id="cb13-11"><a href="conversion.html#cb13-11"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
+<span id="cb13-12"><a href="conversion.html#cb13-12"></a><span class="co"># install.packages(&quot;readr&quot;)</span></span>
+<span id="cb13-13"><a href="conversion.html#cb13-13"></a></span>
+<span id="cb13-14"><a href="conversion.html#cb13-14"></a><span class="co"># Функција за групирање и сумирање трошоци</span></span>
+<span id="cb13-15"><a href="conversion.html#cb13-15"></a><span class="co"># Аргументот `trosoci` е патека до табелата што треба да се трансформира</span></span>
+<span id="cb13-16"><a href="conversion.html#cb13-16"></a></span>
+<span id="cb13-17"><a href="conversion.html#cb13-17"></a>sumiraj_trosoci &lt;-<span class="st"> </span><span class="cf">function</span>(trosoci_tabela) {</span>
+<span id="cb13-18"><a href="conversion.html#cb13-18"></a>  </span>
+<span id="cb13-19"><a href="conversion.html#cb13-19"></a>  <span class="co"># Вчитај ги податоците</span></span>
+<span id="cb13-20"><a href="conversion.html#cb13-20"></a>  trosoci &lt;-<span class="st"> </span><span class="kw">read_csv</span>(trosoci_tabela)</span>
+<span id="cb13-21"><a href="conversion.html#cb13-21"></a>  </span>
+<span id="cb13-22"><a href="conversion.html#cb13-22"></a>  <span class="co"># Групирај и пресметај суми</span></span>
+<span id="cb13-23"><a href="conversion.html#cb13-23"></a>  trosoci_sumirani &lt;-<span class="st"> </span>trosoci <span class="op">%&gt;%</span></span>
+<span id="cb13-24"><a href="conversion.html#cb13-24"></a><span class="st">    </span><span class="kw">group_by</span>(vraboten, tip_na_trosok) <span class="op">%&gt;%</span></span>
+<span id="cb13-25"><a href="conversion.html#cb13-25"></a><span class="st">    </span><span class="kw">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb13-26"><a href="conversion.html#cb13-26"></a><span class="st">  </span><span class="kw">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb13-27"><a href="conversion.html#cb13-27"></a>  </span>
+<span id="cb13-28"><a href="conversion.html#cb13-28"></a>  <span class="co"># Направи патека за дестинација</span></span>
+<span id="cb13-29"><a href="conversion.html#cb13-29"></a>  folder_name &lt;-<span class="st"> </span><span class="kw">dirname</span>(trosoci_tabela)</span>
+<span id="cb13-30"><a href="conversion.html#cb13-30"></a>  base_name &lt;-<span class="st"> </span>tools<span class="op">::</span><span class="kw">file_path_sans_ext</span>(<span class="kw">basename</span>(trosoci_tabela))</span>
+<span id="cb13-31"><a href="conversion.html#cb13-31"></a>  new_name &lt;-<span class="st"> </span><span class="kw">paste</span>(base_name, <span class="st">&quot;sumirani.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;-&quot;</span>)</span>
+<span id="cb13-32"><a href="conversion.html#cb13-32"></a>  destinacija &lt;-<span class="st"> </span><span class="kw">file.path</span>(folder_name, new_name)</span>
+<span id="cb13-33"><a href="conversion.html#cb13-33"></a>  </span>
+<span id="cb13-34"><a href="conversion.html#cb13-34"></a>  <span class="co"># Зачувај</span></span>
+<span id="cb13-35"><a href="conversion.html#cb13-35"></a>  <span class="kw">write_csv</span>(trosoci_sumirani, <span class="dt">path =</span> destinacija)</span>
+<span id="cb13-36"><a href="conversion.html#cb13-36"></a>}</span>
+<span id="cb13-37"><a href="conversion.html#cb13-37"></a></span>
+<span id="cb13-38"><a href="conversion.html#cb13-38"></a><span class="co"># Земи го првиот аргумент</span></span>
+<span id="cb13-39"><a href="conversion.html#cb13-39"></a>dadeni_trosoci &lt;-<span class="st"> </span><span class="kw">commandArgs</span>(<span class="dt">trailingOnly=</span><span class="ot">TRUE</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb13-40"><a href="conversion.html#cb13-40"></a></span>
+<span id="cb13-41"><a href="conversion.html#cb13-41"></a><span class="co"># Изврши ја функцијата</span></span>
+<span id="cb13-42"><a href="conversion.html#cb13-42"></a><span class="kw">sumiraj_trosoci</span>(<span class="dt">trosoci =</span> dadeni_trosoci)</span></code></pre></div>
 <p>Доколку го тестирате кодот додека читате го имате преземено директориумот за овој текст, оваа скрипта и податоците за трошоци се наоѓаат како фолдерот <strong><code>data</code></strong> под името <strong><code>sumiraj-trosoci-1.R</code></strong> и <strong><code>trosoci-moja-firma.csv</code></strong>.</p>
 <p>Доколку сакаме навистина да се потрудиме, како поради безбедност така и поради лесно користење на ваквата скрипта, можеме да додадеме кратко упатство за користење, и код за проверка на аргументот.</p>
 <p>За да направиме упатство за користење, ќе го користиме пакетот <a href="https://github.com/docopt/docopt.R"><code>docopt</code></a> кој што користи таканаречен <code>docstring</code>, односно текст којшто следи некои правила за форматирање со цел да биде лесно парсиран како прирачник за употреба на нашата скрипта. <code>docopt/docstring</code> имаат еквиваленти во сите други програмски јазици, така да доколку програмирате во <code>Python</code> или <code>Perl</code> веројатно ви се веќе познати овие концепти.</p>
 <p>За да провериме дека се е во ред со табелата што и е дадена на скриптата, ќе го користиме пакетот <a href="https://github.com/hadley/assertthat">assertthat</a>, што ни овозможува лесни проверки и информативни пораки за грешката. Стриктно гледано, пакетите <code>docopt</code> и <code>assertthat</code> не се неопходни, можеме да користиме функции како <code>commandArgs()</code> и <code>stopifnot()</code> од основната дистрибуција на <code>R</code>. Но во некои случаи користење на додатни пакети навистина ја олеснува работата.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="conversion.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (data/sumiraj-trosoci-2.R)</span></span>
-<span id="cb14-2"><a href="conversion.html#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="conversion.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;Сумирај трошоци групирани по вработен и тип на трошок. </span></span>
-<span id="cb14-4"><a href="conversion.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="st"> Табелаta со трошоци мора да ги содржи колоните: `vraboten`, `tip_na_trosok`, и `cena`.</span></span>
-<span id="cb14-5"><a href="conversion.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="st"> </span></span>
-<span id="cb14-6"><a href="conversion.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="st"> Usage:</span></span>
-<span id="cb14-7"><a href="conversion.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="st">    sumiraj-trosoci-2.R &lt;tabela_so_trosoci&gt;</span></span>
-<span id="cb14-8"><a href="conversion.html#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="st">    sumiraj-trosoci-2.R --help</span></span>
-<span id="cb14-9"><a href="conversion.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="st">    sumiraj-trosoci-2.R --version</span></span>
-<span id="cb14-10"><a href="conversion.html#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="conversion.html#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="st"> Options:</span></span>
-<span id="cb14-12"><a href="conversion.html#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="st">    --help      Прикажи помош</span></span>
-<span id="cb14-13"><a href="conversion.html#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="st">    --version   Прикажи верзија</span></span>
-<span id="cb14-14"><a href="conversion.html#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="st">    </span></span>
-<span id="cb14-15"><a href="conversion.html#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span> <span class="ot">-&gt;</span> doc</span>
-<span id="cb14-16"><a href="conversion.html#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-17"><a href="conversion.html#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Логика за аргументи</span></span>
-<span id="cb14-18"><a href="conversion.html#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(docopt)</span>
-<span id="cb14-19"><a href="conversion.html#cb14-19" aria-hidden="true" tabindex="-1"></a>arguments <span class="ot">&lt;-</span> <span class="fu">docopt</span>(doc, <span class="at">version =</span> <span class="st">&quot;Сумирај трошоци 2.0</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb14-20"><a href="conversion.html#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-21"><a href="conversion.html#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Провери дали табелата е csv формат</span></span>
-<span id="cb14-22"><a href="conversion.html#cb14-22" aria-hidden="true" tabindex="-1"></a>assertthat<span class="sc">::</span><span class="fu">assert_that</span>(</span>
-<span id="cb14-23"><a href="conversion.html#cb14-23" aria-hidden="true" tabindex="-1"></a>  assertthat<span class="sc">::</span><span class="fu">has_extension</span>(arguments<span class="sc">$</span>tabela_so_trosoci, <span class="at">ext =</span> <span class="st">&quot;csv&quot;</span>))</span>
-<span id="cb14-24"><a href="conversion.html#cb14-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-25"><a href="conversion.html#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Вчитај ги ти пакетите кои се користат подолу</span></span>
-<span id="cb14-26"><a href="conversion.html#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
-<span id="cb14-27"><a href="conversion.html#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(dplyr)</span>
-<span id="cb14-28"><a href="conversion.html#cb14-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(readr)</span>
-<span id="cb14-29"><a href="conversion.html#cb14-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(assertthat)</span>
-<span id="cb14-30"><a href="conversion.html#cb14-30" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb14-31"><a href="conversion.html#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-32"><a href="conversion.html#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Доколку не се достапни, инсталирај со:</span></span>
-<span id="cb14-33"><a href="conversion.html#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
-<span id="cb14-34"><a href="conversion.html#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;readr&quot;)</span></span>
-<span id="cb14-35"><a href="conversion.html#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(assertthat)</span></span>
-<span id="cb14-36"><a href="conversion.html#cb14-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-37"><a href="conversion.html#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Функција за групирање и сумирање трошоци</span></span>
-<span id="cb14-38"><a href="conversion.html#cb14-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Аргументот `trosoci_tabela` е патека до табелата што треба да се трансформира</span></span>
-<span id="cb14-39"><a href="conversion.html#cb14-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-40"><a href="conversion.html#cb14-40" aria-hidden="true" tabindex="-1"></a>sumiraj_trosoci <span class="ot">&lt;-</span> <span class="cf">function</span>(trosoci_tabela) {</span>
-<span id="cb14-41"><a href="conversion.html#cb14-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-42"><a href="conversion.html#cb14-42" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Вчитај ги податоците</span></span>
-<span id="cb14-43"><a href="conversion.html#cb14-43" aria-hidden="true" tabindex="-1"></a>  trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(trosoci_tabela)</span>
-<span id="cb14-44"><a href="conversion.html#cb14-44" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-45"><a href="conversion.html#cb14-45" aria-hidden="true" tabindex="-1"></a>  assertthat<span class="sc">::</span><span class="fu">assert_that</span>(<span class="fu">inherits</span>(trosoci, <span class="st">&quot;data.frame&quot;</span>), <span class="at">msg =</span> <span class="st">&quot;Табелата не беше вчитана како `data.frame`.&quot;</span>)</span>
-<span id="cb14-46"><a href="conversion.html#cb14-46" aria-hidden="true" tabindex="-1"></a>  assertthat<span class="sc">::</span><span class="fu">assert_that</span>(<span class="fu">all</span>(<span class="fu">c</span>(<span class="st">&quot;vraboten&quot;</span>, <span class="st">&quot;tip_na_trosok&quot;</span>, <span class="st">&quot;cena&quot;</span>) <span class="sc">%in%</span> <span class="fu">names</span>(trosoci)), </span>
-<span id="cb14-47"><a href="conversion.html#cb14-47" aria-hidden="true" tabindex="-1"></a>                          <span class="at">msg =</span> <span class="st">&quot;Табелата мора да содржи колони со имињата: &#39;vraboten&#39;, &#39;tip_na_trosok&#39;, &#39;cena&#39;.&quot;</span>)</span>
-<span id="cb14-48"><a href="conversion.html#cb14-48" aria-hidden="true" tabindex="-1"></a>  assertthat<span class="sc">::</span><span class="fu">assert_that</span>(<span class="fu">is.numeric</span>(trosoci<span class="sc">$</span>cena), <span class="at">msg =</span> <span class="st">&quot;Колоната `cena` мора да биде нумеричка.&quot;</span>)</span>
-<span id="cb14-49"><a href="conversion.html#cb14-49" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-50"><a href="conversion.html#cb14-50" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-51"><a href="conversion.html#cb14-51" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Групирај и пресметај суми</span></span>
-<span id="cb14-52"><a href="conversion.html#cb14-52" aria-hidden="true" tabindex="-1"></a>  trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span></span>
-<span id="cb14-53"><a href="conversion.html#cb14-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span></span>
-<span id="cb14-54"><a href="conversion.html#cb14-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-55"><a href="conversion.html#cb14-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
-<span id="cb14-56"><a href="conversion.html#cb14-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-57"><a href="conversion.html#cb14-57" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Направи патека за дестинација</span></span>
-<span id="cb14-58"><a href="conversion.html#cb14-58" aria-hidden="true" tabindex="-1"></a>  folder_name <span class="ot">&lt;-</span> <span class="fu">dirname</span>(trosoci_tabela)</span>
-<span id="cb14-59"><a href="conversion.html#cb14-59" aria-hidden="true" tabindex="-1"></a>  base_name <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">file_path_sans_ext</span>(<span class="fu">basename</span>(trosoci_tabela))</span>
-<span id="cb14-60"><a href="conversion.html#cb14-60" aria-hidden="true" tabindex="-1"></a>  new_name <span class="ot">&lt;-</span> <span class="fu">paste</span>(base_name, <span class="st">&quot;sumirani.csv&quot;</span>, <span class="at">sep=</span><span class="st">&quot;-&quot;</span>)</span>
-<span id="cb14-61"><a href="conversion.html#cb14-61" aria-hidden="true" tabindex="-1"></a>  destinacija <span class="ot">&lt;-</span> <span class="fu">file.path</span>(folder_name, new_name)</span>
-<span id="cb14-62"><a href="conversion.html#cb14-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-63"><a href="conversion.html#cb14-63" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Зачувај</span></span>
-<span id="cb14-64"><a href="conversion.html#cb14-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_csv</span>(trosoci_sumirani, <span class="at">path =</span> destinacija)</span>
-<span id="cb14-65"><a href="conversion.html#cb14-65" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb14-66"><a href="conversion.html#cb14-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-67"><a href="conversion.html#cb14-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Земи го првиот аргумент (табелата)</span></span>
-<span id="cb14-68"><a href="conversion.html#cb14-68" aria-hidden="true" tabindex="-1"></a>dadeni_trosoci <span class="ot">&lt;-</span> arguments<span class="sc">$</span>tabela_so_trosoci</span>
-<span id="cb14-69"><a href="conversion.html#cb14-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-70"><a href="conversion.html#cb14-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Изврши ја функцијата</span></span>
-<span id="cb14-71"><a href="conversion.html#cb14-71" aria-hidden="true" tabindex="-1"></a><span class="fu">sumiraj_trosoci</span>(<span class="at">trosoci =</span> dadeni_trosoci)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="conversion.html#cb14-1"></a><span class="co"># (data/sumiraj-trosoci-2.R)</span></span>
+<span id="cb14-2"><a href="conversion.html#cb14-2"></a></span>
+<span id="cb14-3"><a href="conversion.html#cb14-3"></a><span class="st">&#39;Сумирај трошоци групирани по вработен и тип на трошок. </span></span>
+<span id="cb14-4"><a href="conversion.html#cb14-4"></a><span class="st"> Табелаta со трошоци мора да ги содржи колоните: `vraboten`, `tip_na_trosok`, и `cena`.</span></span>
+<span id="cb14-5"><a href="conversion.html#cb14-5"></a><span class="st"> </span></span>
+<span id="cb14-6"><a href="conversion.html#cb14-6"></a><span class="st"> Usage:</span></span>
+<span id="cb14-7"><a href="conversion.html#cb14-7"></a><span class="st">    sumiraj-trosoci-2.R &lt;tabela_so_trosoci&gt;</span></span>
+<span id="cb14-8"><a href="conversion.html#cb14-8"></a><span class="st">    sumiraj-trosoci-2.R --help</span></span>
+<span id="cb14-9"><a href="conversion.html#cb14-9"></a><span class="st">    sumiraj-trosoci-2.R --version</span></span>
+<span id="cb14-10"><a href="conversion.html#cb14-10"></a></span>
+<span id="cb14-11"><a href="conversion.html#cb14-11"></a><span class="st"> Options:</span></span>
+<span id="cb14-12"><a href="conversion.html#cb14-12"></a><span class="st">    --help      Прикажи помош</span></span>
+<span id="cb14-13"><a href="conversion.html#cb14-13"></a><span class="st">    --version   Прикажи верзија</span></span>
+<span id="cb14-14"><a href="conversion.html#cb14-14"></a><span class="st">    </span></span>
+<span id="cb14-15"><a href="conversion.html#cb14-15"></a><span class="st">&#39;</span> -&gt;<span class="st"> </span>doc</span>
+<span id="cb14-16"><a href="conversion.html#cb14-16"></a></span>
+<span id="cb14-17"><a href="conversion.html#cb14-17"></a><span class="co"># Логика за аргументи</span></span>
+<span id="cb14-18"><a href="conversion.html#cb14-18"></a><span class="kw">library</span>(docopt)</span>
+<span id="cb14-19"><a href="conversion.html#cb14-19"></a>arguments &lt;-<span class="st"> </span><span class="kw">docopt</span>(doc, <span class="dt">version =</span> <span class="st">&quot;Сумирај трошоци 2.0</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb14-20"><a href="conversion.html#cb14-20"></a></span>
+<span id="cb14-21"><a href="conversion.html#cb14-21"></a><span class="co"># Провери дали табелата е csv формат</span></span>
+<span id="cb14-22"><a href="conversion.html#cb14-22"></a>assertthat<span class="op">::</span><span class="kw">assert_that</span>(</span>
+<span id="cb14-23"><a href="conversion.html#cb14-23"></a>  assertthat<span class="op">::</span><span class="kw">has_extension</span>(arguments<span class="op">$</span>tabela_so_trosoci, <span class="dt">ext =</span> <span class="st">&quot;csv&quot;</span>))</span>
+<span id="cb14-24"><a href="conversion.html#cb14-24"></a></span>
+<span id="cb14-25"><a href="conversion.html#cb14-25"></a><span class="co"># Вчитај ги ти пакетите кои се користат подолу</span></span>
+<span id="cb14-26"><a href="conversion.html#cb14-26"></a><span class="kw">suppressPackageStartupMessages</span>({</span>
+<span id="cb14-27"><a href="conversion.html#cb14-27"></a>  <span class="kw">library</span>(dplyr)</span>
+<span id="cb14-28"><a href="conversion.html#cb14-28"></a>  <span class="kw">library</span>(readr)</span>
+<span id="cb14-29"><a href="conversion.html#cb14-29"></a>  <span class="kw">library</span>(assertthat)</span>
+<span id="cb14-30"><a href="conversion.html#cb14-30"></a>})</span>
+<span id="cb14-31"><a href="conversion.html#cb14-31"></a></span>
+<span id="cb14-32"><a href="conversion.html#cb14-32"></a><span class="co"># Доколку не се достапни, инсталирај со:</span></span>
+<span id="cb14-33"><a href="conversion.html#cb14-33"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
+<span id="cb14-34"><a href="conversion.html#cb14-34"></a><span class="co"># install.packages(&quot;readr&quot;)</span></span>
+<span id="cb14-35"><a href="conversion.html#cb14-35"></a><span class="co"># install.packages(assertthat)</span></span>
+<span id="cb14-36"><a href="conversion.html#cb14-36"></a></span>
+<span id="cb14-37"><a href="conversion.html#cb14-37"></a><span class="co"># Функција за групирање и сумирање трошоци</span></span>
+<span id="cb14-38"><a href="conversion.html#cb14-38"></a><span class="co"># Аргументот `trosoci_tabela` е патека до табелата што треба да се трансформира</span></span>
+<span id="cb14-39"><a href="conversion.html#cb14-39"></a></span>
+<span id="cb14-40"><a href="conversion.html#cb14-40"></a>sumiraj_trosoci &lt;-<span class="st"> </span><span class="cf">function</span>(trosoci_tabela) {</span>
+<span id="cb14-41"><a href="conversion.html#cb14-41"></a></span>
+<span id="cb14-42"><a href="conversion.html#cb14-42"></a>  <span class="co"># Вчитај ги податоците</span></span>
+<span id="cb14-43"><a href="conversion.html#cb14-43"></a>  trosoci &lt;-<span class="st"> </span><span class="kw">read_csv</span>(trosoci_tabela)</span>
+<span id="cb14-44"><a href="conversion.html#cb14-44"></a>  </span>
+<span id="cb14-45"><a href="conversion.html#cb14-45"></a>  assertthat<span class="op">::</span><span class="kw">assert_that</span>(<span class="kw">inherits</span>(trosoci, <span class="st">&quot;data.frame&quot;</span>), <span class="dt">msg =</span> <span class="st">&quot;Табелата не беше вчитана како `data.frame`.&quot;</span>)</span>
+<span id="cb14-46"><a href="conversion.html#cb14-46"></a>  assertthat<span class="op">::</span><span class="kw">assert_that</span>(<span class="kw">all</span>(<span class="kw">c</span>(<span class="st">&quot;vraboten&quot;</span>, <span class="st">&quot;tip_na_trosok&quot;</span>, <span class="st">&quot;cena&quot;</span>) <span class="op">%in%</span><span class="st"> </span><span class="kw">names</span>(trosoci)), </span>
+<span id="cb14-47"><a href="conversion.html#cb14-47"></a>                          <span class="dt">msg =</span> <span class="st">&quot;Табелата мора да содржи колони со имињата: &#39;vraboten&#39;, &#39;tip_na_trosok&#39;, &#39;cena&#39;.&quot;</span>)</span>
+<span id="cb14-48"><a href="conversion.html#cb14-48"></a>  assertthat<span class="op">::</span><span class="kw">assert_that</span>(<span class="kw">is.numeric</span>(trosoci<span class="op">$</span>cena), <span class="dt">msg =</span> <span class="st">&quot;Колоната `cena` мора да биде нумеричка.&quot;</span>)</span>
+<span id="cb14-49"><a href="conversion.html#cb14-49"></a>  </span>
+<span id="cb14-50"><a href="conversion.html#cb14-50"></a>  </span>
+<span id="cb14-51"><a href="conversion.html#cb14-51"></a>  <span class="co"># Групирај и пресметај суми</span></span>
+<span id="cb14-52"><a href="conversion.html#cb14-52"></a>  trosoci_sumirani &lt;-<span class="st"> </span>trosoci <span class="op">%&gt;%</span></span>
+<span id="cb14-53"><a href="conversion.html#cb14-53"></a><span class="st">    </span><span class="kw">group_by</span>(vraboten, tip_na_trosok) <span class="op">%&gt;%</span></span>
+<span id="cb14-54"><a href="conversion.html#cb14-54"></a><span class="st">    </span><span class="kw">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb14-55"><a href="conversion.html#cb14-55"></a><span class="st">    </span><span class="kw">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb14-56"><a href="conversion.html#cb14-56"></a></span>
+<span id="cb14-57"><a href="conversion.html#cb14-57"></a>  <span class="co"># Направи патека за дестинација</span></span>
+<span id="cb14-58"><a href="conversion.html#cb14-58"></a>  folder_name &lt;-<span class="st"> </span><span class="kw">dirname</span>(trosoci_tabela)</span>
+<span id="cb14-59"><a href="conversion.html#cb14-59"></a>  base_name &lt;-<span class="st"> </span>tools<span class="op">::</span><span class="kw">file_path_sans_ext</span>(<span class="kw">basename</span>(trosoci_tabela))</span>
+<span id="cb14-60"><a href="conversion.html#cb14-60"></a>  new_name &lt;-<span class="st"> </span><span class="kw">paste</span>(base_name, <span class="st">&quot;sumirani.csv&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;-&quot;</span>)</span>
+<span id="cb14-61"><a href="conversion.html#cb14-61"></a>  destinacija &lt;-<span class="st"> </span><span class="kw">file.path</span>(folder_name, new_name)</span>
+<span id="cb14-62"><a href="conversion.html#cb14-62"></a></span>
+<span id="cb14-63"><a href="conversion.html#cb14-63"></a>  <span class="co"># Зачувај</span></span>
+<span id="cb14-64"><a href="conversion.html#cb14-64"></a>  <span class="kw">write_csv</span>(trosoci_sumirani, <span class="dt">path =</span> destinacija)</span>
+<span id="cb14-65"><a href="conversion.html#cb14-65"></a>}</span>
+<span id="cb14-66"><a href="conversion.html#cb14-66"></a></span>
+<span id="cb14-67"><a href="conversion.html#cb14-67"></a><span class="co"># Земи го првиот аргумент (табелата)</span></span>
+<span id="cb14-68"><a href="conversion.html#cb14-68"></a>dadeni_trosoci &lt;-<span class="st"> </span>arguments<span class="op">$</span>tabela_so_trosoci</span>
+<span id="cb14-69"><a href="conversion.html#cb14-69"></a></span>
+<span id="cb14-70"><a href="conversion.html#cb14-70"></a><span class="co"># Изврши ја функцијата</span></span>
+<span id="cb14-71"><a href="conversion.html#cb14-71"></a><span class="kw">sumiraj_trosoci</span>(<span class="dt">trosoci =</span> dadeni_trosoci)</span></code></pre></div>
 <p>Со овие додатоци, нашата скрипта сега ќе може дури и да им помогне на корисниците доколку наидат на грешка. Сѐ уште не сме комплетно безбедни од не-повторливост, но стигнавме далеку имајќи во предвид каде почнавме. На пример, ако ја извршиме скриптата без аргументи:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="conversion.html#cb15-1" aria-hidden="true" tabindex="-1"></a>$ <span class="ex">Rscript</span> sumiraj-trosoci-2.R </span>
-<span id="cb15-2"><a href="conversion.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Error</span>: Сумирај трошоци групирани по вработен и тип на трошок. </span>
-<span id="cb15-3"><a href="conversion.html#cb15-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">Табелаta</span> со трошоци мора да ги содржи колоните: <span class="kw">`</span><span class="ex">vraboten</span><span class="kw">`</span>, <span class="kw">`</span><span class="ex">tip_na_trosok</span><span class="kw">`</span>, и <span class="kw">`</span><span class="ex">cena</span><span class="kw">`</span>.</span>
-<span id="cb15-4"><a href="conversion.html#cb15-4" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb15-5"><a href="conversion.html#cb15-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">Usage</span>:</span>
-<span id="cb15-6"><a href="conversion.html#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sumiraj-trosoci-2.R</span> <span class="op">&lt;</span>tabela_so_trosoci<span class="op">&gt;</span></span>
-<span id="cb15-7"><a href="conversion.html#cb15-7" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-8"><a href="conversion.html#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Execution</span> halted</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="conversion.html#cb15-1"></a>$ <span class="ex">Rscript</span> sumiraj-trosoci-2.R </span>
+<span id="cb15-2"><a href="conversion.html#cb15-2"></a><span class="ex">Error</span>: Сумирај трошоци групирани по вработен и тип на трошок. </span>
+<span id="cb15-3"><a href="conversion.html#cb15-3"></a> Табела<span class="ex">ta</span> со трошоци мора да ги содржи колоните: <span class="kw">`</span><span class="ex">vraboten</span><span class="kw">`</span>, <span class="kw">`</span><span class="ex">tip_na_trosok</span><span class="kw">`</span>, и <span class="kw">`</span><span class="ex">cena</span><span class="kw">`</span>.</span>
+<span id="cb15-4"><a href="conversion.html#cb15-4"></a> </span>
+<span id="cb15-5"><a href="conversion.html#cb15-5"></a> <span class="ex">Usage</span>:</span>
+<span id="cb15-6"><a href="conversion.html#cb15-6"></a>    <span class="ex">sumiraj-trosoci-2.R</span> <span class="op">&lt;</span>tabela_so_trosoci<span class="op">&gt;</span></span>
+<span id="cb15-7"><a href="conversion.html#cb15-7"></a>    </span>
+<span id="cb15-8"><a href="conversion.html#cb15-8"></a><span class="ex">Execution</span> halted</span></code></pre></div>
 <p>Со коректен инпут:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="conversion.html#cb16-1" aria-hidden="true" tabindex="-1"></a>$ <span class="ex">Rscript</span> sumiraj-trosoci-2.R trosoci-moja-firma.csv </span>
-<span id="cb16-2"><a href="conversion.html#cb16-2" aria-hidden="true" tabindex="-1"></a>[<span class="ex">1</span>] TRUE</span>
-<span id="cb16-3"><a href="conversion.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Parsed</span> with column specification:</span>
-<span id="cb16-4"><a href="conversion.html#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="ex">cols</span>(</span>
-<span id="cb16-5"><a href="conversion.html#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">vraboten</span> = col_character(),</span>
-<span id="cb16-6"><a href="conversion.html#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">tip_na_trosok</span> = col_character(),</span>
-<span id="cb16-7"><a href="conversion.html#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">cena</span> = col_double()</span>
-<span id="cb16-8"><a href="conversion.html#cb16-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="conversion.html#cb16-1"></a>$ <span class="ex">Rscript</span> sumiraj-trosoci-2.R trosoci-moja-firma.csv </span>
+<span id="cb16-2"><a href="conversion.html#cb16-2"></a>[<span class="ex">1</span>] TRUE</span>
+<span id="cb16-3"><a href="conversion.html#cb16-3"></a><span class="ex">Parsed</span> with column specification:</span>
+<span id="cb16-4"><a href="conversion.html#cb16-4"></a><span class="ex">cols</span>(</span>
+<span id="cb16-5"><a href="conversion.html#cb16-5"></a>  <span class="ex">vraboten</span> = col_character(),</span>
+<span id="cb16-6"><a href="conversion.html#cb16-6"></a>  <span class="ex">tip_na_trosok</span> = col_character(),</span>
+<span id="cb16-7"><a href="conversion.html#cb16-7"></a>  <span class="ex">cena</span> = col_double()</span>
+<span id="cb16-8"><a href="conversion.html#cb16-8"></a>)</span></code></pre></div>
 <p>Со погрешен фајл, праќаме ексел наместо текстуална табела со запирки:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="conversion.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> sumiraj-trosoci-2.R trosoci-moja-firma.xls </span>
-<span id="cb17-2"><a href="conversion.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Error</span>: File <span class="st">&#39;trosoci-moja-firma.xls&#39;</span> does not have extension csv</span>
-<span id="cb17-3"><a href="conversion.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Execution</span> halted</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="conversion.html#cb17-1"></a><span class="ex">Rscript</span> sumiraj-trosoci-2.R trosoci-moja-firma.xls </span>
+<span id="cb17-2"><a href="conversion.html#cb17-2"></a><span class="ex">Error</span>: File <span class="st">&#39;trosoci-moja-firma.xls&#39;</span> does not have extension csv</span>
+<span id="cb17-3"><a href="conversion.html#cb17-3"></a><span class="ex">Execution</span> halted</span></code></pre></div>
 <p>Ако колоната за <code>cena</code> е крстена <code>eur</code>:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="conversion.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> sumiraj-trosoci-2.R trosoci-moja-firma-eur.csv</span>
-<span id="cb18-2"><a href="conversion.html#cb18-2" aria-hidden="true" tabindex="-1"></a>[<span class="ex">1</span>] TRUE</span>
-<span id="cb18-3"><a href="conversion.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Parsed</span> with column specification:</span>
-<span id="cb18-4"><a href="conversion.html#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ex">cols</span>(</span>
-<span id="cb18-5"><a href="conversion.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">vraboten</span> = col_character(),</span>
-<span id="cb18-6"><a href="conversion.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">tip_na_trosok</span> = col_character(),</span>
-<span id="cb18-7"><a href="conversion.html#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">eur</span> = col_double()</span>
-<span id="cb18-8"><a href="conversion.html#cb18-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb18-9"><a href="conversion.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Error</span>: Табелата мора да содржи колони со имињата: <span class="st">&#39;vraboten&#39;</span>, <span class="st">&#39;tip_na_trosok&#39;</span>, <span class="st">&#39;cena&#39;</span>.</span>
-<span id="cb18-10"><a href="conversion.html#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Execution</span> halted</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="conversion.html#cb18-1"></a><span class="ex">Rscript</span> sumiraj-trosoci-2.R trosoci-moja-firma-eur.csv</span>
+<span id="cb18-2"><a href="conversion.html#cb18-2"></a>[<span class="ex">1</span>] TRUE</span>
+<span id="cb18-3"><a href="conversion.html#cb18-3"></a><span class="ex">Parsed</span> with column specification:</span>
+<span id="cb18-4"><a href="conversion.html#cb18-4"></a><span class="ex">cols</span>(</span>
+<span id="cb18-5"><a href="conversion.html#cb18-5"></a>  <span class="ex">vraboten</span> = col_character(),</span>
+<span id="cb18-6"><a href="conversion.html#cb18-6"></a>  <span class="ex">tip_na_trosok</span> = col_character(),</span>
+<span id="cb18-7"><a href="conversion.html#cb18-7"></a>  <span class="ex">eur</span> = col_double()</span>
+<span id="cb18-8"><a href="conversion.html#cb18-8"></a>)</span>
+<span id="cb18-9"><a href="conversion.html#cb18-9"></a><span class="ex">Error</span>: Табелата мора да содржи колони со имињата: <span class="st">&#39;vraboten&#39;</span>, <span class="st">&#39;tip_na_trosok&#39;</span>, <span class="st">&#39;cena&#39;</span>.</span>
+<span id="cb18-10"><a href="conversion.html#cb18-10"></a><span class="ex">Execution</span> halted</span></code></pre></div>
 </div>
-<div id="резиме-1" class="section level2" number="4.5">
+<div id="резиме" class="section level2">
 <h2><span class="header-section-number">4.5</span> Резиме</h2>
 <p>Во ова поглавје видовме како нашите едноставни три линии код напишани набрзина можеме да ги претвориме во постабилна скрипта која веќе ги има следните карактеристики значајни за повторливост:</p>
 <ul>

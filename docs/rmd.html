@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Повторливи документи / извештаи со писмено програмирање (R + markdown) | Препораки за повторливо анализирање на податоци</title>
   <meta name="description" content="Прирачник за повторливо анализирање и објавување на податоци. Дискутираме теми, процедури, и алатки од R екосистемот кои олеснуваат обработка на податоци со најдобрите и најбезбедни пракси и кои овозможуваат повторување на анализите со минимален труд од страна на надворешен корисник." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Повторливи документи / извештаи со писмено програмирање (R + markdown) | Препораки за повторливо анализирање на податоци" />
   <meta property="og:type" content="book" />
@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Прирачник за повторливо анализирање и објавување на податоци. Дискутираме теми, процедури, и алатки од R екосистемот кои олеснуваат обработка на податоци со најдобрите и најбезбедни пракси и кои овозможуваат повторување на анализите со минимален труд од страна на надворешен корисник." />
   
 
-<meta name="author" content="Теофил Наков, Новица Наков" />
+<meta name="author" content="Теофил Наков, Новица Наков, Слободен софтвер Македонија" />
 
 
 <meta name="date" content="2020-12-16" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="conversion.html"/>
 <link rel="next" href="proekti.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,22 +50,22 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -86,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -135,64 +134,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Вовед</a>
-<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Вовед</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#analogy"><i class="fa fa-check"></i><b>1.1</b> Аналогија</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#audience"><i class="fa fa-check"></i><b>1.2</b> За кого е наменет овој прирачник</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#organ"><i class="fa fa-check"></i><b>1.3</b> Организација</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#за-овој-прирачник"><i class="fa fa-check"></i><b>1.4</b> За овој прирачник</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a>
-<ul>
+<li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a><ul>
 <li class="chapter" data-level="2.1" data-path="tools.html"><a href="tools.html#програмски-јазик-r"><i class="fa fa-check"></i><b>2.1</b> Програмски јазик: <code>R</code></a></li>
 <li class="chapter" data-level="2.2" data-path="tools.html"><a href="tools.html#контрола-на-изворен-код-git"><i class="fa fa-check"></i><b>2.2</b> Контрола на изворен код: <code>git</code></a></li>
 <li class="chapter" data-level="2.3" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>2.3</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a>
-<ul>
+<li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a><ul>
 <li class="chapter" data-level="3.1" data-path="nogood.html"><a href="nogood.html#typical"><i class="fa fa-check"></i><b>3.1</b> Типична анализа (која никој, дури ни авторот, не може да ја повтори)</a></li>
 <li class="chapter" data-level="3.2" data-path="nogood.html"><a href="nogood.html#indicators"><i class="fa fa-check"></i><b>3.2</b> Типични пракси кои доведуваат до не-повторливи анализи</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="conversion.html"><a href="conversion.html"><i class="fa fa-check"></i><b>4</b> Конверзија во повторлив код</a>
-<ul>
+<li class="chapter" data-level="4" data-path="conversion.html"><a href="conversion.html"><i class="fa fa-check"></i><b>4</b> Конверзија во повторлив код</a><ul>
 <li class="chapter" data-level="4.1" data-path="conversion.html"><a href="conversion.html#податоци"><i class="fa fa-check"></i><b>4.1</b> Податоци</a></li>
 <li class="chapter" data-level="4.2" data-path="conversion.html"><a href="conversion.html#први-чекори-кон-повторливост"><i class="fa fa-check"></i><b>4.2</b> Први чекори кон повторливост</a></li>
 <li class="chapter" data-level="4.3" data-path="conversion.html"><a href="conversion.html#функција"><i class="fa fa-check"></i><b>4.3</b> Функција</a></li>
 <li class="chapter" data-level="4.4" data-path="conversion.html"><a href="conversion.html#rscript-што-може-да-го-користиме-без-да-отвараме-r"><i class="fa fa-check"></i><b>4.4</b> Rscript што може да го користиме без да отвараме <code>R</code></a></li>
-<li class="chapter" data-level="4.5" data-path="conversion.html"><a href="conversion.html#резиме-1"><i class="fa fa-check"></i><b>4.5</b> Резиме</a></li>
+<li class="chapter" data-level="4.5" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>4.5</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Повторливи документи / извештаи со писмено програмирање (R + markdown)</a>
-<ul>
+<li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Повторливи документи / извештаи со писмено програмирање (R + markdown)</a><ul>
 <li class="chapter" data-level="5.1" data-path="rmd.html"><a href="rmd.html#форматирање-на-текст-со-markdown"><i class="fa fa-check"></i><b>5.1</b> Форматирање на текст со markdown</a></li>
 <li class="chapter" data-level="5.2" data-path="rmd.html"><a href="rmd.html#плетење-на-текст-код-и-резултати-со-knitr"><i class="fa fa-check"></i><b>5.2</b> Плетење на текст, код, и резултати со <code>knitr</code></a></li>
 <li class="chapter" data-level="5.3" data-path="rmd.html"><a href="rmd.html#извештаи-со-параметри"><i class="fa fa-check"></i><b>5.3</b> Извештаи со параметри</a></li>
 <li class="chapter" data-level="5.4" data-path="rmd.html"><a href="rmd.html#следни-чекори"><i class="fa fa-check"></i><b>5.4</b> Следни чекори</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="proekti.html"><a href="proekti.html"><i class="fa fa-check"></i><b>6</b> Повторливи проекти</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="proekti.html"><a href="proekti.html#стратегија-1-направи-сам"><i class="fa fa-check"></i><b>6.1</b> Стратегија 1: Направи сам</a>
-<ul>
+<li class="chapter" data-level="6" data-path="proekti.html"><a href="proekti.html"><i class="fa fa-check"></i><b>6</b> Повторливи проекти</a><ul>
+<li class="chapter" data-level="6.1" data-path="proekti.html"><a href="proekti.html#стратегија-1-направи-сам"><i class="fa fa-check"></i><b>6.1</b> Стратегија 1: Направи сам</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="proekti.html"><a href="proekti.html#структура"><i class="fa fa-check"></i><b>6.1.1</b> Структура</a></li>
 <li class="chapter" data-level="6.1.2" data-path="proekti.html"><a href="proekti.html#предности"><i class="fa fa-check"></i><b>6.1.2</b> Предности</a></li>
 <li class="chapter" data-level="6.1.3" data-path="proekti.html"><a href="proekti.html#недостатоци"><i class="fa fa-check"></i><b>6.1.3</b> Недостатоци</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="proekti.html"><a href="proekti.html#стратегија-2-формален-r-пакет-или-некоја-поедноставена-варијанта"><i class="fa fa-check"></i><b>6.2</b> Стратегија 2: Формален <code>R</code> пакет или некоја поедноставена варијанта</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="proekti.html"><a href="proekti.html#стратегија-2-формален-r-пакет-или-некоја-поедноставена-варијанта"><i class="fa fa-check"></i><b>6.2</b> Стратегија 2: Формален <code>R</code> пакет или некоја поедноставена варијанта</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="proekti.html"><a href="proekti.html#структура-1"><i class="fa fa-check"></i><b>6.2.1</b> Структура</a></li>
 <li class="chapter" data-level="6.2.2" data-path="proekti.html"><a href="proekti.html#поставување"><i class="fa fa-check"></i><b>6.2.2</b> Поставување</a></li>
 <li class="chapter" data-level="6.2.3" data-path="proekti.html"><a href="proekti.html#предности-1"><i class="fa fa-check"></i><b>6.2.3</b> Предности</a></li>
 <li class="chapter" data-level="6.2.4" data-path="proekti.html"><a href="proekti.html#недостатоци-1"><i class="fa fa-check"></i><b>6.2.4</b> Недостатоци</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="proekti.html"><a href="proekti.html#резиме-2"><i class="fa fa-check"></i><b>6.3</b> Резиме</a></li>
+<li class="chapter" data-level="6.3" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>6.3</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>7</b> Контрола на изворниот код (git / GitHub)</a>
-<ul>
+<li class="chapter" data-level="7" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>7</b> Контрола на изворниот код (git / GitHub)</a><ul>
 <li class="chapter" data-level="7.0.1" data-path="git.html"><a href="git.html#потребен-софтвер"><i class="fa fa-check"></i><b>7.0.1</b> Потребен софтвер</a></li>
 <li class="chapter" data-level="7.0.2" data-path="git.html"><a href="git.html#чекори"><i class="fa fa-check"></i><b>7.0.2</b> Чекори</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="not-too-much-about-git-of-course-that-is-not-the-point-anyway.html"><a href="not-too-much-about-git-of-course-that-is-not-the-point-anyway.html"><i class="fa fa-check"></i><b>8</b> not too much about git (of course that is not the point anyway)</a></li>
-<li class="chapter" data-level="9" data-path="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><i class="fa fa-check"></i><b>9</b> just about creating a github repo where you can push rmd in main and html in gh-pages thus making your reserarch public on the web mostly working thourgh r studio exept for creating the account on gh.</a>
-<ul>
+<li class="chapter" data-level="9" data-path="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><i class="fa fa-check"></i><b>9</b> just about creating a github repo where you can push rmd in main and html in gh-pages thus making your reserarch public on the web mostly working thourgh r studio exept for creating the account on gh.</a><ul>
 <li class="chapter" data-level="9.0.1" data-path="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#референци-httpsgit-scm.combookenv2"><i class="fa fa-check"></i><b>9.0.1</b> референци: <span>https://git-scm.com/book/en/v2</span></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -216,11 +206,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="rmd" class="section level1" number="5">
+<div id="rmd" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> Повторливи документи / извештаи со писмено програмирање (R + markdown)</h1>
 <p>Во претходното поглавје, се запознавме со некои од главните методи за обезбедување на нашиот програмски код со цел да биде фунцкионален и на нечиј друг компјутер. Разгледавме ситуација со една скрипта и една табела со резултати, но доколку се запрашаме, сигурно ќе се согласиме дека речиси никогаш не е доволно да се испрати (или објави) само една табела или пресметка. Наспроти, често потребно е да се додаде текстуално објаснување или некаков друг контекст на податоците. Исто така, во многу случаи, нашите визуелизации во форма на табели или графици, или нашите статистички резултати (t-вредности, p-вредности, равенки за регресија), треба да ги прикажеме заедно со програмскиот код кој сме го напишале за да дојдеме то тие резултати.</p>
 <p>За едноставно комбинирање на код, податоци, резултати и текст во еден документ, светот на <code>R</code> се користи <code>Rmarkdown</code>. <code>Rmarkdown</code> овозможува комбинирање на сите елементи на едно истражување во документ погоден за понатамошно споделување. Патем, така е напишан и овој прирачник, кој исто така цели да биде повторлив.</p>
-<div id="форматирање-на-текст-со-markdown" class="section level2" number="5.1">
+<div id="форматирање-на-текст-со-markdown" class="section level2">
 <h2><span class="header-section-number">5.1</span> Форматирање на текст со markdown</h2>
 <p>Markdown, за разлика од <em>markup</em> програмски јазици како <code>HTML</code> или <code>LaTeX</code> има за цел да го поедностави процесот на форматирање на текст. За детална референца на филозофијата и синтаксата на <code>markdown</code>, погледнете ги официјалните вебсајти нa <a href="https://daringfireball.net/projects/markdown/syntax">оригиналната спецификација</a> или поновата <a href="https://commonmark.org/">стандардизирана спецификација</a>. Во контекст на <code>R</code> и <code>Rstudio</code> погледнете го поглавјето за <a href="https://r4ds.had.co.nz/r-markdown.html">Rmarkdown во книгата R for Data Science</a> или <a href="https://emilyriederer.netlify.app/post/rmarkdown-driven-development/">овој блогпост</a> (и линковите таму) посветен на процесот на развивање на <code>R</code> код, или развивање на една анализа низ призмата на писмено програмирање со <code>Rmarkdown</code> („писмено“ го преведуваме од англиското ‘literal programming’).</p>
 <p>Тука, накратко ќе ги споменеме најчестите компоненти. На пример, обичниот текст со мала декорација прикажан тука:</p>
@@ -253,7 +243,7 @@ Kаде што првиот елемент на парчето (chunk) укаж�
 </blockquote>
 <p>Забележуваме дека е навистина еднотавно да се куца обичен текст кој во HTML, PDF, или Word документ ќе биде прикажан како задебелен, курзив, со линкови, итн.</p>
 </div>
-<div id="плетење-на-текст-код-и-резултати-со-knitr" class="section level2" number="5.2">
+<div id="плетење-на-текст-код-и-резултати-со-knitr" class="section level2">
 <h2><span class="header-section-number">5.2</span> Плетење на текст, код, и резултати со <code>knitr</code></h2>
 <p>Досега видовме како можеме лесно да маркираме обичен текст кој ќе биде процесиран во убаво форматиран документ. Она што ни недостасува е комбинирање (плетење) на ваквиот текстот со програмски код и резултатите од тој код. <code>Rmarkdown</code> го прави овој чекор супер едноставен. Се што е неопходно е да додадеме парче код кое почнува со нотацијата <code>```{r}</code> и завршува со нотацијата <code>```</code>. Тогаш <code>R</code> и пакетот <code>knitr</code> ќе се обидат да го интерпретираат и извршат сиот текст во ова парче како <code>R</code> код или коментари што почнуваат со <code>#</code>. Доколку извршувањето на тој код резултира со табела или график, <code>knitr</code> ќе го прикаже тој елемент веднаш под извршениот код.</p>
 <p>Ова е далеку полесно со пример:</p>
@@ -268,7 +258,7 @@ Kаде што првиот елемент на парчето (chunk) укаж�
 </div>
 <p>Ова навистина само ја допира површината на тоа што е можно да се направи со алатките како <code>rmarkdown</code> и <code>knitr</code>. Имајќи во предвид дека крајните документи се <code>HTML</code>, <code>LaTex</code>, или <code>MS Word</code>, голем дел од богатсвото на можности на овие далеку поопширни <code>markup</code> системи ќе ви бидат достапни кога пишувате анализи во <code>Rmd</code>. Така да, ако сакате да вклучите лого од вашата организација, посебен фонт, специјално форматирње на маргини, пагинација, итн, сето тоа ќе можете тоа да го направите со стандардни методи достапни во <code>HTML</code> или <code>LaTeX</code>.</p>
 </div>
-<div id="извештаи-со-параметри" class="section level2" number="5.3">
+<div id="извештаи-со-параметри" class="section level2">
 <h2><span class="header-section-number">5.3</span> Извештаи со параметри</h2>
 <p>Она што за нас е посебно корисно и интересно, е користењето на оваа платформа за писмено програмирање за пишување на <a href="https://rmarkdown.rstudio.com/developer_parameterized_reports.html%23parameter_types%2F">параметризирани извештаи</a>. Што значи ова? Па доколку имате некоj стандарден сет на анализи кои треба да ги повторите за сите градови во Македонија, можете да го извршите вашиот <code>Rmd</code> извештај со параметар за тоа кој град треба да биде обработен. Во самиот изворен код на извештајот, дефинирате <code>yaml</code> преамбула налик на следната</p>
 <pre><code>---
@@ -278,24 +268,24 @@ params:
   grad: Tetovo
 ---</code></pre>
 <p>Ова креира листа на параметри со името <code>params</code> која е достапна во <code>R</code> средината за време на извршувањето на документот, чијшто елементи може да ги употребите на следниот начин:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="rmd.html#cb21-1" aria-hidden="true" tabindex="-1"></a>params<span class="sc">$</span>grad</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="rmd.html#cb21-1"></a>params<span class="op">$</span>grad</span></code></pre></div>
 <p>Доколку имаме некоја функција во нашиот извештај која се извршува пред правење на некој график за одреден град:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rmd.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb22-2"><a href="rmd.html#cb22-2" aria-hidden="true" tabindex="-1"></a>filtriraj_gradovi <span class="ot">&lt;-</span> <span class="cf">function</span>(podatoci, potreben_grad) {</span>
-<span id="cb22-3"><a href="rmd.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  podatoci <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(grad <span class="sc">==</span> potreben_grad)</span>
-<span id="cb22-4"><a href="rmd.html#cb22-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rmd.html#cb22-1"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb22-2"><a href="rmd.html#cb22-2"></a>filtriraj_gradovi &lt;-<span class="st"> </span><span class="cf">function</span>(podatoci, potreben_grad) {</span>
+<span id="cb22-3"><a href="rmd.html#cb22-3"></a>  podatoci <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(grad <span class="op">==</span><span class="st"> </span>potreben_grad)</span>
+<span id="cb22-4"><a href="rmd.html#cb22-4"></a>}</span></code></pre></div>
 <p>Тогаш можете параметарот даден во преамбулата да го искористите при повикувањето на фунцкијата, и сите натамошни резултати ќе бидат посветени на градот што сме го пратиле како параметар:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rmd.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># претходен код и текст</span></span>
-<span id="cb23-2"><a href="rmd.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filtriraj_gradovi</span>(<span class="at">podatoci =</span> moi_podatoci, <span class="at">potreben_grad =</span> params<span class="sc">$</span>grad)</span>
-<span id="cb23-3"><a href="rmd.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># натамошен код и текст</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rmd.html#cb23-1"></a><span class="co"># претходен код и текст</span></span>
+<span id="cb23-2"><a href="rmd.html#cb23-2"></a><span class="kw">filtriraj_gradovi</span>(<span class="dt">podatoci =</span> moi_podatoci, <span class="dt">potreben_grad =</span> params<span class="op">$</span>grad)</span>
+<span id="cb23-3"><a href="rmd.html#cb23-3"></a><span class="co"># натамошен код и текст</span></span></code></pre></div>
 <p>За да ги направиме сите извештаи поврзо, во можеме да го повикуваме извршувањето во <code>R</code> конзола:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="rmd.html#cb24-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="at">input =</span> <span class="st">&quot;mojizvestaj.Rmd&quot;</span>, <span class="at">params =</span> <span class="fu">list</span>(<span class="st">&quot;Tetovo&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="rmd.html#cb24-1"></a>rmarkdown<span class="op">::</span><span class="kw">render</span>(<span class="dt">input =</span> <span class="st">&quot;mojizvestaj.Rmd&quot;</span>, <span class="dt">params =</span> <span class="kw">list</span>(<span class="st">&quot;Tetovo&quot;</span>))</span></code></pre></div>
 <p>Оттука, во <code>R</code> можеме дури и да напишеме <code>for</code> циклус со кој што ќе ги процесираме сите градови наеднаш и ќе генерираме посебен <code>HTML</code>, <code>PDF</code> или <code>MS Word</code> документ се секој град:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="rmd.html#cb25-1" aria-hidden="true" tabindex="-1"></a>gradovi <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Tetovo&quot;</span>, <span class="st">&quot;Gostivar&quot;</span>, <span class="st">&quot;Debar&quot;</span>, <span class="st">&quot;Berovo&quot;</span>, <span class="st">&quot;Dojran&quot;</span>) <span class="co"># ...</span></span>
-<span id="cb25-2"><a href="rmd.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( i <span class="cf">in</span> gradovi) {</span>
-<span id="cb25-3"><a href="rmd.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;Подготвувам извештај за: &quot;</span>, i)</span>
-<span id="cb25-4"><a href="rmd.html#cb25-4" aria-hidden="true" tabindex="-1"></a>  rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="at">input =</span> <span class="st">&quot;pateka/do/mojizvestaj.Rmd&quot;</span>, <span class="at">params =</span> <span class="fu">list</span>(i))</span>
-<span id="cb25-5"><a href="rmd.html#cb25-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="rmd.html#cb25-1"></a>gradovi &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Tetovo&quot;</span>, <span class="st">&quot;Gostivar&quot;</span>, <span class="st">&quot;Debar&quot;</span>, <span class="st">&quot;Berovo&quot;</span>, <span class="st">&quot;Dojran&quot;</span>) <span class="co"># ...</span></span>
+<span id="cb25-2"><a href="rmd.html#cb25-2"></a><span class="cf">for</span> ( i <span class="cf">in</span> gradovi) {</span>
+<span id="cb25-3"><a href="rmd.html#cb25-3"></a>  <span class="kw">message</span>(<span class="st">&quot;Подготвувам извештај за: &quot;</span>, i)</span>
+<span id="cb25-4"><a href="rmd.html#cb25-4"></a>  rmarkdown<span class="op">::</span><span class="kw">render</span>(<span class="dt">input =</span> <span class="st">&quot;pateka/do/mojizvestaj.Rmd&quot;</span>, <span class="dt">params =</span> <span class="kw">list</span>(i))</span>
+<span id="cb25-5"><a href="rmd.html#cb25-5"></a>}</span></code></pre></div>
 <p>Како оваа стратегија ја подобрува повторливоста на нашите анализи? Доколку немаме извештаи со параметри можеме да замислиме две стратегии. Првата, имаме еден главен <code>izvestaj.Rmd</code> којшто никогаш не го менуваме и правиме копии за секој град, така што набрзо нашата работна средина станува невозможна за менаџирање на долг рок:</p>
 <pre><code>izvestaj.Rmd
 tetovo-izvestaj.Rmd
@@ -308,7 +298,7 @@ kicevo-izvestaj-avgust.Rmd</code></pre>
 <p>Втората, имаме еден <code>izvestaj.Rmd</code> којшто го менуваме директно и секогаш мора да го отвориме, промениме, и извршиме рачно. Така да кога ќе стигнат новите податоци следниот месец имаме 2-3 часа работа да го промениме градот во функцијата горе триесетина пати.</p>
 <p>Дури и да го имате потребното време за вакви активности, очигледно е дека со овие опции е далеку полесно да направите грешка отколку со извештајот со параметри, којшто го пишувате еднаш и можете да го користите секогаш кога ќе ви треба без да го менувате изворниот код. Доколку треба да се измени или подобри извештајот, тоа се прави со промена на само еден документ, не треба да се сетите дека <code>kopje-izvestaj-juni-specijalen-so-logo.Rmd</code> треба да се промени засебно бидејќи има нешто специфично.</p>
 </div>
-<div id="следни-чекори" class="section level2" number="5.4">
+<div id="следни-чекори" class="section level2">
 <h2><span class="header-section-number">5.4</span> Следни чекори</h2>
 <p>Околината на <code>rmarkdown</code> и <code>knitr</code> е особено богата со алатки за посебни намени што навистина можат да придонесат кон поголема транспарентност, повторливост на вашите анализи и генерално кон поголема продуктивност во вашата работа. Подолу наведуваме само неколку од овие алатки:</p>
 <ul>
