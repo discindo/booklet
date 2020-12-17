@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Прирачник за повторливо анализирање и објавување на податоци. Дискутираме теми, процедури, и алатки од R екосистемот кои олеснуваат обработка на податоци со најдобрите и најбезбедни пракси и кои овозможуваат повторување на анализите со минимален труд од страна на надворешен корисник." />
   
 
-<meta name="author" content="Теофил Наков, Новица Наков" />
+<meta name="author" content="Теофил Наков, Новица Наков, Слободен софтвер Македонија" />
 
 
 <meta name="date" content="2020-12-16" />
@@ -267,23 +267,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Да не користи апсолутни патеки за вчитување и зачувување на патоци коишто се надвор од фолдерот во кој што е сместена самата скрипта</p></li>
 <li><p>Да биде детално документиран</p></li>
 </ol>
-<p>Што се однесува до првиот проблем, кодот едноставно нема да работи без тие пакети да се вчитани па дури и нашиот колега да ги има истите фајлови на истите локации како ние. Оваа корекција е едноставна:</p>
+<p>Што се однесува до првиот проблем, кодот едноставно нема да работи без пакетите <a href="https://www.rdocumentation.org/packages/readr/versions/1.3.1"><code>readr</code></a> <span class="citation">(<a href="references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Francois 2018</a>)</span> и <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.8"><code>dplyr</code></a> <span class="citation">(<a href="references.html#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2020</a>)</span> да се вчитани па дури и нашиот колега да ги има истите фајлови на истите локации како ние. Оваа корекција е едноставна:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="conversion.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Вчитај ги ти пакетите кои се користат подолу </span></span>
 <span id="cb7-2"><a href="conversion.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb7-3"><a href="conversion.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb7-4"><a href="conversion.html#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="conversion.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Доколку не се достапни, инсталирај со:</span></span>
+<span id="cb7-5"><a href="conversion.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Доколку не се достапни, инсталирај од CRAN со:</span></span>
 <span id="cb7-6"><a href="conversion.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
 <span id="cb7-7"><a href="conversion.html#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;readr&quot;)</span></span>
 <span id="cb7-8"><a href="conversion.html#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-9"><a href="conversion.html#cb7-9" aria-hidden="true" tabindex="-1"></a>trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/trosoci-moja-firma.csv&quot;</span>)</span>
-<span id="cb7-10"><a href="conversion.html#cb7-10" aria-hidden="true" tabindex="-1"></a>trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span> </span>
-<span id="cb7-11"><a href="conversion.html#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-12"><a href="conversion.html#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>)<span class="sc">%&gt;%</span> </span>
-<span id="cb7-13"><a href="conversion.html#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
-<span id="cb7-14"><a href="conversion.html#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(trosoci_sumirani, </span>
-<span id="cb7-15"><a href="conversion.html#cb7-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">path =</span> <span class="st">&quot;data/trosoci-moja-firma-sumirani.csv&quot;</span>)</span></code></pre></div>
-<p>Што се однесува до втората задача, имаме повеќе можности. Можеме да побараме корисникот да ја зачува патеката во варијабла која ќе биде користена од понатамошниот код. Ова се уште дозволува патеки во друг директориум, и очигледно бара соодветна интервенција од корисникот, но ако ништо друго, корисникот на овој код, доколку ја прочита документацијата, може барем да ја повтори анализата без да добие грешки:</p>
+<span id="cb7-10"><a href="conversion.html#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="conversion.html#cb7-11" aria-hidden="true" tabindex="-1"></a>trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span> </span>
+<span id="cb7-12"><a href="conversion.html#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-13"><a href="conversion.html#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-14"><a href="conversion.html#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb7-15"><a href="conversion.html#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="conversion.html#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(trosoci_sumirani, </span>
+<span id="cb7-17"><a href="conversion.html#cb7-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">path =</span> <span class="st">&quot;data/trosoci-moja-firma-sumirani.csv&quot;</span>)</span></code></pre></div>
+<p>Што се однесува до втората задача, имаме повеќе можности. Можеме да побараме корисникот да ја зачува патеката во варијабла која ќе биде користена од понатамошниот код. Ова се уште дозволува патеки во друг директориум, и очигледно бара соодветна интервенција од корисникот, но ако ништо друго, корисникот на овој код, доколку ја прочита документацијата (значи снаоѓањето <em>зависи</em> од нашата инвестиција кон добра документација), може барем да ја повтори анализата без да добие грешки:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="conversion.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Вчитај ги ти пакетите кои се користат подолу </span></span>
 <span id="cb8-2"><a href="conversion.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb8-3"><a href="conversion.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
@@ -331,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-7"><a href="conversion.html#cb9-7" aria-hidden="true" tabindex="-1"></a>  trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span></span>
 <span id="cb9-8"><a href="conversion.html#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span></span>
 <span id="cb9-9"><a href="conversion.html#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-10"><a href="conversion.html#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb9-10"><a href="conversion.html#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
 <span id="cb9-11"><a href="conversion.html#cb9-11" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb9-12"><a href="conversion.html#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Зачувај</span></span>
 <span id="cb9-13"><a href="conversion.html#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_csv</span>(trosoci_sumirani,</span>
@@ -350,7 +352,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-10"><a href="conversion.html#cb10-10" aria-hidden="true" tabindex="-1"></a>  trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span></span>
 <span id="cb10-11"><a href="conversion.html#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span></span>
 <span id="cb10-12"><a href="conversion.html#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-13"><a href="conversion.html#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb10-13"><a href="conversion.html#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
 <span id="cb10-14"><a href="conversion.html#cb10-14" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb10-15"><a href="conversion.html#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Направи патека за дестинација</span></span>
 <span id="cb10-16"><a href="conversion.html#cb10-16" aria-hidden="true" tabindex="-1"></a>  folder_name <span class="ot">&lt;-</span> <span class="fu">dirname</span>(trosoci_tabela)</span>
@@ -396,15 +398,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-32"><a href="conversion.html#cb11-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Зачувај</span></span>
 <span id="cb11-33"><a href="conversion.html#cb11-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_csv</span>(trosoci_sumirani, <span class="at">path =</span> destinacija)</span>
 <span id="cb11-34"><a href="conversion.html#cb11-34" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>Што сме постигнале до сега? Зависностите на кодот се решени. Документација имаме, впрочем, пишување на коментари во кодот треба да стане навика. И имаме функција на која може да и дадеме табела која што се наоѓа било каде и да зачуваме сумирана табела во истиот фолдер.</p>
+<p>Што сме постигнале до сега? Зависностите на кодот се решени. Документација имаме, впрочем, пишување на коментари во кодот треба да стане навика. И имаме функција на која може да и дадеме табела која што се наоѓа било каде и да зачуваме сумирана табела во истата папка.</p>
 </div>
 <div id="rscript-што-може-да-го-користиме-без-да-отвараме-r" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Rscript што може да го користиме без да отвараме <code>R</code></h2>
-<p>TODO:
-(for windows see: <a href="https://stackoverflow.com/questions/3506007/running-r-code-from-command-line-windows" class="uri">https://stackoverflow.com/questions/3506007/running-r-code-from-command-line-windows</a>)</p>
-<p>Нашиот код е далеку подобар и има повеќе шанси да работи на други компјутери, но се уште може да се каже дека има некои недостатоци. На пример, корисникот <em>мора</em> да отвори <code>R</code>, да ја вчита скриптата, и да ја изврши функцијата. Тоа е можеби во ред доколку нашиот колега има доволно познавање од <code>R</code>, но можеби нашиот шеф не знае <code>R</code> или едноставно нема време за чепкање во <code>R</code> терминал. Можеби сака решение од една линија:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="conversion.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> sumiraj_trosoci.R trosoci_dekemvri_2020.csv</span></code></pre></div>
-<p>Да го конвертираме нашиот код во ваква скрипта е лесно. Доколку кодот го процесираме со <code>Rscript</code>, треба само да го земеме името на фајлот даден по името на скриптата (тоа е табелата со трошоци), и да го предадеме на нашата функција (внатре во скриптата):</p>
+<p>Нашиот код е далеку подобар и има повеќе шанси да работи на други компјутери, но се уште може да се каже дека има некои недостатоци. На пример, корисникот <em>мора</em> да отвори <code>R</code>, да ја вчита скриптата, и да ја изврши функцијата. Тоа е можеби во ред доколку нашиот колега има доволно познавање од <code>R</code>, но можеби нашиот шеф не знае <code>R</code> или едноставно нема време за чепкање во <code>R</code> терминал. Можеби сака решение од една линија налик на следното:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="conversion.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript.exe</span> sumiraj_trosoci.R trosoci_dekemvri_2020.csv</span></code></pre></div>
+<p>Да го конвертираме нашиот код во ваква скрипта е лесно. Доколку кодот го процесираме со <a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/Rscript"><code>Rscript</code></a>, треба само да го земеме името на датотеката даден по името на скриптата (тоа е табелата со трошоци), и да го предадеме на нашата функција (внатре во скриптата):</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="conversion.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (data/sumiraj-trosoci-1.R)</span></span>
 <span id="cb13-2"><a href="conversion.html#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="conversion.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Употреба:</span></span>
@@ -449,8 +449,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-42"><a href="conversion.html#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="fu">sumiraj_trosoci</span>(<span class="at">trosoci =</span> dadeni_trosoci)</span></code></pre></div>
 <p>Доколку го тестирате кодот додека читате го имате преземено директориумот за овој текст, оваа скрипта и податоците за трошоци се наоѓаат како фолдерот <strong><code>data</code></strong> под името <strong><code>sumiraj-trosoci-1.R</code></strong> и <strong><code>trosoci-moja-firma.csv</code></strong>.</p>
 <p>Доколку сакаме навистина да се потрудиме, како поради безбедност така и поради лесно користење на ваквата скрипта, можеме да додадеме кратко упатство за користење, и код за проверка на аргументот.</p>
-<p>За да направиме упатство за користење, ќе го користиме пакетот <a href="https://github.com/docopt/docopt.R"><code>docopt</code></a> кој што користи таканаречен <code>docstring</code>, односно текст којшто следи некои правила за форматирање со цел да биде лесно парсиран како прирачник за употреба на нашата скрипта. <code>docopt/docstring</code> имаат еквиваленти во сите други програмски јазици, така да доколку програмирате во <code>Python</code> или <code>Perl</code> веројатно ви се веќе познати овие концепти.</p>
-<p>За да провериме дека се е во ред со табелата што и е дадена на скриптата, ќе го користиме пакетот <a href="https://github.com/hadley/assertthat">assertthat</a>, што ни овозможува лесни проверки и информативни пораки за грешката. Стриктно гледано, пакетите <code>docopt</code> и <code>assertthat</code> не се неопходни, можеме да користиме функции како <code>commandArgs()</code> и <code>stopifnot()</code> од основната дистрибуција на <code>R</code>. Но во некои случаи користење на додатни пакети навистина ја олеснува работата.</p>
+<p>За да направиме упатство за користење, ќе го користиме пакетот <a href="https://www.rdocumentation.org/packages/docopt/versions/0.7.1"><code>docopt</code></a> кој што користи таканаречен <a href="https://en.wikipedia.org/wiki/Docstring"><code>docstring</code></a>, односно текст којшто следи некои правила за форматирање со цел да биде лесно парсиран како прирачник за употреба на нашата скрипта. <code>docopt/docstring</code> имаат еквиваленти во сите други програмски јазици, така да доколку програмирате во <code>Python</code> или <code>Perl</code> <span class="citation">(<a href="references.html#ref-wall2000programming" role="doc-biblioref">Wall, Christiansen, and Orwant 2000</a>)</span> веројатно ви се веќе познати овие концепти.</p>
+<p>За да провериме дека се е во ред со табелата што и е дадена на скриптата, ќе го користиме пакетот <a href="https://www.rdocumentation.org/packages/assertthat/versions/0.2.1">assertthat</a>, што ни овозможува лесни проверки и информативни пораки за грешката. Стриктно гледано, пакетите <code>docopt</code> и <code>assertthat</code> не се неопходни, можеме да користиме функции како <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/commandArgs"><code>commandArgs()</code></a> и <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/stopifnot"><code>stopifnot()</code></a> од основната дистрибуција на <code>R</code>. Но во некои случаи користење на додатни пакети навистина ја олеснува работата.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="conversion.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (data/sumiraj-trosoci-2.R)</span></span>
 <span id="cb14-2"><a href="conversion.html#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="conversion.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;Сумирај трошоци групирани по вработен и тип на трошок. </span></span>
