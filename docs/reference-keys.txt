@@ -1,4 +1,4 @@
-tab:unnamed-chunk-1
+tab:unnamed-chunk-2
 intro
 analogy
 audience
@@ -6,6 +6,7 @@ organ
 за-овој-прирачник
 tools
 програмски-јазик-r
+инсталација
 контрола-на-изворен-код-git
 резиме
 nogood

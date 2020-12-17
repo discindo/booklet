@@ -132,7 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Повторлива анализа на податоци</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Абстракт</a></li>
@@ -146,8 +146,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="tools.html"><a href="tools.html#програмски-јазик-r"><i class="fa fa-check"></i><b>2.1</b> Програмски јазик: <code>R</code></a></li>
-<li class="chapter" data-level="2.2" data-path="tools.html"><a href="tools.html#контрола-на-изворен-код-git"><i class="fa fa-check"></i><b>2.2</b> Контрола на изворен код: <code>git</code></a></li>
-<li class="chapter" data-level="2.3" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>2.3</b> Резиме</a></li>
+<li class="chapter" data-level="2.2" data-path="tools.html"><a href="tools.html#инсталација"><i class="fa fa-check"></i><b>2.2</b> Инсталација</a></li>
+<li class="chapter" data-level="2.3" data-path="tools.html"><a href="tools.html#контрола-на-изворен-код-git"><i class="fa fa-check"></i><b>2.3</b> Контрола на изворен код: <code>git</code></a></li>
+<li class="chapter" data-level="2.4" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>2.4</b> Резиме</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a>
 <ul>
@@ -330,12 +331,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="поставување" class="section level3" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> Поставување</h3>
 <p>Поставувањето на ваков повторлив проект може повторно да оди рачно, едноставно правиме фолдери за податоци, изборен код, итн. Но исто таке можеме да искористиме постоечки функции и пакети кои го прават овој чекор полесен. Иако има многу решенија достапни решенија, ќе тука ќе споменеме две опции. Прво, можеме да ја искористиме функционалноста за креирање формални <code>R</code> пакети, дури немаме намера да го објавуваме нашиот пакет. Кодот користи два пакети кои до сега не сме ги спомнале (<a href="https://www.rdocumentation.org/packages/devtools/versions/2.3.2"><code>devtools</code></a> <span class="citation">(<a href="references.html#ref-R-devtools" role="doc-biblioref">Wickham, Hester, and Chang 2020</a>)</span> и <a href="https://www.rdocumentation.org/packages/usethis/versions/2.0.0"><code>usethis</code></a> <span class="citation">(<a href="references.html#ref-R-usethis" role="doc-biblioref">Wickham and Bryan 2020</a>)</span>), но е едноставен:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="proekti.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
-<span id="cb31-2"><a href="proekti.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
-<span id="cb31-3"><a href="proekti.html#cb31-3" aria-hidden="true" tabindex="-1"></a>devtoos<span class="sc">::</span><span class="fu">create</span>(<span class="at">path =</span> <span class="st">&quot;mojpaket&quot;</span>)</span>
-<span id="cb31-4"><a href="proekti.html#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="proekti.html#cb31-5" aria-hidden="true" tabindex="-1"></a>podatoci1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/Desktop/moi-podatoci.csv&quot;</span>)</span>
-<span id="cb31-6"><a href="proekti.html#cb31-6" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_data</span>(<span class="st">&quot;podatoci1&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="proekti.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb32-2"><a href="proekti.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb32-3"><a href="proekti.html#cb32-3" aria-hidden="true" tabindex="-1"></a>devtoos<span class="sc">::</span><span class="fu">create</span>(<span class="at">path =</span> <span class="st">&quot;mojpaket&quot;</span>)</span>
+<span id="cb32-4"><a href="proekti.html#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="proekti.html#cb32-5" aria-hidden="true" tabindex="-1"></a>podatoci1 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;~/Desktop/moi-podatoci.csv&quot;</span>)</span>
+<span id="cb32-6"><a href="proekti.html#cb32-6" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_data</span>(<span class="st">&quot;podatoci1&quot;</span>)</span></code></pre></div>
 <p>Извршувањето на горните линии ќе креира структура налик на следната:</p>
 <pre><code>mojpaket/
 ├── DESCRIPTION
@@ -344,8 +345,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 └── R</code></pre>
 <p>Понатаму, како додавате документација, вињети, или тестови, можете да генерирате соодветни фолдери полу-автоматски. За далеку повеќе детали околу овие процедури, ве повикуваме да ја погледнете книгата за <code>R</code> пакети од Хадли Викам (<span class="citation">(<a href="references.html#ref-wickham2015r" role="doc-biblioref">Wickham 2015</a>)</span>).</p>
 <p>Втората опција за креирање на ваква структура за повторлив проект е преку користење на пакети посветени кон токму тоа: да олеснат повторливи анализи/истражувања/извештаи преку автоматизирање на некој од компонентите на повторливост кои ги дискутиравме до сега. Има повеќе вакви пакети: <a href="https://www.rdocumentation.org/packages/prodigenr/versions/0.5.0"><code>prodigenr</code></a>, <a href="https://www.rdocumentation.org/packages/makeProject/versions/1.0"><code>makeProject</code></a>, <a href="https://www.rdocumentation.org/packages/ProjectTemplate/versions/0.7"><code>ProjectTemplate</code></a>, <a href="https://github.com/baumer-lab/fertile"><code>fertile</code></a>, <a href="https://www.rdocumentation.org/packages/goodpractice/versions/1.0.2"><code>goodpractice</code></a>, итн кои специјализираат кон различни аспекти (дали структура на проектот, проверки на кодот, итн). Овде, накратко, ќе се запознаеме со основната функционалност на пакетот <code>prodigenr</code> <span class="citation">(<a href="references.html#ref-R-prodigenr" role="doc-biblioref">Johnston 2019</a>)</span> кој овозможува креирање на структура налик на формален <code>R</code> пакет но без (понекогаш непотребниот) багаж кој доаѓа со развивањето и користењето на еден формален <code>R</code> пакет.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="proekti.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(prodigenr)</span>
-<span id="cb33-2"><a href="proekti.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setup_project</span>(<span class="st">&quot;data/mojproekt2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="proekti.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(prodigenr)</span>
+<span id="cb34-2"><a href="proekti.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setup_project</span>(<span class="st">&quot;data/mojproekt2&quot;</span>)</span></code></pre></div>
 <p>Потоа, доколку го погледнеме направениот проект ја имаме следната структура:</p>
 <pre><code>mojproekt2/
 ├── data

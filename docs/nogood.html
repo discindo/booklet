@@ -132,7 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Повторлива анализа на податоци</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Абстракт</a></li>
@@ -146,8 +146,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="tools.html"><a href="tools.html#програмски-јазик-r"><i class="fa fa-check"></i><b>2.1</b> Програмски јазик: <code>R</code></a></li>
-<li class="chapter" data-level="2.2" data-path="tools.html"><a href="tools.html#контрола-на-изворен-код-git"><i class="fa fa-check"></i><b>2.2</b> Контрола на изворен код: <code>git</code></a></li>
-<li class="chapter" data-level="2.3" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>2.3</b> Резиме</a></li>
+<li class="chapter" data-level="2.2" data-path="tools.html"><a href="tools.html#инсталација"><i class="fa fa-check"></i><b>2.2</b> Инсталација</a></li>
+<li class="chapter" data-level="2.3" data-path="tools.html"><a href="tools.html#контрола-на-изворен-код-git"><i class="fa fa-check"></i><b>2.3</b> Контрола на изворен код: <code>git</code></a></li>
+<li class="chapter" data-level="2.4" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>2.4</b> Резиме</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a>
 <ul>
@@ -224,15 +225,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.1</span> Типична анализа (која никој, дури ни авторот, не може да ја повтори)</h2>
 <p>Да погледнеме една хипотетичка но веројатно честа ситуација. Вие работите на некој проект што се однесува на податоци за сточарство во Македонија. Поврзани сте со локална дата база, имате големо парче податоци вчитани во меморија и работна средина со 10 закачени <code>R</code> пакети (библиотеки).</p>
 <p>Ви стигнува ургентна е-пошта од колега кој бара да се направи сумирање на месечните трошоци на работа групирано по тип на трошок и по вработен. Вие велите, ах, ајде ова на брзина, ги снимате податоците во <code>Downloads</code> и почнувате:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="nogood.html#cb1-1" aria-hidden="true" tabindex="-1"></a>trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/trosoci-moja-firma.csv&quot;</span>)</span>
-<span id="cb1-2"><a href="nogood.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="nogood.html#cb1-3" aria-hidden="true" tabindex="-1"></a>trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span> </span>
-<span id="cb1-4"><a href="nogood.html#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-5"><a href="nogood.html#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-6"><a href="nogood.html#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
-<span id="cb1-7"><a href="nogood.html#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="nogood.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(trosoci_sumirani, </span>
-<span id="cb1-9"><a href="nogood.html#cb1-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">path =</span> <span class="st">&quot;~/Download/trosoci-moja-firma-sumirani.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="nogood.html#cb2-1" aria-hidden="true" tabindex="-1"></a>trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/trosoci-moja-firma.csv&quot;</span>)</span>
+<span id="cb2-2"><a href="nogood.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="nogood.html#cb2-3" aria-hidden="true" tabindex="-1"></a>trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span> </span>
+<span id="cb2-4"><a href="nogood.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-5"><a href="nogood.html#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-6"><a href="nogood.html#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb2-7"><a href="nogood.html#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="nogood.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(trosoci_sumirani, </span>
+<span id="cb2-9"><a href="nogood.html#cb2-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">path =</span> <span class="st">&quot;~/Download/trosoci-moja-firma-sumirani.csv&quot;</span>)</span></code></pre></div>
 <p>За пет минути сте готови со минимална дистракција, па дури и не мрднавте од претходниот проект. Ја праќате новата табела на колегата. Супер. Фала многу.</p>
 <p>Половина час подоцна стигнува е-пошта од претпоставениот со пофалба за брзо завршената работа и соработката со колегата. Шефицата исто вели ајде прати ни го кодот за да го забрзаме процесот во иднина и да не одземаме време од комплексните анализи кои ви се примарна задача. Вие го копирате кодот од историја на вашето <code>Rstudio</code> и го праќате:</p>
 <pre><code>trosoci &lt;- read_csv(&quot;~/Downloads/trosoci-moja-firma.csv&quot;)

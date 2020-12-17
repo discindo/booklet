@@ -132,7 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Повторлива анализа на податоци</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Абстракт</a></li>
@@ -146,8 +146,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="tools.html"><a href="tools.html#програмски-јазик-r"><i class="fa fa-check"></i><b>2.1</b> Програмски јазик: <code>R</code></a></li>
-<li class="chapter" data-level="2.2" data-path="tools.html"><a href="tools.html#контрола-на-изворен-код-git"><i class="fa fa-check"></i><b>2.2</b> Контрола на изворен код: <code>git</code></a></li>
-<li class="chapter" data-level="2.3" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>2.3</b> Резиме</a></li>
+<li class="chapter" data-level="2.2" data-path="tools.html"><a href="tools.html#инсталација"><i class="fa fa-check"></i><b>2.2</b> Инсталација</a></li>
+<li class="chapter" data-level="2.3" data-path="tools.html"><a href="tools.html#контрола-на-изворен-код-git"><i class="fa fa-check"></i><b>2.3</b> Контрола на изворен код: <code>git</code></a></li>
+<li class="chapter" data-level="2.4" data-path="tools.html"><a href="tools.html#резиме"><i class="fa fa-check"></i><b>2.4</b> Резиме</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a>
 <ul>
@@ -280,24 +281,24 @@ params:
   grad: Tetovo
 ---</code></pre>
 <p>Ова креира листа на параметри со името <code>params</code> која е достапна во <code>R</code> средината за време на извршувањето на документот, чијшто елементи може да ги употребите на следниот начин:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="rmd.html#cb21-1" aria-hidden="true" tabindex="-1"></a>params<span class="sc">$</span>grad</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rmd.html#cb22-1" aria-hidden="true" tabindex="-1"></a>params<span class="sc">$</span>grad</span></code></pre></div>
 <p>Доколку имаме некоја функција во нашиот извештај која се извршува пред правење на некој график за одреден град:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="rmd.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb22-2"><a href="rmd.html#cb22-2" aria-hidden="true" tabindex="-1"></a>filtriraj_gradovi <span class="ot">&lt;-</span> <span class="cf">function</span>(podatoci, potreben_grad) {</span>
-<span id="cb22-3"><a href="rmd.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  podatoci <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(grad <span class="sc">==</span> potreben_grad)</span>
-<span id="cb22-4"><a href="rmd.html#cb22-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rmd.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb23-2"><a href="rmd.html#cb23-2" aria-hidden="true" tabindex="-1"></a>filtriraj_gradovi <span class="ot">&lt;-</span> <span class="cf">function</span>(podatoci, potreben_grad) {</span>
+<span id="cb23-3"><a href="rmd.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  podatoci <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(grad <span class="sc">==</span> potreben_grad)</span>
+<span id="cb23-4"><a href="rmd.html#cb23-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Тогаш можете параметарот даден во преамбулата да го искористите при повикувањето на фунцкијата, и сите натамошни резултати ќе бидат посветени на градот што сме го пратиле како параметар:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="rmd.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># претходен код и текст</span></span>
-<span id="cb23-2"><a href="rmd.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filtriraj_gradovi</span>(<span class="at">podatoci =</span> moi_podatoci, <span class="at">potreben_grad =</span> params<span class="sc">$</span>grad)</span>
-<span id="cb23-3"><a href="rmd.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># натамошен код и текст</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="rmd.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># претходен код и текст</span></span>
+<span id="cb24-2"><a href="rmd.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filtriraj_gradovi</span>(<span class="at">podatoci =</span> moi_podatoci, <span class="at">potreben_grad =</span> params<span class="sc">$</span>grad)</span>
+<span id="cb24-3"><a href="rmd.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># натамошен код и текст</span></span></code></pre></div>
 <p>За да ги направиме сите извештаи побрзо, во можеме да го повикуваме извршувањето во <code>R</code> конзола:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="rmd.html#cb24-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="at">input =</span> <span class="st">&quot;mojizvestaj.Rmd&quot;</span>, <span class="at">params =</span> <span class="fu">list</span>(<span class="st">&quot;Tetovo&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="rmd.html#cb25-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="at">input =</span> <span class="st">&quot;mojizvestaj.Rmd&quot;</span>, <span class="at">params =</span> <span class="fu">list</span>(<span class="st">&quot;Tetovo&quot;</span>))</span></code></pre></div>
 <p>Оттука, можеме дури и да напишеме <code>for</code> циклус со кој што ќе ги процесираме сите градови наеднаш и ќе генерираме посебен <code>HTML</code>, <code>PDF</code> или <code>MS Word</code> документ се секој град:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="rmd.html#cb25-1" aria-hidden="true" tabindex="-1"></a>gradovi <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Tetovo&quot;</span>, <span class="st">&quot;Gostivar&quot;</span>, <span class="st">&quot;Debar&quot;</span>, <span class="st">&quot;Berovo&quot;</span>, <span class="st">&quot;Dojran&quot;</span>) <span class="co"># ...</span></span>
-<span id="cb25-2"><a href="rmd.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( i <span class="cf">in</span> gradovi) {</span>
-<span id="cb25-3"><a href="rmd.html#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;Подготвувам извештај за: &quot;</span>, i)</span>
-<span id="cb25-4"><a href="rmd.html#cb25-4" aria-hidden="true" tabindex="-1"></a>  rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="at">input =</span> <span class="st">&quot;pateka/do/mojizvestaj.Rmd&quot;</span>, <span class="at">params =</span> <span class="fu">list</span>(i))</span>
-<span id="cb25-5"><a href="rmd.html#cb25-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="rmd.html#cb26-1" aria-hidden="true" tabindex="-1"></a>gradovi <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Tetovo&quot;</span>, <span class="st">&quot;Gostivar&quot;</span>, <span class="st">&quot;Debar&quot;</span>, <span class="st">&quot;Berovo&quot;</span>, <span class="st">&quot;Dojran&quot;</span>) <span class="co"># ...</span></span>
+<span id="cb26-2"><a href="rmd.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( i <span class="cf">in</span> gradovi) {</span>
+<span id="cb26-3"><a href="rmd.html#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">message</span>(<span class="st">&quot;Подготвувам извештај за: &quot;</span>, i)</span>
+<span id="cb26-4"><a href="rmd.html#cb26-4" aria-hidden="true" tabindex="-1"></a>  rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="at">input =</span> <span class="st">&quot;pateka/do/mojizvestaj.Rmd&quot;</span>, <span class="at">params =</span> <span class="fu">list</span>(i))</span>
+<span id="cb26-5"><a href="rmd.html#cb26-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Како оваа стратегија ја подобрува повторливоста на нашите анализи? Доколку немаме извештаи со параметри можеме да замислиме две стратегии. Првата, имаме еден главен <code>izvestaj.Rmd</code> којшто никогаш не го менуваме и правиме копии за секој град, така што набрзо нашата работна средина станува невозможна за менаџирање на долг рок:</p>
 <pre><code>izvestaj.Rmd
 tetovo-izvestaj.Rmd
