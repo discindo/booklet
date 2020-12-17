@@ -1,5 +1,4 @@
 tab:unnamed-chunk-1
-abstract
 intro
 analogy
 audience
