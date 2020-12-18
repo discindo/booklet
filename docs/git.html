@@ -24,7 +24,7 @@
 <meta name="author" content="Теофил Наков, Новица Наков, Слободен софтвер Македонија" />
 
 
-<meta name="date" content="2020-12-17" />
+<meta name="date" content="2020-12-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="proekti.html"/>
-<link rel="next" href="not-too-much-about-git-of-course-that-is-not-the-point-anyway.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -190,16 +190,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>7</b> Контрола на изворниот код со git и GitHub</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="git.html"><a href="git.html#основи-на-git"><i class="fa fa-check"></i><b>7.1</b> Основи на <code>git</code></a>
+<li class="chapter" data-level="7.1" data-path="git.html"><a href="git.html#основи-на-git"><i class="fa fa-check"></i><b>7.1</b> Основи на <code>git</code></a></li>
+<li class="chapter" data-level="7.2" data-path="git.html"><a href="git.html#основи-на-github-за-соработка-и-објавување"><i class="fa fa-check"></i><b>7.2</b> Основи на GitHub за соработка и објавување</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="git.html"><a href="git.html#потребен-софтвер"><i class="fa fa-check"></i><b>7.1.1</b> Потребен софтвер</a></li>
-<li class="chapter" data-level="7.1.2" data-path="git.html"><a href="git.html#чекори"><i class="fa fa-check"></i><b>7.1.2</b> Чекори</a></li>
+<li class="chapter" data-level="7.2.1" data-path="git.html"><a href="git.html#потребен-софтвер"><i class="fa fa-check"></i><b>7.2.1</b> Потребен софтвер</a></li>
+<li class="chapter" data-level="7.2.2" data-path="git.html"><a href="git.html#поставување-1"><i class="fa fa-check"></i><b>7.2.2</b> Поставување</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="not-too-much-about-git-of-course-that-is-not-the-point-anyway.html"><a href="not-too-much-about-git-of-course-that-is-not-the-point-anyway.html"><i class="fa fa-check"></i><b>8</b> not too much about git (of course that is not the point anyway)</a></li>
-<li class="chapter" data-level="9" data-path="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><i class="fa fa-check"></i><b>9</b> just about creating a github repo where you can push rmd in main and html in gh-pages thus making your reserarch public on the web mostly working thourgh r studio exept for creating the account on gh.</a>
-<ul>
-<li class="chapter" data-level="9.0.1" data-path="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html"><a href="just-about-creating-a-github-repo-where-you-can-push-rmd-in-main-and-html-in-gh-pages-thus-making-your-reserarch-public-on-the-web-mostly-working-thourgh-r-studio-exept-for-creating-the-account-on-gh-.html#референци-httpsgit-scm.combookenv2"><i class="fa fa-check"></i><b>9.0.1</b> референци: <span>https://git-scm.com/book/en/v2</span></a></li>
+<li class="chapter" data-level="7.3" data-path="git.html"><a href="git.html#резиме-5"><i class="fa fa-check"></i><b>7.3</b> Резиме</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -224,43 +221,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="git" class="section level1" number="7">
 <h1><span class="header-section-number">Chapter 7</span> Контрола на изворниот код со git и GitHub</h1>
-<p>Во другите поглавја генерално зборуваме за R и разни додатни пакети кои се директно поврзани со повторливи анализи. Овие се алатки се во преден план бидејќи се користат за анализа на податоците или поставување на проекти, но самото развивање на еден истражувачки проект, од идеја до публикација, не е прав, асфалтиран, и осветлен пат. Наспроти, секоја скрипта поминува низ неколку верзии пред конечната (<code>Figure3.2-final-for-print.R</code>), секој извештај започнува како нацрт кој се ревизира од авторот и неколку соработници, многу табели со податоци са ре-форматираат од почеток или заменуваат. Доколку сте работеле на анализа на податоци, и особено ако тоа го правите со соработници, веројатно ви е позната следната ситуација:</p>
+<p>Во другите поглавја генерално зборуваме за R и разни додатни пакети кои се директно поврзани со повторливи анализи. Овие се алатки се во преден план бидејќи се користат за анализа на податоците или поставување на проекти, но самото развивање на еден истражувачки проект, од идеја до публикација, не е прав, асфалтиран, и осветлен пат. Наспроти, секоја скрипта поминува низ неколку верзии пред конечната (<code>Figure3.2-final-for-print.R</code>), секој извештај започнува како нацрт кој се ревизира од авторот и неколку соработници, многу табели со податоци се ре-форматираат од почеток или заменуваат. Доколку сте работеле на анализа на податоци, и особено ако тоа го правите со соработници, веројатно ви е позната следната ситуација:</p>
 <pre><code>sumiraj_trocosi.R
 sumiraj_trosoci_po_vraboten.R
 sumiraj_trosoci_po_vraboten-2.R
 sumiraj_trosoci_final.R
-sumiraj_trosoci_juni2020-tn.R
-sumiraj_trosoci_juni2020-tn-update-for-marko.R
+sumiraj_trosoci_juni2020-novo.R
+sumiraj_trosoci_juni2020-novo-update.R
 ...</code></pre>
-<p>Веројатно не треба да образложуваме зошто ваквата пролиферација на датотеки е проблематична за вашите анализи, па дури и ако не се стремите кон повторливост. Само замислете како изгледа овој директориум кај некој од вашите колеги кој од една страна има сопствени верзии а од друга страна нема некои од вашите верзии на истата скрипта. Очигледно е дека можеме и мораме да управуваме со изворниот код далеку подобро. Во ова поглавје ќе се запознаеме со некои од начините со кои <a href="https://git-scm.com/"><code>git</code></a> и <a href="https://github.com/"><code>Github</code></a> ни помагаат да одржуваме работната средина уредена, да соработуваме и експериментираме безгрижно, и да објавуваме ефективно.</p>
+<p>Веројатно не треба да образложуваме зошто ваквата пролиферација на датотеки е проблематична за вашите анализи, па дури и ако не се стремите кон повторливост. Само замислете како изгледа овој директориум кај некој од вашите колеги кој од една страна има сопствени верзии, а од друга страна нема некои од вашите верзии на истата скрипта. Очигледно е дека можеме и мораме да управуваме со изворниот код далеку подобро. Во ова поглавје ќе се запознаеме со некои од начините со кои <a href="https://git-scm.com/"><code>git</code></a> и <a href="https://github.com/"><code>Github</code></a> ни помагаат да одржуваме работната средина уредена, да соработуваме и експериментираме безгрижно, и да објавуваме ефективно.</p>
 <div id="основи-на-git" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Основи на <code>git</code></h2>
 <p>Како што напоменавме претходно, <code>git</code> е систем за следење на промените во еден проект, нешто налик на вообичаното <code>track changes</code> во <code>MS Word</code>, но далеку пософистицирано. Учењето на <code>git</code> си бара некое време и трпение, но основите се доволно едноставни да можете веднаш да почнете да користие <code>git</code>. Како и во остатокот од текстот, нашата цел во ова поглавје не е да детален осврт на можностите и особеносите на <code>git</code> (за тоа видете <a href="https://git-scm.com/book/en/v2">тука</a>), туку да покажеме како <code>git</code> се вклопува во еден повторлив проект и да ве охрабриме до почнете да го користите иако можеби делува комплицирано и застрашувачки.</p>
-<p>Еден од најчестите случаи кога ни треба контрола на изворниот код е кога сме стигнале до некоја состојба која фунцкионира или е ставена во употреба (на пример прва верзија од извештајот) и треба да тестираме сугестии од нашите колеги за додавање на нова табела или за поинаков график. Во оваа ситуација, инстинктот кај 99% од нас е да зачуваме копија од оригиналниот извештај кој не сакаме да го изгубиме (можеби во <code>backup-izvestaj</code>) и да ги тестираме предлозите за подобрување во „работна“ верзија на извештајот. Иако во овој момент овој план звучи горе-доле безболно, во пракса скоро никогаш не е така Наспроти, нашиот уреден директориум со <code>mojizvestaj.Rmd</code> набрзо ќе се претвори во една гужва на датотеки во која што никој, па дури ни ние самите, нема да може да се снајде по неколку недели.</p>
+<p>Еден од најчестите случаи кога ни треба контрола на изворниот код е кога сме стигнале до некоја состојба која фунцкионира или е ставена во употреба (на пример прва верзија од извештајот) и треба да тестираме сугестии од нашите колеги за додавање на нова табела или за поинаков график. Во оваа ситуација, инстинктот кај 99% од нас е да зачуваме копија од оригиналниот извештај кој не сакаме да го изгубиме (можеби во <code>backup-izvestaj</code>) и да ги тестираме предлозите за подобрување во „работна“ верзија на извештајот. Иако во овој момент овој план звучи горе-доле безболно, во пракса скоро никогаш не е така. Наспроти, нашиот уреден директориум со <code>mojizvestaj.Rmd</code> набрзо ќе се претвори во една гужва на датотеки во која што никој, па дури ни ние самите, нема да може да се снајде по неколку недели.</p>
 <p>Со <code>git</code> можеме да ја извршиме истата задача но комплетно да ја избегнеме гужвата од датотеки. Задачата „зачувај го оригиналот и чепкај во работна верзија“, концептуално може да се прикаже како едно главно стебло (за оригиналниот извештај кој е веќе во употреба) и една гранка која постои паралелно со главното стебло и во која ние ќе ги тестираме предложените промени.</p>
-<p>Контрола на изворниот код (или дури и на целата содржина во еден истражувачки проект) е можна со помош на користење на алатки како <a href="https://git-scm.com/"><code>git</code></a>. Употребата на <code>Git</code> е олесната благодарение на веб страниците како што се <a href="https://bitbucket.org/product/"><code>Bitbucket</code></a>, <a href="https://github.com/"><code>Github</code></a> или <a href="https://about.gitlab.com/"><code>Gitlab</code></a>.</p>
-<p>Контролата на содржината е корисна. Кога пишувате текст или код и потоа менувате, <code>git</code> овозможува да ги видите тие промени, да споредите, или да ги вратите назад. Може да се каже дека тој е многу напредна верзија на вообичаното <code>track changes</code> што се користи во алатки како <code>MS Word</code>.</p>
-<p>Детален осврт на можностите и особеносите на <code>гit</code> не е тема овде. За тие што се заинтересирани и сакаат да истражуваат постојат ресурси кои детално ги објаснуваат сите детали. На пример: <a href="https://git-scm.com/book/en/v2" class="uri">https://git-scm.com/book/en/v2</a>.</p>
-<p>Овде ќе се осврнеме само на една можност која што ја нуди <code>Github</code> за презентирање на <code>HMTL</code> документи кои може да произлезат од некои анализи, како на пример со повторливи извештаи во <code>Rmarkdown</code>, кои ги конвертираме во <code>HTML</code> (поглавје <a href="proekti.html#proekti">6</a>).</p>
-<p><code>гit</code> функционира со <code>branches</code> (гранки). Можете да ги замислите гранките слично како посебни директориуми на вашиот компјутер. Главната гранка (<code>main</code>) е местото каде што ги чувате кодот, анализите и податоците. Може да имате многу дополнителни гранки за разни тестови, екпесрименти, верзии, итн. Нешто као кога имате <code>izvestaj-posledna-verzija-final-za-prin-2.doc</code>. :)</p>
-<p>Една од гранките кои што се достапни на <code>Github</code> има специјално значење и функција. Таа автоматски се објавува на интернет доколку се исполнети неколку услови. Тоа е <code>gh-pages</code>.</p>
-<p><code>gh-pages</code> практично овозможува вашиот проект да биде веднаш објавен доколку го имате во <code>HTML</code> фомрат. Ако памтите од поглавјето за <code>Rmarkdown</code>, таквите документи може да се рендерираат во <code>HTML</code>.</p>
-<div id="потребен-софтвер" class="section level3" number="7.1.1">
-<h3><span class="header-section-number">7.1.1</span> Потребен софтвер</h3>
-<p>За да можете да користите <code>git</code> со <code>rstudio</code> потребно е да инсталирате <code>git</code> од <code>https://git-scm.com/download/win</code>. Исто така потребно е да направите ваша сметка на <code>github.com</code>.</p>
+<pre><code>______1_________ оригинална скрипта (главно стебло)
+      \_________ работна верзија (гранка)
+
+1 = разгранување (branch)      </code></pre>
+<p>Ваквото разгранување на изворниот не е ограничено на една гранка ниту пак на еден корисник: вие и вашите соработници може да развивате безброј паралелни гранки, и дури и да го подобрувате главното стебло истовремено. Во пракса, <code>гранките</code> можеме да ги замислиме како посебни директориуми на нашиот компјутер (кои ги отвараме и менуваме само со <code>git</code> код). Кога сме готови со додавањето содржина, користиме <code>git</code> за да споиме некоја работна гранка во главното стебло:</p>
+<pre><code>______1_________ оригинална скрипта (главно стебло) ______2________
+      \________ работна верзија (гранка)_________________/
+      
+1 = разгранување (branch)      
+1 = спојување (merge)      </code></pre>
+<p>Овој концепт со <code>git</code> код може да се претстави вака:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="git.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># започни да следиш</span></span>
+<span id="cb39-2"><a href="git.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb39-3"><a href="git.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># додај и потврди промени</span></span>
+<span id="cb39-4"><a href="git.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># (N пати)</span></span>
+<span id="cb39-5"><a href="git.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># направи нова гранка</span></span>
+<span id="cb39-6"><a href="git.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout -b rabotna-verzija <span class="co"># (1 = разгранување)</span></span>
+<span id="cb39-7"><a href="git.html#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># додај и потврди промени во новата гранка </span></span>
+<span id="cb39-8"><a href="git.html#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="co"># (додека главното стебло не се менува)</span></span>
+<span id="cb39-9"><a href="git.html#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># (N пати)</span></span>
+<span id="cb39-10"><a href="git.html#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># врати се на главното стебло</span></span>
+<span id="cb39-11"><a href="git.html#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main ()</span>
+<span id="cb39-12"><a href="git.html#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="co"># спои промените од работната верзија во главното стебло</span></span>
+<span id="cb39-13"><a href="git.html#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge rabotna-verzija <span class="co"># (2 = спојување)</span></span>
+<span id="cb39-14"><a href="git.html#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="co"># продолжи да работиш на главнот стебло</span></span>
+<span id="cb39-15"><a href="git.html#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit (N пати)</span></code></pre></div>
+<p>Гледаме дека без разлика на која гранка се наоѓаме (во кој скриен директориум работиме) додавањето промени се прави со <code>git add</code> (за да и кажеме на <code>git</code> дека некоја датотека е готова за потврдување ) и <code>git commit</code> (за да ги потврдиме промените). Со секое потврдување (<code>commit</code>), <code>git</code> додава уникатен идентификатор на состојбата во која е таа скрипта (и целиот скриен директориум). Со повикување на овој идентификатор, можеме да се вратиме (назад низ времето) во некоја претходна состојба, на пример пред да додадеме некое парче код кое создава проблем со друга скрипта. Или со гит код:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="git.html#cb40-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-2"><a href="git.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># id: 1a...</span></span>
+<span id="cb40-3"><a href="git.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># id: 34...</span></span>
+<span id="cb40-4"><a href="git.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># id: tt... (прави грешка на друго место)</span></span>
+<span id="cb40-5"><a href="git.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># id: 01...</span></span>
+<span id="cb40-6"><a href="git.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># id: ad...</span></span>
+<span id="cb40-7"><a href="git.html#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout 34...   # привремено одиме пред да ја додадеме грешката</span></code></pre></div>
+<p>Кога сме се вратиле на таа претходна состојба, може да отвориме нова гранка, да имплементираме некоја корекција, и кога сме готови, да ги споиме гранките и да се вратиме во состојбата каде што бевме првично.</p>
+<p>Не можеме да ја преувеличиме значајноста на совладувањето на ваква или слична процедура во вашето секојдневно програмирање. Безбедноста и флексибилноста на овој систем ве заштитуваат вас и вашите соработници од речиси сите грешки или несреќи во вашата работа (добро, освен умирање на хард дискот).</p>
 </div>
-<div id="чекори" class="section level3" number="7.1.2">
-<h3><span class="header-section-number">7.1.2</span> Чекори</h3>
-<ol style="list-style-type: decimal">
-<li><p>ново репо на гитхуб со реадме. за да се види дека има нешто (и е добра пракса)</p></li>
-<li><p>пулл преку р студио</p></li>
-<li><p>комит и пуш рмд</p></li>
-<li><p>нов бренч од р студио</p></li>
-<li><p>рендер на хтмл-то во новиот бренч</p></li>
-<li><p>локално преименување во индекс.хтмл</p></li>
-<li><p>пуш на индекс хтмл на гх-пагес</p></li>
-</ol>
+<div id="основи-на-github-за-соработка-и-објавување" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Основи на GitHub за соработка и објавување</h2>
+<p>Употребата на <code>Git</code> за соработка и објавување е олесната благодарение на веб страниците како што се <a href="https://bitbucket.org/product/"><code>Bitbucket</code></a>, <a href="https://github.com/"><code>Github</code></a> или <a href="https://about.gitlab.com/"><code>Gitlab</code></a>. Се што споменавме до сега се однесуваше на работа во еден репозиториум на нашиот компјутер, до кој нашите соработници немаа директен пристап. Но истиот <code>git</code> репозиториум кој го имаме локално (локална инстанца, local), можеме да го поставиме на <code>GitHub</code> (далечната инстанца, remote). Тогаш, нашите колеги, без разлика каде се, можат да имаат пристап до <em>истата</em> состојба на проектот во која што сме ние. Вашите колеги исто така можат да разгрануваат, спојуваат, итн во нивни посебни гранки кои и вие може да ги гледате, и конечно да побараат од вас како власник на репозиториумот да споите некоја од нивните гранки со главнот стебло (<a href="https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests">pull request</a>).</p>
+<p>Овде ќе се осврнеме на една можност која што ја нуди <code>Github</code> за објавување на статични <code>HMTL</code> документи како едноставни веб страници. Вакви документи, на пример, може да произлезат од повторливи извештаи во <code>Rmarkdown</code>, кои ги конвертираме во <code>HTML</code> (поглавје <a href="rmd.html#rmd">5</a>).</p>
+<p>Една од гранките кои што се достапни на <code>Github</code>, <a href="https://pages.github.com/"><strong><code>gh-pages</code></strong></a>, има специјално значење и функција. Таа автоматски се објавува на интернет доколку се исполнети неколку услови. <code>gh-pages</code> практично овозможува вашиот проект да биде веднаш објавен доколку во вашиот репозиториум има <code>HTML</code> документ кој се наоѓа во посебната папка <code>docs</code>.</p>
+<p>Што во пракса значи, дека доколку го составите вашиот извештај со <code>Rmd</code>, и потоа креирате <code>HTML</code> документ кој го зачувувате во <code>docs</code>, поднесувањето на вашиот проект на <code>Github</code> истовремено ќе значи и објавување на една едноставна веб страница. Или чекор, по чекор:</p>
+<ul>
+<li>направи корекција на изворниот код во текст едитор</li>
+<li>изврши го подобрениот извештај</li>
+<li>зачувај го HTML резултатот во <code>docs</code></li>
+<li>додај ги промената и потврди со <code>git</code></li>
+<li>поднеси (<code>git push</code>) до далечната инстанца на репозиториумот (<code>GitHub</code>)</li>
+<li>веб страницата на <code>gh-pages</code> ќе биде автоматски корегирана со вашите нови промени</li>
+</ul>
+<p>Повторливоста е очигледна. Секој што има пристап до репозиториумот и податоците може да ги следи овие чекори и да ги ре-објави резултатите од анализата како вебсајт. Со вака поставениот проект, ја имаме дополнителната предност, дека доколку сакаме да го ре-извршиме и ре-објавиме извештајот од минатиот Април, со <code>git</code> тоа можеме лесно да го направиме.</p>
+<p>Подолу ќе ја разгледаме оваа процедура подетално</p>
+<div id="потребен-софтвер" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Потребен софтвер</h3>
+<p>За да можете да користите <code>git</code> со <code>rstudio</code> потребно е да инсталирате <code>git</code> од <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>. Исто така потребно е да направите ваша сметка на <a href="https://github.com">github.com</a>.</p>
 </div>
+<div id="поставување-1" class="section level3" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Поставување</h3>
+<p>Откако ќе креирате сметка на <code>Github</code>, веднаш може да креирате и нов репозиториум. Основните работи што треба да се направат е да се внесе име на репозиторумот и, заради добра пракса, да се креира <code>Readme</code> датотеката.</p>
+<div class="figure">
+<img src="www/make-git-repo.jpg" alt="" />
+<p class="caption">Поставувања за отварање на нов репозиториум на <code>GitHub</code></p>
+</div>
+<p>Потоа, во <code>Settngs</code> на репозиторумот поставете ги <code>gh-pages</code> во <code>docs</code></p>
+<div class="figure">
+<img src="www/gh-pages.jpg" alt="" />
+<p class="caption">Поставувања за гранката <code>gh-pages</code> на еден <code>GitHub</code> репозиториум</p>
+</div>
+<p>Потоа во <code>Rstudio</code> креирате нов проект преку <code>File -&gt; New Project -&gt; Version Control</code>, одбирате <code>Git</code> и ги пополнувате генералиите за репозиториумот: <code>URL</code>-то го копирате од Вашиот прелистувач и останатите вредности ги внесувате по желба.</p>
+<div class="figure">
+<img src="www/make-r-proj.jpg" alt="" />
+<p class="caption">Поставувања за отварање на нов <code>R</code> проект преку постоечки репозиториум на <code>Github</code></p>
+</div>
+<p>Во следниот чекор <code>Rstudio</code> ќе побара да го внесете корисничкото име и лозинка за <code>Github</code> и ќе ја преземе содржината на репозиториумот. Ако сѐ оди како што треба, во панелот <code>Files</code> во <code>Rstudio</code> би требало да го видите <code>Readme</code>-то што го креиравте претходно.</p>
+<p>Сега може да продолжите со работата, како што е опишано во претходните поглавја, за вчитување на податоци, анализа, пишување на <code>Rmarkdown</code>, итн. На крај откако ќе го креирате <code>HTML</code> документот од <code>Rmarkdown</code>, отворете го проектот преку прелистувачот на датотеки, креирајте папка <code>docs</code> и преместете го <code>HTML</code> документот преименувајќи го во <code>index.html</code>.</p>
+<p>Во панелот <code>Git</code> во <code>Rstudio</code> сега ќе Ви се појават новите датотеки со жолт прашалник покрај нивното име. Кликнете на <code>Staged</code> за да стане зелено, потоа на <code>Commit</code> и во ново отворениот прозорец внесете порака како на пр. <code>Mojot prv proekt na github</code>. Повторно кликнете на копчето <code>Commit</code> и потоа на зелената стрелка нагоре за <code>Push</code>.</p>
+<p>Штом процесот ќе заврши, вашиот изворен код и анализа со податоци ќе биде достапен на <code>github.com/korisnicko_ime/ime_na_repozitorum</code>, a Вашата веб страница на <code>korisnicko_ime.github.io/ime_na_repozitorium/</code>.</p>
+<p>Voila, објавивте сѐ одеднаш на интернет.</p>
+</div>
+</div>
+<div id="резиме-5" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Резиме</h2>
+<p>Дури и без еден едноставен и корисен додаток како <code>gh-pages</code>, кој перфектно се комбинира со повтрорливи <code>Rmd</code> извештаи предностите на овој пристап се очигледни. Сѐ што работите се архивира со соодветни промени и истовремено е достапно за споделување во формат кој што совршено се вклопува на интернет. Недостатоците, или подобро речено, предизвиците, произлегуваат од потребата за совладување на <code>git</code>, што може да бара одредено време, како врпочем и со секој друг голем и повеќенаменски софтверски пакет што се користи од милиони луѓе глобално.</p>
+
 </div>
 </div>
             </section>
@@ -269,7 +328,7 @@ sumiraj_trosoci_juni2020-tn-update-for-marko.R
         </div>
       </div>
 <a href="proekti.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="not-too-much-about-git-of-course-that-is-not-the-point-anyway.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
