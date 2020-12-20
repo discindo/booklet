@@ -24,7 +24,7 @@
 <meta name="author" content="Теофил Наков, Новица Наков, Слободен софтвер Македонија" />
 
 
-<meta name="date" content="2020-12-18" />
+<meta name="date" content="2020-12-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,6 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#audience"><i class="fa fa-check"></i><b>1.2</b> За кого е наменет овој прирачник</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#organ"><i class="fa fa-check"></i><b>1.3</b> Организација</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#за-овој-прирачник"><i class="fa fa-check"></i><b>1.4</b> За овој прирачник</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#лиценца"><i class="fa fa-check"></i><b>1.5</b> Лиценца</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a>
 <ul>
@@ -229,7 +230,7 @@ sumiraj_trosoci_final.R
 sumiraj_trosoci_juni2020-novo.R
 sumiraj_trosoci_juni2020-novo-update.R
 ...</code></pre>
-<p>Веројатно не треба да образложуваме зошто ваквата пролиферација на датотеки е проблематична за вашите анализи, па дури и ако не се стремите кон повторливост. Само замислете како изгледа овој директориум кај некој од вашите колеги кој од една страна има сопствени верзии, а од друга страна нема некои од вашите верзии на истата скрипта. Очигледно е дека можеме и мораме да управуваме со изворниот код далеку подобро. Во ова поглавје ќе се запознаеме со некои од начините со кои <a href="https://git-scm.com/"><code>git</code></a> и <a href="https://github.com/"><code>Github</code></a> ни помагаат да одржуваме работната средина уредена, да соработуваме и експериментираме безгрижно, и да објавуваме ефективно.</p>
+<p>Веројатно не треба да образложуваме зошто ваквата пролиферација на датотеки е проблематична за вашите анализи, па дури и ако не се стремите кон повторливост. Само замислете како изгледа овој директориум кај некој од вашите колеги кој од една страна има сопствени верзии, а од друга страна нема некои од вашите верзии на истата скрипта. Очигледно е дека можеме и мораме да управуваме со изворниот код далеку подобро. Во ова поглавје ќе се запознаеме со некои од начините со кои <a href="https://git-scm.com/"><code>git</code></a> и <a href="https://github.com/"><code>GitHub</code></a> ни помагаат да одржуваме работната средина уредена, да соработуваме и експериментираме безгрижно, и да објавуваме ефективно.</p>
 <div id="основи-на-git" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Основи на <code>git</code></h2>
 <p>Како што напоменавме претходно, <code>git</code> е систем за следење на промените во еден проект, нешто налик на вообичаното <code>track changes</code> во <code>MS Word</code>, но далеку пософистицирано. Учењето на <code>git</code> си бара некое време и трпение, но основите се доволно едноставни да можете веднаш да почнете да користие <code>git</code>. Како и во остатокот од текстот, нашата цел во ова поглавје не е да детален осврт на можностите и особеносите на <code>git</code> (за тоа видете <a href="https://git-scm.com/book/en/v2">тука</a>), туку да покажеме како <code>git</code> се вклопува во еден повторлив проект и да ве охрабриме до почнете да го користите иако можеби делува комплицирано и застрашувачки.</p>
