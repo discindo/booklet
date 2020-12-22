@@ -12,4 +12,4 @@ Known issues:
 - The book currently does not render to PDF due to a bibliography error  
 - Even when it did render to PDF, Cyrillic text was not not rendered  
 
-We have no plans to pursue these PDF-related issues unless someone finds a PDF to be really necessary. Get in touch if this is the case.
+We have no plans to pursue these PDF-related issues unless someone finds a PDF to be really necessary. Get in [touch](https://github.com/discindo/booklet/discussions) if this is the case.
