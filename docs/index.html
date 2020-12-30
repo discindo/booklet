@@ -24,7 +24,7 @@
 <meta name="author" content="Теофил Наков, Новица Наков, Слободен софтвер Македонија" />
 
 
-<meta name="date" content="2020-12-22" />
+<meta name="date" content="2020-12-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,6 @@
   
 
 <link rel="next" href="intro.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +50,7 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCF7E2K9C2"></script>
 <script>
@@ -65,17 +63,18 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -95,7 +94,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -145,8 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Резиме</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Вовед</a>
-<ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Вовед</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#analogy"><i class="fa fa-check"></i><b>1.1</b> Аналогија</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#audience"><i class="fa fa-check"></i><b>1.2</b> За кого е наменет овој прирачник</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#organ"><i class="fa fa-check"></i><b>1.3</b> Организација</a></li>
@@ -154,44 +152,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#за-овој-прирачник"><i class="fa fa-check"></i><b>1.5</b> За овој прирачник</a></li>
 <li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#лиценца"><i class="fa fa-check"></i><b>1.6</b> Лиценца</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a>
-<ul>
+<li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a><ul>
 <li class="chapter" data-level="2.1" data-path="tools.html"><a href="tools.html#програмски-јазик-r"><i class="fa fa-check"></i><b>2.1</b> Програмски јазик: <code>R</code></a></li>
 <li class="chapter" data-level="2.2" data-path="tools.html"><a href="tools.html#инсталација"><i class="fa fa-check"></i><b>2.2</b> Инсталација</a></li>
 <li class="chapter" data-level="2.3" data-path="tools.html"><a href="tools.html#контрола-на-изворен-код-git"><i class="fa fa-check"></i><b>2.3</b> Контрола на изворен код: <code>git</code></a></li>
 <li class="chapter" data-level="2.4" data-path="tools.html"><a href="tools.html#резиме-1"><i class="fa fa-check"></i><b>2.4</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a>
-<ul>
+<li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a><ul>
 <li class="chapter" data-level="3.1" data-path="nogood.html"><a href="nogood.html#typical"><i class="fa fa-check"></i><b>3.1</b> Типична анализа (која никој, дури ни авторот, не може да ја повтори)</a></li>
 <li class="chapter" data-level="3.2" data-path="nogood.html"><a href="nogood.html#indicators"><i class="fa fa-check"></i><b>3.2</b> Типични пракси кои доведуваат до не-повторливи анализи</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="conversion.html"><a href="conversion.html"><i class="fa fa-check"></i><b>4</b> Конверзија во повторлив код</a>
-<ul>
+<li class="chapter" data-level="4" data-path="conversion.html"><a href="conversion.html"><i class="fa fa-check"></i><b>4</b> Конверзија во повторлив код</a><ul>
 <li class="chapter" data-level="4.1" data-path="conversion.html"><a href="conversion.html#податоци"><i class="fa fa-check"></i><b>4.1</b> Податоци</a></li>
 <li class="chapter" data-level="4.2" data-path="conversion.html"><a href="conversion.html#први-чекори-кон-повторливост"><i class="fa fa-check"></i><b>4.2</b> Први чекори кон повторливост</a></li>
 <li class="chapter" data-level="4.3" data-path="conversion.html"><a href="conversion.html#функција"><i class="fa fa-check"></i><b>4.3</b> Функција</a></li>
 <li class="chapter" data-level="4.4" data-path="conversion.html"><a href="conversion.html#rscript-што-може-да-го-користиме-без-да-отвараме-r"><i class="fa fa-check"></i><b>4.4</b> Rscript што може да го користиме без да отвараме <code>R</code></a></li>
 <li class="chapter" data-level="4.5" data-path="conversion.html"><a href="conversion.html#резиме-2"><i class="fa fa-check"></i><b>4.5</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Повторливи документи / извештаи со писмено програмирање (R + markdown)</a>
-<ul>
+<li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Повторливи документи / извештаи со писмено програмирање (R + markdown)</a><ul>
 <li class="chapter" data-level="5.1" data-path="rmd.html"><a href="rmd.html#форматирање-на-текст-со-markdown"><i class="fa fa-check"></i><b>5.1</b> Форматирање на текст со markdown</a></li>
 <li class="chapter" data-level="5.2" data-path="rmd.html"><a href="rmd.html#плетење-на-текст-код-и-резултати-со-knitr"><i class="fa fa-check"></i><b>5.2</b> Плетење на текст, код, и резултати со <code>knitr</code></a></li>
 <li class="chapter" data-level="5.3" data-path="rmd.html"><a href="rmd.html#извештаи-со-параметри"><i class="fa fa-check"></i><b>5.3</b> Извештаи со параметри</a></li>
 <li class="chapter" data-level="5.4" data-path="rmd.html"><a href="rmd.html#следни-чекори"><i class="fa fa-check"></i><b>5.4</b> Следни чекори</a></li>
 <li class="chapter" data-level="5.5" data-path="rmd.html"><a href="rmd.html#резиме-3"><i class="fa fa-check"></i><b>5.5</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="proekti.html"><a href="proekti.html"><i class="fa fa-check"></i><b>6</b> Повторливи проекти</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="proekti.html"><a href="proekti.html#стратегија-1-направи-сам"><i class="fa fa-check"></i><b>6.1</b> Стратегија 1: Направи сам</a>
-<ul>
+<li class="chapter" data-level="6" data-path="proekti.html"><a href="proekti.html"><i class="fa fa-check"></i><b>6</b> Повторливи проекти</a><ul>
+<li class="chapter" data-level="6.1" data-path="proekti.html"><a href="proekti.html#стратегија-1-направи-сам"><i class="fa fa-check"></i><b>6.1</b> Стратегија 1: Направи сам</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="proekti.html"><a href="proekti.html#структура"><i class="fa fa-check"></i><b>6.1.1</b> Структура</a></li>
 <li class="chapter" data-level="6.1.2" data-path="proekti.html"><a href="proekti.html#предности"><i class="fa fa-check"></i><b>6.1.2</b> Предности</a></li>
 <li class="chapter" data-level="6.1.3" data-path="proekti.html"><a href="proekti.html#недостатоци"><i class="fa fa-check"></i><b>6.1.3</b> Недостатоци</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="proekti.html"><a href="proekti.html#стратегија-2-формален-r-пакет-или-некоја-поедноставена-варијанта"><i class="fa fa-check"></i><b>6.2</b> Стратегија 2: Формален <code>R</code> пакет или некоја поедноставена варијанта</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="proekti.html"><a href="proekti.html#стратегија-2-формален-r-пакет-или-некоја-поедноставена-варијанта"><i class="fa fa-check"></i><b>6.2</b> Стратегија 2: Формален <code>R</code> пакет или некоја поедноставена варијанта</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="proekti.html"><a href="proekti.html#структура-1"><i class="fa fa-check"></i><b>6.2.1</b> Структура</a></li>
 <li class="chapter" data-level="6.2.2" data-path="proekti.html"><a href="proekti.html#поставување"><i class="fa fa-check"></i><b>6.2.2</b> Поставување</a></li>
 <li class="chapter" data-level="6.2.3" data-path="proekti.html"><a href="proekti.html#предности-1"><i class="fa fa-check"></i><b>6.2.3</b> Предности</a></li>
@@ -199,11 +190,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="proekti.html"><a href="proekti.html#резиме-4"><i class="fa fa-check"></i><b>6.3</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>7</b> Контрола на изворниот код со git и GitHub</a>
-<ul>
+<li class="chapter" data-level="7" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>7</b> Контрола на изворниот код со git и GitHub</a><ul>
 <li class="chapter" data-level="7.1" data-path="git.html"><a href="git.html#основи-на-git"><i class="fa fa-check"></i><b>7.1</b> Основи на <code>git</code></a></li>
-<li class="chapter" data-level="7.2" data-path="git.html"><a href="git.html#основи-на-github-за-соработка-и-објавување"><i class="fa fa-check"></i><b>7.2</b> Основи на GitHub за соработка и објавување</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="git.html"><a href="git.html#основи-на-github-за-соработка-и-објавување"><i class="fa fa-check"></i><b>7.2</b> Основи на GitHub за соработка и објавување</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="git.html"><a href="git.html#потребен-софтвер"><i class="fa fa-check"></i><b>7.2.1</b> Потребен софтвер</a></li>
 <li class="chapter" data-level="7.2.2" data-path="git.html"><a href="git.html#поставување-1"><i class="fa fa-check"></i><b>7.2.2</b> Поставување</a></li>
 </ul></li>
@@ -233,11 +222,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Препораки за повторливо анализирање на податоци</h1>
 <p class="author"><em>Теофил Наков, Новица Наков, Слободен софтвер Македонија</em></p>
-<p class="date"><em>2020-12-22</em></p>
+<p class="date"><em>2020-12-30</em></p>
 </div>
 <div id="резиме" class="section level1 unnumbered">
 <h1>Резиме</h1>
 <p>Волуменот на податоци достапни за најразлични потреби и од најразлични извори расте континуирано. Обработката и објавувето на резултати и податоци, дали од Интернет сообраќајот на вашиот вебсајт, од финансиските трансакции на вашата фирма, од анкети за политички мислења, или од лабораториски експерименти, станува се побрзо и полесно. Исто како и користењето на податоци собрани од Интернет за бизнис одлуки во рамките на вашата фирма. Заедничка за оваа транзиција кон наука за податоци, лична медицина, или бизнис интелегенција, е потребата за транспарентност, отвореност, и повторливост на анализите и резултатите од кои зависиме се повеќе и повеќе. Дали интерно, во нашата фирма за бизнис интелегенција, или јавно за нашите научни истражувања или епидемиолошки предвидувања, доверливи и безбедни процедури за анализа на податоци никогаш не биле толку значајни.</p>
+<p><img src="www/logo.png" /></p>
 <p>Во овој прирачник се осврнуваме токму на овие таканаречени „најдобри“ пракси за безбедно, стабилно, и <em>повторливо</em> работење со податоци. Ќе зборуваме за проблемите што се јавуваат поради не-повторливост, за главните индикатори за не-повторливи проекти, како и за принципите и праксите кои ни овозможуваат да ги надминеме овие проблеми. Низ текстот се обидуваме да дадеме кратки примери, дали вербални или со код, кои ги илустрираат главните препораки и посочуваат кон адекватни софтверски решенија. Се држиме до програмскиот јазик <code>R</code>, којшто е од примарна значајност во светот на анализа на податоци и машинско учење, има активна заедница посветена токму на проблемот на повторливи анализи, и голем број на алатки (библиотеки) наменети кон олеснување на проблемот на повторливост.</p>
 <p>Нашата главна препорака е: без разлика на програмскиот јазик кој го користите, или стратегијата за организирање на проекти што најмногу ви прилега, бидете трпеливи, дисциплинирани, и доследни кон почитувањето на препораките за повторливост. Оваа инвестиција ќе ви се исплати на краток и долг рок во форма на заштедено време и ресурси, унапредување, или соработка.</p>
 

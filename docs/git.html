@@ -24,7 +24,7 @@
 <meta name="author" content="Теофил Наков, Новица Наков, Слободен софтвер Македонија" />
 
 
-<meta name="date" content="2020-12-22" />
+<meta name="date" content="2020-12-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="proekti.html"/>
 <link rel="next" href="литература.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +50,7 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCF7E2K9C2"></script>
 <script>
@@ -65,17 +63,18 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -95,7 +94,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -145,8 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Резиме</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Вовед</a>
-<ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Вовед</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#analogy"><i class="fa fa-check"></i><b>1.1</b> Аналогија</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#audience"><i class="fa fa-check"></i><b>1.2</b> За кого е наменет овој прирачник</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#organ"><i class="fa fa-check"></i><b>1.3</b> Организација</a></li>
@@ -154,44 +152,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#за-овој-прирачник"><i class="fa fa-check"></i><b>1.5</b> За овој прирачник</a></li>
 <li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#лиценца"><i class="fa fa-check"></i><b>1.6</b> Лиценца</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a>
-<ul>
+<li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a><ul>
 <li class="chapter" data-level="2.1" data-path="tools.html"><a href="tools.html#програмски-јазик-r"><i class="fa fa-check"></i><b>2.1</b> Програмски јазик: <code>R</code></a></li>
 <li class="chapter" data-level="2.2" data-path="tools.html"><a href="tools.html#инсталација"><i class="fa fa-check"></i><b>2.2</b> Инсталација</a></li>
 <li class="chapter" data-level="2.3" data-path="tools.html"><a href="tools.html#контрола-на-изворен-код-git"><i class="fa fa-check"></i><b>2.3</b> Контрола на изворен код: <code>git</code></a></li>
 <li class="chapter" data-level="2.4" data-path="tools.html"><a href="tools.html#резиме-1"><i class="fa fa-check"></i><b>2.4</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a>
-<ul>
+<li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a><ul>
 <li class="chapter" data-level="3.1" data-path="nogood.html"><a href="nogood.html#typical"><i class="fa fa-check"></i><b>3.1</b> Типична анализа (која никој, дури ни авторот, не може да ја повтори)</a></li>
 <li class="chapter" data-level="3.2" data-path="nogood.html"><a href="nogood.html#indicators"><i class="fa fa-check"></i><b>3.2</b> Типични пракси кои доведуваат до не-повторливи анализи</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="conversion.html"><a href="conversion.html"><i class="fa fa-check"></i><b>4</b> Конверзија во повторлив код</a>
-<ul>
+<li class="chapter" data-level="4" data-path="conversion.html"><a href="conversion.html"><i class="fa fa-check"></i><b>4</b> Конверзија во повторлив код</a><ul>
 <li class="chapter" data-level="4.1" data-path="conversion.html"><a href="conversion.html#податоци"><i class="fa fa-check"></i><b>4.1</b> Податоци</a></li>
 <li class="chapter" data-level="4.2" data-path="conversion.html"><a href="conversion.html#први-чекори-кон-повторливост"><i class="fa fa-check"></i><b>4.2</b> Први чекори кон повторливост</a></li>
 <li class="chapter" data-level="4.3" data-path="conversion.html"><a href="conversion.html#функција"><i class="fa fa-check"></i><b>4.3</b> Функција</a></li>
 <li class="chapter" data-level="4.4" data-path="conversion.html"><a href="conversion.html#rscript-што-може-да-го-користиме-без-да-отвараме-r"><i class="fa fa-check"></i><b>4.4</b> Rscript што може да го користиме без да отвараме <code>R</code></a></li>
 <li class="chapter" data-level="4.5" data-path="conversion.html"><a href="conversion.html#резиме-2"><i class="fa fa-check"></i><b>4.5</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Повторливи документи / извештаи со писмено програмирање (R + markdown)</a>
-<ul>
+<li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Повторливи документи / извештаи со писмено програмирање (R + markdown)</a><ul>
 <li class="chapter" data-level="5.1" data-path="rmd.html"><a href="rmd.html#форматирање-на-текст-со-markdown"><i class="fa fa-check"></i><b>5.1</b> Форматирање на текст со markdown</a></li>
 <li class="chapter" data-level="5.2" data-path="rmd.html"><a href="rmd.html#плетење-на-текст-код-и-резултати-со-knitr"><i class="fa fa-check"></i><b>5.2</b> Плетење на текст, код, и резултати со <code>knitr</code></a></li>
 <li class="chapter" data-level="5.3" data-path="rmd.html"><a href="rmd.html#извештаи-со-параметри"><i class="fa fa-check"></i><b>5.3</b> Извештаи со параметри</a></li>
 <li class="chapter" data-level="5.4" data-path="rmd.html"><a href="rmd.html#следни-чекори"><i class="fa fa-check"></i><b>5.4</b> Следни чекори</a></li>
 <li class="chapter" data-level="5.5" data-path="rmd.html"><a href="rmd.html#резиме-3"><i class="fa fa-check"></i><b>5.5</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="proekti.html"><a href="proekti.html"><i class="fa fa-check"></i><b>6</b> Повторливи проекти</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="proekti.html"><a href="proekti.html#стратегија-1-направи-сам"><i class="fa fa-check"></i><b>6.1</b> Стратегија 1: Направи сам</a>
-<ul>
+<li class="chapter" data-level="6" data-path="proekti.html"><a href="proekti.html"><i class="fa fa-check"></i><b>6</b> Повторливи проекти</a><ul>
+<li class="chapter" data-level="6.1" data-path="proekti.html"><a href="proekti.html#стратегија-1-направи-сам"><i class="fa fa-check"></i><b>6.1</b> Стратегија 1: Направи сам</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="proekti.html"><a href="proekti.html#структура"><i class="fa fa-check"></i><b>6.1.1</b> Структура</a></li>
 <li class="chapter" data-level="6.1.2" data-path="proekti.html"><a href="proekti.html#предности"><i class="fa fa-check"></i><b>6.1.2</b> Предности</a></li>
 <li class="chapter" data-level="6.1.3" data-path="proekti.html"><a href="proekti.html#недостатоци"><i class="fa fa-check"></i><b>6.1.3</b> Недостатоци</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="proekti.html"><a href="proekti.html#стратегија-2-формален-r-пакет-или-некоја-поедноставена-варијанта"><i class="fa fa-check"></i><b>6.2</b> Стратегија 2: Формален <code>R</code> пакет или некоја поедноставена варијанта</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="proekti.html"><a href="proekti.html#стратегија-2-формален-r-пакет-или-некоја-поедноставена-варијанта"><i class="fa fa-check"></i><b>6.2</b> Стратегија 2: Формален <code>R</code> пакет или некоја поедноставена варијанта</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="proekti.html"><a href="proekti.html#структура-1"><i class="fa fa-check"></i><b>6.2.1</b> Структура</a></li>
 <li class="chapter" data-level="6.2.2" data-path="proekti.html"><a href="proekti.html#поставување"><i class="fa fa-check"></i><b>6.2.2</b> Поставување</a></li>
 <li class="chapter" data-level="6.2.3" data-path="proekti.html"><a href="proekti.html#предности-1"><i class="fa fa-check"></i><b>6.2.3</b> Предности</a></li>
@@ -199,11 +190,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="proekti.html"><a href="proekti.html#резиме-4"><i class="fa fa-check"></i><b>6.3</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>7</b> Контрола на изворниот код со git и GitHub</a>
-<ul>
+<li class="chapter" data-level="7" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>7</b> Контрола на изворниот код со git и GitHub</a><ul>
 <li class="chapter" data-level="7.1" data-path="git.html"><a href="git.html#основи-на-git"><i class="fa fa-check"></i><b>7.1</b> Основи на <code>git</code></a></li>
-<li class="chapter" data-level="7.2" data-path="git.html"><a href="git.html#основи-на-github-за-соработка-и-објавување"><i class="fa fa-check"></i><b>7.2</b> Основи на GitHub за соработка и објавување</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="git.html"><a href="git.html#основи-на-github-за-соработка-и-објавување"><i class="fa fa-check"></i><b>7.2</b> Основи на GitHub за соработка и објавување</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="git.html"><a href="git.html#потребен-софтвер"><i class="fa fa-check"></i><b>7.2.1</b> Потребен софтвер</a></li>
 <li class="chapter" data-level="7.2.2" data-path="git.html"><a href="git.html#поставување-1"><i class="fa fa-check"></i><b>7.2.2</b> Поставување</a></li>
 </ul></li>
@@ -230,7 +219,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="git" class="section level1" number="7">
+<div id="git" class="section level1">
 <h1><span class="header-section-number">Поглавје 7</span> Контрола на изворниот код со git и GitHub</h1>
 <p>Во другите поглавја генерално зборуваме за R и разни додатни пакети кои се директно поврзани со повторливи анализи. Овие се алатки се во преден план бидејќи се користат за анализа на податоците или поставување на проекти, но самото развивање на еден истражувачки проект, од идеја до публикација, не е прав, асфалтиран, и осветлен пат. Наспроти, секоја скрипта поминува низ неколку верзии пред конечната (<code>Figure3.2-final-for-print.R</code>), секој извештај започнува како нацрт кој се ревизира од авторот и неколку соработници, многу табели со податоци се ре-форматираат од почеток или заменуваат. Доколку сте работеле на анализа на податоци, и особено ако тоа го правите со соработници, веројатно ви е позната следната ситуација:</p>
 <pre><code>sumiraj_trocosi.R
@@ -241,7 +230,7 @@ sumiraj_trosoci_juni2020-novo.R
 sumiraj_trosoci_juni2020-novo-update.R
 ...</code></pre>
 <p>Веројатно не треба да образложуваме зошто ваквата пролиферација на датотеки е проблематична за вашите анализи, па дури и ако не се стремите кон повторливост. Само замислете како изгледа овој директориум кај некој од вашите колеги кој од една страна има сопствени верзии, а од друга страна нема некои од вашите верзии на истата скрипта. Очигледно е дека можеме и мораме да управуваме со изворниот код далеку подобро. Во ова поглавје ќе се запознаеме со некои од начините со кои <a href="https://git-scm.com/"><code>git</code></a> и <a href="https://github.com/"><code>GitHub</code></a> ни помагаат да одржуваме работната средина уредена, да соработуваме и експериментираме безгрижно, и да објавуваме ефективно.</p>
-<div id="основи-на-git" class="section level2" number="7.1">
+<div id="основи-на-git" class="section level2">
 <h2><span class="header-section-number">7.1</span> Основи на <code>git</code></h2>
 <p>Како што напоменавме претходно, <code>git</code> е систем за следење на промените во еден проект, нешто налик на вообичаното <code>track changes</code> во <code>MS Word</code>, но далеку пософистицирано. Учењето на <code>git</code> си бара некое време и трпение, но основите се доволно едноставни да можете веднаш да почнете да користие <code>git</code>. Како и во остатокот од текстот, нашата цел во ова поглавје не е да детален осврт на можностите и особеносите на <code>git</code> (за тоа видете <a href="https://git-scm.com/book/en/v2">тука</a>), туку да покажеме како <code>git</code> се вклопува во еден повторлив проект и да ве охрабриме до почнете да го користите иако можеби делува комплицирано и застрашувачки.</p>
 <p>Еден од најчестите случаи кога ни треба контрола на изворниот код е кога сме стигнале до некоја состојба која фунцкионира или е ставена во употреба (на пример прва верзија од извештајот) и треба да тестираме сугестии од нашите колеги за додавање на нова табела или за поинаков график. Во оваа ситуација, инстинктот кај 99% од нас е да зачуваме копија од оригиналниот извештај кој не сакаме да го изгубиме (можеби во <code>backup-izvestaj</code>) и да ги тестираме предлозите за подобрување во „работна“ верзија на извештајот. Иако во овој момент овој план звучи горе-доле безболно, во пракса скоро никогаш не е така. Наспроти, нашиот уреден директориум со <code>mojizvestaj.Rmd</code> набрзо ќе се претвори во една гужва на датотеки во која што никој, па дури ни ние самите, нема да може да се снајде по неколку недели.</p>
@@ -257,33 +246,33 @@ sumiraj_trosoci_juni2020-novo-update.R
 1 = разгранување (branch)      
 1 = спојување (merge)      </code></pre>
 <p>Овој концепт со <code>git</code> код може да се претстави вака:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="git.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># започни да следиш</span></span>
-<span id="cb39-2"><a href="git.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
-<span id="cb39-3"><a href="git.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># додај и потврди промени</span></span>
-<span id="cb39-4"><a href="git.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># (N пати)</span></span>
-<span id="cb39-5"><a href="git.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># направи нова гранка</span></span>
-<span id="cb39-6"><a href="git.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout -b rabotna-verzija <span class="co"># (1 = разгранување)</span></span>
-<span id="cb39-7"><a href="git.html#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># додај и потврди промени во новата гранка </span></span>
-<span id="cb39-8"><a href="git.html#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="co"># (додека главното стебло не се менува)</span></span>
-<span id="cb39-9"><a href="git.html#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># (N пати)</span></span>
-<span id="cb39-10"><a href="git.html#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># врати се на главното стебло</span></span>
-<span id="cb39-11"><a href="git.html#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main ()</span>
-<span id="cb39-12"><a href="git.html#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="co"># спои промените од работната верзија во главното стебло</span></span>
-<span id="cb39-13"><a href="git.html#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge rabotna-verzija <span class="co"># (2 = спојување)</span></span>
-<span id="cb39-14"><a href="git.html#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="co"># продолжи да работиш на главнот стебло</span></span>
-<span id="cb39-15"><a href="git.html#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit (N пати)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="git.html#cb39-1"></a><span class="co"># започни да следиш</span></span>
+<span id="cb39-2"><a href="git.html#cb39-2"></a><span class="fu">git</span> init</span>
+<span id="cb39-3"><a href="git.html#cb39-3"></a><span class="co"># додај и потврди промени</span></span>
+<span id="cb39-4"><a href="git.html#cb39-4"></a><span class="fu">git</span> add + git commit <span class="co"># (N пати)</span></span>
+<span id="cb39-5"><a href="git.html#cb39-5"></a><span class="co"># направи нова гранка</span></span>
+<span id="cb39-6"><a href="git.html#cb39-6"></a><span class="fu">git</span> checkout -b rabotna-verzija <span class="co"># (1 = разгранување)</span></span>
+<span id="cb39-7"><a href="git.html#cb39-7"></a><span class="co"># додај и потврди промени во новата гранка </span></span>
+<span id="cb39-8"><a href="git.html#cb39-8"></a><span class="co"># (додека главното стебло не се менува)</span></span>
+<span id="cb39-9"><a href="git.html#cb39-9"></a><span class="fu">git</span> add + git commit <span class="co"># (N пати)</span></span>
+<span id="cb39-10"><a href="git.html#cb39-10"></a><span class="co"># врати се на главното стебло</span></span>
+<span id="cb39-11"><a href="git.html#cb39-11"></a><span class="fu">git</span> checkout main ()</span>
+<span id="cb39-12"><a href="git.html#cb39-12"></a><span class="co"># спои промените од работната верзија во главното стебло</span></span>
+<span id="cb39-13"><a href="git.html#cb39-13"></a><span class="fu">git</span> merge rabotna-verzija <span class="co"># (2 = спојување)</span></span>
+<span id="cb39-14"><a href="git.html#cb39-14"></a><span class="co"># продолжи да работиш на главнот стебло</span></span>
+<span id="cb39-15"><a href="git.html#cb39-15"></a><span class="fu">git</span> add + git commit (N пати)</span></code></pre></div>
 <p>Гледаме дека без разлика на која гранка се наоѓаме (во кој скриен директориум работиме) додавањето промени се прави со <code>git add</code> (за да и кажеме на <code>git</code> дека некоја датотека е готова за потврдување ) и <code>git commit</code> (за да ги потврдиме промените). Со секое потврдување (<code>commit</code>), <code>git</code> додава уникатен идентификатор на состојбата во која е таа скрипта (и целиот скриен директориум). Со повикување на овој идентификатор, можеме да се вратиме (назад низ времето) во некоја претходна состојба, на пример пред да додадеме некое парче код кое создава проблем со друга скрипта. Или со гит код:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="git.html#cb40-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-2"><a href="git.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># id: 1a...</span></span>
-<span id="cb40-3"><a href="git.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># id: 34...</span></span>
-<span id="cb40-4"><a href="git.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># id: tt... (прави грешка на друго место)</span></span>
-<span id="cb40-5"><a href="git.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># id: 01...</span></span>
-<span id="cb40-6"><a href="git.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add + git commit <span class="co"># id: ad...</span></span>
-<span id="cb40-7"><a href="git.html#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout 34...   # привремено одиме пред да ја додадеме грешката</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb40-1"><a href="git.html#cb40-1"></a></span>
+<span id="cb40-2"><a href="git.html#cb40-2"></a><span class="fu">git</span> add + git commit <span class="co"># id: 1a...</span></span>
+<span id="cb40-3"><a href="git.html#cb40-3"></a><span class="fu">git</span> add + git commit <span class="co"># id: 34...</span></span>
+<span id="cb40-4"><a href="git.html#cb40-4"></a><span class="fu">git</span> add + git commit <span class="co"># id: tt... (прави грешка на друго место)</span></span>
+<span id="cb40-5"><a href="git.html#cb40-5"></a><span class="fu">git</span> add + git commit <span class="co"># id: 01...</span></span>
+<span id="cb40-6"><a href="git.html#cb40-6"></a><span class="fu">git</span> add + git commit <span class="co"># id: ad...</span></span>
+<span id="cb40-7"><a href="git.html#cb40-7"></a><span class="fu">git</span> checkout 34...   <span class="co"># привремено одиме пред да ја додадеме грешката</span></span></code></pre></div>
 <p>Кога сме се вратиле на таа претходна состојба, може да отвориме нова гранка, да имплементираме некоја корекција, и кога сме готови, да ги споиме гранките и да се вратиме во состојбата каде што бевме првично.</p>
 <p>Не можеме да ја преувеличиме значајноста на совладувањето на ваква или слична процедура во вашето секојдневно програмирање. Безбедноста и флексибилноста на овој систем ве заштитуваат вас и вашите соработници од речиси сите грешки или несреќи во вашата работа (добро, освен умирање на хард дискот).</p>
 </div>
-<div id="основи-на-github-за-соработка-и-објавување" class="section level2" number="7.2">
+<div id="основи-на-github-за-соработка-и-објавување" class="section level2">
 <h2><span class="header-section-number">7.2</span> Основи на GitHub за соработка и објавување</h2>
 <p>Употребата на <code>Git</code> за соработка и објавување е олесната благодарение на веб страниците како што се <a href="https://bitbucket.org/product/"><code>Bitbucket</code></a>, <a href="https://github.com/"><code>Github</code></a> или <a href="https://about.gitlab.com/"><code>Gitlab</code></a>. Се што споменавме до сега се однесуваше на работа во еден репозиториум на нашиот компјутер, до кој нашите соработници немаа директен пристап. Но истиот <code>git</code> репозиториум кој го имаме локално (локална инстанца, local), можеме да го поставиме на <code>GitHub</code> (далечната инстанца, remote). Тогаш, нашите колеги, без разлика каде се, можат да имаат пристап до <em>истата</em> состојба на проектот во која што сме ние. Вашите колеги исто така можат да разгрануваат, спојуваат, итн во нивни посебни гранки кои и вие може да ги гледате, и конечно да побараат од вас како власник на репозиториумот да споите некоја од нивните гранки со главнот стебло (<a href="https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests">pull request</a>).</p>
 <p>Овде ќе се осврнеме на една можност која што ја нуди <code>Github</code> за објавување на статични <code>HMTL</code> документи како едноставни веб страници. Вакви документи, на пример, може да произлезат од повторливи извештаи во <code>Rmarkdown</code>, кои ги конвертираме во <code>HTML</code> (поглавје <a href="rmd.html#rmd">5</a>).</p>
@@ -299,11 +288,11 @@ sumiraj_trosoci_juni2020-novo-update.R
 </ul>
 <p>Повторливоста е очигледна. Секој што има пристап до репозиториумот и податоците може да ги следи овие чекори и да ги ре-објави резултатите од анализата како вебсајт. Со вака поставениот проект, ја имаме дополнителната предност, дека доколку сакаме да го ре-извршиме и ре-објавиме извештајот од минатиот Април, со <code>git</code> тоа можеме лесно да го направиме.</p>
 <p>Подолу ќе ја разгледаме оваа процедура подетално</p>
-<div id="потребен-софтвер" class="section level3" number="7.2.1">
+<div id="потребен-софтвер" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Потребен софтвер</h3>
 <p>За да можете да користите <code>git</code> со <code>rstudio</code> потребно е да инсталирате <code>git</code> од <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>. Исто така потребно е да направите ваша сметка на <a href="https://github.com">github.com</a>.</p>
 </div>
-<div id="поставување-1" class="section level3" number="7.2.2">
+<div id="поставување-1" class="section level3">
 <h3><span class="header-section-number">7.2.2</span> Поставување</h3>
 <p>Откако ќе креирате сметка на <code>Github</code>, веднаш може да креирате и нов репозиториум. Основните работи што треба да се направат е да се внесе име на репозиторумот и, заради добра пракса, да се креира <code>Readme</code> датотеката.</p>
 <div class="figure">
@@ -327,7 +316,7 @@ sumiraj_trosoci_juni2020-novo-update.R
 <p>Voila, објавивте сѐ одеднаш на интернет.</p>
 </div>
 </div>
-<div id="резиме-5" class="section level2" number="7.3">
+<div id="резиме-5" class="section level2">
 <h2><span class="header-section-number">7.3</span> Резиме</h2>
 <p>Дури и без еден едноставен и корисен додаток како <code>gh-pages</code>, кој перфектно се комбинира со повтрорливи <code>Rmd</code> извештаи предностите на овој пристап се очигледни. Сѐ што работите се архивира со соодветни промени и истовремено е достапно за споделување во формат кој што совршено се вклопува на интернет. Недостатоците, или подобро речено, предизвиците, произлегуваат од потребата за совладување на <code>git</code>, што може да бара одредено време, како врпочем и со секој друг голем и повеќенаменски софтверски пакет што се користи од милиони луѓе глобално.</p>
 

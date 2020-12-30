@@ -24,7 +24,7 @@
 <meta name="author" content="Теофил Наков, Новица Наков, Слободен софтвер Македонија" />
 
 
-<meta name="date" content="2020-12-22" />
+<meta name="date" content="2020-12-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,6 @@
   
 <link rel="prev" href="tools.html"/>
 <link rel="next" href="conversion.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +50,7 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCF7E2K9C2"></script>
 <script>
@@ -65,17 +63,18 @@
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -95,7 +94,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -145,8 +144,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Резиме</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Вовед</a>
-<ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Вовед</a><ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#analogy"><i class="fa fa-check"></i><b>1.1</b> Аналогија</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#audience"><i class="fa fa-check"></i><b>1.2</b> За кого е наменет овој прирачник</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#organ"><i class="fa fa-check"></i><b>1.3</b> Организација</a></li>
@@ -154,44 +152,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#за-овој-прирачник"><i class="fa fa-check"></i><b>1.5</b> За овој прирачник</a></li>
 <li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#лиценца"><i class="fa fa-check"></i><b>1.6</b> Лиценца</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a>
-<ul>
+<li class="chapter" data-level="2" data-path="tools.html"><a href="tools.html"><i class="fa fa-check"></i><b>2</b> Алатки</a><ul>
 <li class="chapter" data-level="2.1" data-path="tools.html"><a href="tools.html#програмски-јазик-r"><i class="fa fa-check"></i><b>2.1</b> Програмски јазик: <code>R</code></a></li>
 <li class="chapter" data-level="2.2" data-path="tools.html"><a href="tools.html#инсталација"><i class="fa fa-check"></i><b>2.2</b> Инсталација</a></li>
 <li class="chapter" data-level="2.3" data-path="tools.html"><a href="tools.html#контрола-на-изворен-код-git"><i class="fa fa-check"></i><b>2.3</b> Контрола на изворен код: <code>git</code></a></li>
 <li class="chapter" data-level="2.4" data-path="tools.html"><a href="tools.html#резиме-1"><i class="fa fa-check"></i><b>2.4</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a>
-<ul>
+<li class="chapter" data-level="3" data-path="nogood.html"><a href="nogood.html"><i class="fa fa-check"></i><b>3</b> Анализи што не може да се повторат</a><ul>
 <li class="chapter" data-level="3.1" data-path="nogood.html"><a href="nogood.html#typical"><i class="fa fa-check"></i><b>3.1</b> Типична анализа (која никој, дури ни авторот, не може да ја повтори)</a></li>
 <li class="chapter" data-level="3.2" data-path="nogood.html"><a href="nogood.html#indicators"><i class="fa fa-check"></i><b>3.2</b> Типични пракси кои доведуваат до не-повторливи анализи</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="conversion.html"><a href="conversion.html"><i class="fa fa-check"></i><b>4</b> Конверзија во повторлив код</a>
-<ul>
+<li class="chapter" data-level="4" data-path="conversion.html"><a href="conversion.html"><i class="fa fa-check"></i><b>4</b> Конверзија во повторлив код</a><ul>
 <li class="chapter" data-level="4.1" data-path="conversion.html"><a href="conversion.html#податоци"><i class="fa fa-check"></i><b>4.1</b> Податоци</a></li>
 <li class="chapter" data-level="4.2" data-path="conversion.html"><a href="conversion.html#први-чекори-кон-повторливост"><i class="fa fa-check"></i><b>4.2</b> Први чекори кон повторливост</a></li>
 <li class="chapter" data-level="4.3" data-path="conversion.html"><a href="conversion.html#функција"><i class="fa fa-check"></i><b>4.3</b> Функција</a></li>
 <li class="chapter" data-level="4.4" data-path="conversion.html"><a href="conversion.html#rscript-што-може-да-го-користиме-без-да-отвараме-r"><i class="fa fa-check"></i><b>4.4</b> Rscript што може да го користиме без да отвараме <code>R</code></a></li>
 <li class="chapter" data-level="4.5" data-path="conversion.html"><a href="conversion.html#резиме-2"><i class="fa fa-check"></i><b>4.5</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Повторливи документи / извештаи со писмено програмирање (R + markdown)</a>
-<ul>
+<li class="chapter" data-level="5" data-path="rmd.html"><a href="rmd.html"><i class="fa fa-check"></i><b>5</b> Повторливи документи / извештаи со писмено програмирање (R + markdown)</a><ul>
 <li class="chapter" data-level="5.1" data-path="rmd.html"><a href="rmd.html#форматирање-на-текст-со-markdown"><i class="fa fa-check"></i><b>5.1</b> Форматирање на текст со markdown</a></li>
 <li class="chapter" data-level="5.2" data-path="rmd.html"><a href="rmd.html#плетење-на-текст-код-и-резултати-со-knitr"><i class="fa fa-check"></i><b>5.2</b> Плетење на текст, код, и резултати со <code>knitr</code></a></li>
 <li class="chapter" data-level="5.3" data-path="rmd.html"><a href="rmd.html#извештаи-со-параметри"><i class="fa fa-check"></i><b>5.3</b> Извештаи со параметри</a></li>
 <li class="chapter" data-level="5.4" data-path="rmd.html"><a href="rmd.html#следни-чекори"><i class="fa fa-check"></i><b>5.4</b> Следни чекори</a></li>
 <li class="chapter" data-level="5.5" data-path="rmd.html"><a href="rmd.html#резиме-3"><i class="fa fa-check"></i><b>5.5</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="proekti.html"><a href="proekti.html"><i class="fa fa-check"></i><b>6</b> Повторливи проекти</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="proekti.html"><a href="proekti.html#стратегија-1-направи-сам"><i class="fa fa-check"></i><b>6.1</b> Стратегија 1: Направи сам</a>
-<ul>
+<li class="chapter" data-level="6" data-path="proekti.html"><a href="proekti.html"><i class="fa fa-check"></i><b>6</b> Повторливи проекти</a><ul>
+<li class="chapter" data-level="6.1" data-path="proekti.html"><a href="proekti.html#стратегија-1-направи-сам"><i class="fa fa-check"></i><b>6.1</b> Стратегија 1: Направи сам</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="proekti.html"><a href="proekti.html#структура"><i class="fa fa-check"></i><b>6.1.1</b> Структура</a></li>
 <li class="chapter" data-level="6.1.2" data-path="proekti.html"><a href="proekti.html#предности"><i class="fa fa-check"></i><b>6.1.2</b> Предности</a></li>
 <li class="chapter" data-level="6.1.3" data-path="proekti.html"><a href="proekti.html#недостатоци"><i class="fa fa-check"></i><b>6.1.3</b> Недостатоци</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="proekti.html"><a href="proekti.html#стратегија-2-формален-r-пакет-или-некоја-поедноставена-варијанта"><i class="fa fa-check"></i><b>6.2</b> Стратегија 2: Формален <code>R</code> пакет или некоја поедноставена варијанта</a>
-<ul>
+<li class="chapter" data-level="6.2" data-path="proekti.html"><a href="proekti.html#стратегија-2-формален-r-пакет-или-некоја-поедноставена-варијанта"><i class="fa fa-check"></i><b>6.2</b> Стратегија 2: Формален <code>R</code> пакет или некоја поедноставена варијанта</a><ul>
 <li class="chapter" data-level="6.2.1" data-path="proekti.html"><a href="proekti.html#структура-1"><i class="fa fa-check"></i><b>6.2.1</b> Структура</a></li>
 <li class="chapter" data-level="6.2.2" data-path="proekti.html"><a href="proekti.html#поставување"><i class="fa fa-check"></i><b>6.2.2</b> Поставување</a></li>
 <li class="chapter" data-level="6.2.3" data-path="proekti.html"><a href="proekti.html#предности-1"><i class="fa fa-check"></i><b>6.2.3</b> Предности</a></li>
@@ -199,11 +190,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="proekti.html"><a href="proekti.html#резиме-4"><i class="fa fa-check"></i><b>6.3</b> Резиме</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>7</b> Контрола на изворниот код со git и GitHub</a>
-<ul>
+<li class="chapter" data-level="7" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>7</b> Контрола на изворниот код со git и GitHub</a><ul>
 <li class="chapter" data-level="7.1" data-path="git.html"><a href="git.html#основи-на-git"><i class="fa fa-check"></i><b>7.1</b> Основи на <code>git</code></a></li>
-<li class="chapter" data-level="7.2" data-path="git.html"><a href="git.html#основи-на-github-за-соработка-и-објавување"><i class="fa fa-check"></i><b>7.2</b> Основи на GitHub за соработка и објавување</a>
-<ul>
+<li class="chapter" data-level="7.2" data-path="git.html"><a href="git.html#основи-на-github-за-соработка-и-објавување"><i class="fa fa-check"></i><b>7.2</b> Основи на GitHub за соработка и објавување</a><ul>
 <li class="chapter" data-level="7.2.1" data-path="git.html"><a href="git.html#потребен-софтвер"><i class="fa fa-check"></i><b>7.2.1</b> Потребен софтвер</a></li>
 <li class="chapter" data-level="7.2.2" data-path="git.html"><a href="git.html#поставување-1"><i class="fa fa-check"></i><b>7.2.2</b> Поставување</a></li>
 </ul></li>
@@ -230,21 +219,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="nogood" class="section level1" number="3">
+<div id="nogood" class="section level1">
 <h1><span class="header-section-number">Поглавје 3</span> Анализи што не може да се повторат</h1>
-<div id="typical" class="section level2" number="3.1">
+<div id="typical" class="section level2">
 <h2><span class="header-section-number">3.1</span> Типична анализа (која никој, дури ни авторот, не може да ја повтори)</h2>
 <p>Да погледнеме една хипотетичка но веројатно честа ситуација. Вие работите на некој проект што се однесува на податоци за сточарство во Македонија. Поврзани сте со локална дата база, имате големо парче податоци вчитани во меморија и работна средина со 10 закачени <code>R</code> пакети (библиотеки).</p>
 <p>Ви стигнува ургентна е-пошта од колега кој бара да се направи сумирање на месечните трошоци на работа групирано по тип на трошок и по вработен. Вие велите, ах, ајде ова на брзина, ги снимате податоците во <code>Downloads</code> и почнувате:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="nogood.html#cb2-1" aria-hidden="true" tabindex="-1"></a>trosoci <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;~/Downloads/trosoci-moja-firma.csv&quot;</span>)</span>
-<span id="cb2-2"><a href="nogood.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="nogood.html#cb2-3" aria-hidden="true" tabindex="-1"></a>trosoci_sumirani <span class="ot">&lt;-</span> trosoci <span class="sc">%&gt;%</span> </span>
-<span id="cb2-4"><a href="nogood.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vraboten, tip_na_trosok) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-5"><a href="nogood.html#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-6"><a href="nogood.html#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(vraboten, tip_na_trosok)</span>
-<span id="cb2-7"><a href="nogood.html#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="nogood.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(trosoci_sumirani, </span>
-<span id="cb2-9"><a href="nogood.html#cb2-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">path =</span> <span class="st">&quot;~/Download/trosoci-moja-firma-sumirani.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="nogood.html#cb2-1"></a>trosoci &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;~/Downloads/trosoci-moja-firma.csv&quot;</span>)</span>
+<span id="cb2-2"><a href="nogood.html#cb2-2"></a></span>
+<span id="cb2-3"><a href="nogood.html#cb2-3"></a>trosoci_sumirani &lt;-<span class="st"> </span>trosoci <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-4"><a href="nogood.html#cb2-4"></a><span class="st">  </span><span class="kw">group_by</span>(vraboten, tip_na_trosok) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-5"><a href="nogood.html#cb2-5"></a><span class="st">  </span><span class="kw">summarise_at</span>(<span class="st">&quot;cena&quot;</span>, <span class="st">&quot;sum&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb2-6"><a href="nogood.html#cb2-6"></a><span class="st">  </span><span class="kw">arrange</span>(vraboten, tip_na_trosok)</span>
+<span id="cb2-7"><a href="nogood.html#cb2-7"></a></span>
+<span id="cb2-8"><a href="nogood.html#cb2-8"></a><span class="kw">write_csv</span>(trosoci_sumirani, </span>
+<span id="cb2-9"><a href="nogood.html#cb2-9"></a>          <span class="dt">path =</span> <span class="st">&quot;~/Download/trosoci-moja-firma-sumirani.csv&quot;</span>)</span></code></pre></div>
 <p>За пет минути сте готови со минимална дистракција, па дури и не мрднавте од претходниот проект. Ја праќате новата табела на колегата. Супер. Фала многу.</p>
 <p>Половина час подоцна стигнува е-пошта од претпоставениот со пофалба за брзо завршената работа и соработката со колегата. Шефицата исто вели ајде прати ни го кодот за да го забрзаме процесот во иднина и да не одземаме време од комплексните анализи кои ви се примарна задача. Вие го копирате кодот од историја на вашето <code>Rstudio</code> и го праќате:</p>
 <pre><code>trosoci &lt;- read_csv(&quot;~/Downloads/trosoci-moja-firma.csv&quot;)
@@ -260,7 +249,7 @@ write_csv(trosoci_sumirani,
 <ol style="list-style-type: decimal">
 <li><p>Првата линија код чита податоци од <code>~/Downloads/trosoci-moja-firma.csv</code>. Зошто претпоставуваме дека колегите ќе ја имаат таа табела во тој фолдер? <strong>Проблем со податоците (состојките)</strong></p></li>
 <li><p>Првата линија код чита податоци од <code>~/Downloads/trosoci-moja-firma.csv</code>. Зошто претпоставуваме дека колегата ќе работи на <code>Linux</code> а не <code>Windows</code> на пример, па дури и да ги имаат податоците во <code>Downloads</code> патеката до тој фолдер ќе биде различна (на пр. <code>C:\Downloads)</code> не <code>~/Downloads</code>)? <strong>Проблем со податоците (состојките) и со кодот (рецептот)</strong></p></li>
-<li><p>Во кодот што го пративме, не вчитуваме никакви пакети, иако користиме функции од два нестандардни пакети во <code>R</code>: <a href="https://www.rdocumentation.org/packages/readr/versions/1.3.1"><code>readr</code></a> <span class="citation">(<a href="литература.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Francois 2018</a>)</span> и <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.8"><code>dplyr</code></a> <span class="citation">(<a href="литература.html#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2020</a>)</span>. Ние не ги вчитавме овие пакети бидејќи беа закачени во проектот на којшто работевме претходно (сетете се дека не отворивме нов проект). Зошто претпоставуваме дека колегите ќе ги имаат овие пакети закачени во нивната работна средина? <strong>Проблем со кодот (рецептот) и со зависности (алатки)</strong>.</p></li>
+<li><p>Во кодот што го пративме, не вчитуваме никакви пакети, иако користиме функции од два нестандардни пакети во <code>R</code>: <a href="https://www.rdocumentation.org/packages/readr/versions/1.3.1"><code>readr</code></a> <span class="citation">(Wickham, Hester, and Francois <a href="#ref-R-readr" role="doc-biblioref">2018</a>)</span> и <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.8"><code>dplyr</code></a> <span class="citation">(Wickham, François, et al. <a href="#ref-R-dplyr" role="doc-biblioref">2020</a>)</span>. Ние не ги вчитавме овие пакети бидејќи беа закачени во проектот на којшто работевме претходно (сетете се дека не отворивме нов проект). Зошто претпоставуваме дека колегите ќе ги имаат овие пакети закачени во нивната работна средина? <strong>Проблем со кодот (рецептот) и со зависности (алатки)</strong>.</p></li>
 </ol>
 <p>Иако ова личи за тривијален пример, проблемите не се тривијални. Обидете се да екстраполирате кон сериозна анализа со 500 линии код и ќе видите дека е скоро невозможно да се следи процесот и повтори анализата (направи питате) без далеку поголема грижа околу кодот (рецептот).</p>
 <p>Горе се главните проблеми кои ја прават нашата кратка анализа не-повторлива. Но има и уште неколку дополнителни забелешки:</p>
@@ -272,7 +261,7 @@ write_csv(trosoci_sumirani,
 </ol>
 <p>Значи, во навидно едноставна задача, што може да се заврши со три линии код, ние прекршивме неколку правила за безбедна пракса при анализирање на податоци. Во ова сценарио, дури ни оригиналниот автор на кодот не би можел да гарантира дека ќе може да ја повтори обработката на податоците во иднина.</p>
 </div>
-<div id="indicators" class="section level2" number="3.2">
+<div id="indicators" class="section level2">
 <h2><span class="header-section-number">3.2</span> Типични пракси кои доведуваат до не-повторливи анализи</h2>
 <p>Корисно е да споменеме некои од главните пракси кои доведуваат до ситуации како примерот погоре. Доколку при анализа на податоци некој аспект од вашата средина наликува на некоја од овие забелешки, тогаш имајте предвид дека вашата анализа може да биде проблематична за повторување. Генерално, обидете се да ги идентификувате и корегирате ваквите проблеми што е можно порано, бидејќи никој од нас не сака да менува код од стотици линии или да заменува библиотека откако сме завршиле пола од работата.</p>
 <ul>
@@ -285,6 +274,15 @@ write_csv(trosoci_sumirani,
 </ul>
 <p>Очекуваме дека оваа листа ќе расте како што овој текст напредува понатаму.</p>
 
+</div>
+</div>
+<h3>Литература</h3>
+<div id="refs" class="references">
+<div id="ref-R-dplyr">
+<p>Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2020. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.</p>
+</div>
+<div id="ref-R-readr">
+<p>Wickham, Hadley, Jim Hester, and Romain Francois. 2018. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.</p>
 </div>
 </div>
             </section>
